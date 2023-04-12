@@ -23,6 +23,7 @@ namespace render_engine
     {
 		tree.set_position({ 1.5f, 4.f, -10.f });
 		tree2.set_position({ -1.5f, 4.f, -10.f });
+		tree2.set_parent(tree);
     }
 
     void View::update ()
@@ -37,8 +38,6 @@ namespace render_engine
 		// Se borra el framebúffer y se dibujan los triángulos:
 
 		rasterizer.clear();
-
-		//model.render (projection);
 
 		tree.render(rasterizer, projection, width, height);
 		tree2.render(rasterizer, projection, width, height);

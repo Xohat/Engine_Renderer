@@ -7,24 +7,42 @@ namespace render_engine
 {
 	class Entity
 	{
+
+	protected:
+
 		float scale;
-		float rotation;   //Rotacion general
+		float rotation;			//Rotacion general
+
 		glm::vec3 position;
+		glm::mat4 scaling;
+		glm::mat4 rotation_y;
+		glm::mat4 translation;
+
+		Entity * parent = nullptr;
 
 	public:
+
+		void set_parent(Entity & given_parent) 
+		{
+			parent = &given_parent;
+		}
 
 		glm::mat4 get_transform_matrix(float scale, float angle, glm::vec3 position)
 		{
 			glm::mat4 identity(1);
-			glm::mat4 scaling = glm::scale(identity, glm::vec3(scale, scale, scale));
-			glm::mat4 rotation_y = rotate_around_y(identity, angle);
+			scaling = glm::scale(identity, glm::vec3(scale, scale, scale));
+			rotation_y = rotate_around_y(identity, angle);
 
 			// X, Y, Z axises distance (Arriba izquierda es el 0,0)
-			glm::mat4 translation = translate(identity, position);
+			translation = translate(identity, position);
+
+			if (parent != nullptr)
+			{
+				return parent->get_transform_matrix(scale, angle, position) * translation * rotation_y * scaling;
+			}
 
 			// Creación de la matriz de transformación unificada:
-			return translation * rotation_y * scaling;
-			//return parent.getTransformMatrix * translation * rotation_y * scaling;
+			else return translation * rotation_y * scaling;
 		}
 	};
 }
