@@ -1,7 +1,8 @@
 
-// Este código es de dominio público.
-// angel.rodriguez@esne.edu
-// 2013.12 - 2021.04
+// Copyright (c) 2023 Arturo / Xohat
+// arturovilarc@gmail.com / xohatlatte@gmail.com
+// Basado en código de Ángel
+// 2023.03 - 2023.04
 
 #include <cassert>
 #include <cmath>
@@ -21,8 +22,10 @@ namespace render_engine
 		tree		(tree_file_path),
 		tree2       (tree_file_path)
     {
-		tree.set_position({ 1.5f, 4.f, -10.f });
-		tree2.set_position({ -1.5f, 4.f, -10.f });
+		tree.set_position({ 0.f, 4.f, -10.f });
+		//tree2.set_mesh();
+		tree2.set_scale(0.45f);
+		tree2.set_position({ 0.f, 4.f, -10.f });
 		tree2.set_parent(tree);
     }
 
@@ -34,7 +37,6 @@ namespace render_engine
 
     void View::render ()
     {
-
 		// Se borra el framebúffer y se dibujan los triángulos:
 
 		rasterizer.clear();

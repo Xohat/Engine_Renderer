@@ -1,6 +1,7 @@
 
-// Copyright (c) 2023 Arturo
-// Basado en código de Ángel
+// Copyright (c) 2023 Arturo / Xohat
+// arturovilarc@gmail.com / xohatlatte@gmail.com
+// 2023.03 - 2023.04
 
 #ifndef VIEW_HEADER
 #define VIEW_HEADER
@@ -45,7 +46,7 @@
             unsigned height;
 
 			// A + alto el primer numero diferente FOV (1 ya es muy lejos, jugar con decimales hasta 21 si se juega con ello)
-			Matrix44 projection = perspective(20.f, 1, 15, float(width) / height);
+			Matrix44 projection = perspective(20.6f, 1, 15, float(width) / height);
 
         public:
 

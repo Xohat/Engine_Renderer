@@ -1,5 +1,8 @@
 
-// Copyright (c) 2023 Arturo
+// Copyright (c) 2023 Arturo / Xohat
+// arturovilarc@gmail.com / xohatlatte@gmail.com
+// Basado en código de Ángel
+// 2023.03 - 2023.04
 
 #include "Model.hpp"
 

@@ -1,5 +1,7 @@
 
-// Copyright (c) 2023 Arturo
+// Copyright (c) 2023 Arturo / Xohat
+// arturovilarc@gmail.com / xohatlatte@gmail.com
+// 2023.03 - 2023.04
 
 #pragma once
 
@@ -44,9 +46,19 @@ namespace render_engine
 
 		Model(const string & model_path);
 
+		void set_mesh() 
+		{
+
+		}
+
 		void set_position(const glm::vec3 & new_position)
 		{
 			position = new_position;
+		}
+
+		void set_scale(const float new_scale)
+		{
+			scale = new_scale;
 		}
 
 		void update();
