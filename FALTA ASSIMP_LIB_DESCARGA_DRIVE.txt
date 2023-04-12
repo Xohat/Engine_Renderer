@@ -1,0 +1,2 @@
+Ruta
+C:\Users\Xohat\Downloads\AAADownloads\angel-esne-c-graphics-examples-d75d0872cfe1\angel-esne-c-graphics-examples-d75d0872cfe1\Engine_Renderer\libraries\assimp-5.0.1\lib\vs2019\x64
