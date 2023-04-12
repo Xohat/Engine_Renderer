@@ -1,0 +1,6 @@
+Orden de prioridad
+Entity para transformaciones
+Hacer que un entity sea parent de otro entity
+Clase Camara
+
+Commit + Push
