@@ -21,7 +21,8 @@ namespace render_engine
 		tree		(tree_file_path),
 		tree2       (tree_file_path)
     {
-		tree2.set_position({ -1.f, 0.5f, -10.f });
+		tree.set_position({ 1.5f, 4.f, -10.f });
+		tree2.set_position({ -1.5f, 4.f, -10.f });
     }
 
     void View::update ()
