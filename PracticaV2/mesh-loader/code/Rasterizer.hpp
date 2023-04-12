@@ -12,7 +12,7 @@
     #include <limits>
     #include "math.hpp"
 
-    namespace art_engine
+    namespace render_engine
     {
 
         template< class COLOR_BUFFER_TYPE >

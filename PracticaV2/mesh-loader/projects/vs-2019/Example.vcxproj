@@ -86,6 +86,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\code\Entity.hpp" />
     <ClInclude Include="..\..\code\math.hpp" />
     <ClInclude Include="..\..\code\Model.hpp" />
     <ClInclude Include="..\..\code\Rasterizer.hpp" />

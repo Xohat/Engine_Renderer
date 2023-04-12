@@ -12,7 +12,7 @@
     #include <vector>
     #include "Model.hpp"
 
-    namespace art_engine
+    namespace render_engine
     {
 
         using  std::vector;

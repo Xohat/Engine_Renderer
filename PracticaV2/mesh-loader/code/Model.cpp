@@ -7,7 +7,7 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-namespace art_engine
+namespace render_engine
 {
 
 	Model::Model(const string& model_path)
@@ -85,8 +85,8 @@ namespace art_engine
 	void Model::render(Rasterizer< Color_Buffer >& rasterizer, const Matrix44 & projection, unsigned width, unsigned height)
 	{
 		// Se crean las matrices de transformación:
-
 		Matrix44 identity(1);
+
 		Matrix44 scaling = glm::scale(identity, glm::vec3(scale, scale, scale));
 		Matrix44 rotation_y = rotate_around_y(identity, angle);
 
@@ -94,8 +94,8 @@ namespace art_engine
 		Matrix44 translation = translate(identity, position);
 
 		// Creación de la matriz de transformación unificada:
-		//Matrix44 transformation = projection * translation * rotation_y * scaling;
-		Matrix44 transformation = projection * translation * rotation_y * scaling;
+		// Matrix44 transformation = projection * Entity.get_transformation_data;
+		Matrix44 transformation = projection * get_transform_matrix(scale, angle, position);
 
 		// Se transforman todos los vértices usando la matriz de transformación resultante:
 

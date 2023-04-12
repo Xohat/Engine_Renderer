@@ -4,6 +4,7 @@
 #pragma once
 
 #include <Color_Buffer.hpp>
+#include "Entity.hpp"
 #include "math.hpp"
 #include "Rasterizer.hpp"
 #include <vector>
@@ -14,10 +15,10 @@ using std::string;
 using argb::Rgb888;
 using argb::Color_Buffer;
 
-namespace art_engine
+namespace render_engine
 {
 
-	class Model
+	class Model : public Entity
 	{
 	private:
 
@@ -36,9 +37,6 @@ namespace art_engine
 		vector< Point4i > display_vertices;
 
 		float angle = 0.f;
-
-		//Clase model
-
 		float scale = 0.3f;
 		Vector3f position{ 0.f, 0.5f, -10.f };
 

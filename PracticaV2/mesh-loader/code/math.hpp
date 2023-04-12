@@ -11,7 +11,7 @@
     #include <glm/gtx/matrix_decompose.hpp>
     #include <glm/gtc/matrix_transform.hpp>
 
-    namespace art_engine
+    namespace render_engine
     {
 
         typedef glm::ivec2 Vector2i;

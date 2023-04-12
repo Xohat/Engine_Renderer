@@ -9,7 +9,7 @@
 #include "View.hpp"
 
 
-namespace art_engine
+namespace render_engine
 {
 
     View::View(unsigned width, unsigned height)

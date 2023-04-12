@@ -117,7 +117,7 @@ public:
 
 		// Creación de la matriz de transformación unificada:
 		return translation * rotation_y * scaling;
-		return parent.getTransformMatrix * translation * rotation_y * scaling;
+		//return parent.getTransformMatrix * translation * rotation_y * scaling;
 	}
 };
 

@@ -9,7 +9,7 @@
 #include "Model.hpp"
 
 using namespace sf;
-using namespace art_engine;
+using namespace render_engine;
 
 int main ()
 {
