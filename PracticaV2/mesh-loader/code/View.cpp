@@ -9,7 +9,6 @@
 #include "math.hpp"
 #include "View.hpp"
 
-
 namespace render_engine
 {
 
@@ -22,17 +21,20 @@ namespace render_engine
 		tree		(tree_file_path),
 		tree2       (tree_file_path)
     {
-		tree.set_position({ 0.f, 4.f, -10.f });
+		tree.set_position({ 0.f, 0.f, -10.f });
+		//tree.set_mesh(0);
+		tree.set_scale(0.001f);
 		//tree2.set_mesh();
-		tree2.set_scale(0.45f);
-		tree2.set_position({ 0.f, 4.f, -10.f });
-		tree2.set_parent(tree);
-    }
+		tree2.set_scale(0.1f);
+		tree2.set_position({ 0.f, 0.f, -10.f });
+		//tree2.set_parent(tree);
+		//tree2.set_mesh(1);
+	}
 
     void View::update ()
     {
 		tree.update();
-		tree2.update();
+		//tree2.update();
     }
 
     void View::render ()
@@ -42,7 +44,7 @@ namespace render_engine
 		rasterizer.clear();
 
 		tree.render(rasterizer, projection, width, height);
-		tree2.render(rasterizer, projection, width, height);
+		//tree2.render(rasterizer, projection, width, height);
 
 		// Se copia el framebúffer oculto en el framebúffer de la ventana:
 

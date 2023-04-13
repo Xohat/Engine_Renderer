@@ -27,61 +27,113 @@ namespace render_engine
 
 		if (scene && scene->mNumMeshes > 0)
 		{
-			// Para este ejemplo se coge la primera malla solamente:
+			/* 
+				if (scene->mNumMeshes > 1) 
+				{
+					for (int i = 0; i < scene->mNumMeshes; i++)
+					{
+						 compound_meshes.push_back(*scene->mMeshes[i]);
 
-			auto mesh = scene->mMeshes[0];
+						 process_mesh(&compound_meshes[i]);
+					}
+				}
+				else 
+				{
+					// Para este ejemplo se coge la primera malla solamente:
 
-			size_t number_of_vertices = mesh->mNumVertices;
+					process_mesh(scene->mMeshes[0]);
+				}
+			*/
+
+			// Se define el número de vértices de la mesh enviada
+
+//size_t number_of_vertices = mesh->mNumVertices;
+
+			size_t numbers_of_vertices = 0;
+
+			for (int i = 0; i < 1; ++i)
+			{
+				numbers_of_vertices += scene->mMeshes[i]->mNumVertices;
+			}
 
 			// Se copian los datos de coordenadas de vértices:
 
-			original_vertices.resize(number_of_vertices);
+			original_vertices.resize(numbers_of_vertices);
 
-			for (size_t index = 0; index < number_of_vertices; index++)
+			size_t merged_mesh_vertex_index = 0;
+
+			for (int mesh_index = 0; mesh_index < 1; ++mesh_index)
 			{
-				auto& vertex = mesh->mVertices[index];
+				auto& mesh = scene->mMeshes[mesh_index];
 
-				original_vertices[index] = Vertex(vertex.x, -vertex.z, vertex.y, 1.f);
+				for (size_t index = 0; index < numbers_of_vertices; index++)
+				{
+					auto& vertex = mesh->mVertices[index];
+
+					original_vertices[merged_mesh_vertex_index] = Vertex(vertex.x, -vertex.z, vertex.y, 1.f);
+				}
 			}
 
-			transformed_vertices.resize(number_of_vertices);
-			display_vertices.resize(number_of_vertices);
+
+			transformed_vertices.resize(numbers_of_vertices);
+			display_vertices.resize(numbers_of_vertices);
 
 			// Se inicializan los datos de color de los vértices con colores aleatorios:
 
-			original_colors.resize(number_of_vertices);
+			original_colors.resize(numbers_of_vertices);
 
-			for (size_t index = 0; index < number_of_vertices; index++)
+			for (size_t index = 0; index < numbers_of_vertices; index++)
 			{
 				original_colors[index].set(rand_clamp(), rand_clamp(), rand_clamp());
 			}
 
 			// Se generan los índices de los triángulos:
 
-			size_t number_of_triangles = mesh->mNumFaces;
+			size_t number_of_triangles = 0;
+
+			for (int i = 0; i < 1; ++i)
+			{
+				number_of_triangles += scene->mMeshes[i]->mNumFaces;
+			}
 
 			original_indices.resize(number_of_triangles * 3);
 
 			Index_Buffer::iterator indices_iterator = original_indices.begin();
 
-			for (size_t index = 0; index < number_of_triangles; index++)
+			size_t previous_vertices_count = 0;
+
+			for (int mesh_index = 0; mesh_index < 1; ++mesh_index)
 			{
-				auto& face = mesh->mFaces[index];
+				auto& mesh = scene->mMeshes[mesh_index];
 
-				assert(face.mNumIndices == 3);              // Una face puede llegar a tener de 1 a 4 índices,
-															// pero nos interesa que solo haya triángulos
-				auto indices = face.mIndices;
+				for (size_t index = 0; index < mesh->mNumFaces; index++)
+				{
+					auto& face = mesh->mFaces[index];
 
-				*indices_iterator++ = int(indices[0]);
-				*indices_iterator++ = int(indices[1]);
-				*indices_iterator++ = int(indices[2]);
+					assert(face.mNumIndices == 3);              // Una face puede llegar a tener de 1 a 4 índices,
+																// pero nos interesa que solo haya triángulos
+					auto indices = face.mIndices;
+
+					*indices_iterator++ =  int(indices[0]);
+					*indices_iterator++ =  int(indices[1]);
+					*indices_iterator++ = int(indices[2]);
+				}
+
+				previous_vertices_count += mesh->mNumVertices;
 			}
 		}
-
 	}
+
+	/*
+		void Model::process_mesh(aiMesh* mesh, aiScene* scene) 
+		{
+
+		}
+	*/
 
 	void Model::update()
 	{
+		//Para la rotación de la misma
 		angle += 0.025f;
 	}
 
@@ -153,5 +205,4 @@ namespace render_engine
 
 		return ((v1[0] - v0[0]) * (v2[1] - v0[1]) - (v2[0] - v0[0]) * (v1[1] - v0[1]) < 0.f);
 	}
-
 }

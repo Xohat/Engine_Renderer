@@ -12,6 +12,8 @@
 #include <vector>
 #include <string>
 
+#include <assimp/mesh.h>
+
 using std::vector;
 using std::string;
 using argb::Rgb888;
@@ -38,17 +40,30 @@ namespace render_engine
 		Vertex_Buffer     transformed_vertices;
 		vector< Point4i > display_vertices;
 
+		//vector< aiMesh > compound_meshes;
+
 		float angle = 0.f;
 		float scale = 0.3f;
 		Vector3f position{ 0.f, 0.5f, -10.f };
+
+		//aiMesh* current_mesh;
 
 	public:
 
 		Model(const string & model_path);
 
-		void set_mesh() 
-		{
+		//void process_mesh(aiMesh* mesh);
 
+		void set_mesh(int mesh_number) 
+		{
+			/*
+			if (mesh_number > compound_meshes.size()) 
+			{
+				// Put error message
+				// std::cout << "Input too big for the mesh data on the scene" << endl;
+			}
+			else current_mesh = &compound_meshes[mesh_number];
+			*/
 		}
 
 		void set_position(const glm::vec3 & new_position)
