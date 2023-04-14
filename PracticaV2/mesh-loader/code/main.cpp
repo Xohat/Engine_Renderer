@@ -33,7 +33,19 @@ int main ()
 
         while (window.pollEvent (event))
         {
-            if (event.type == Event::Closed) exit = true;
+			switch (event.type) 
+			{
+				case Event::Closed:
+						exit = true;
+						break;
+
+				case Event::KeyPressed:
+					switch (event.key.code)
+					{
+						case Keyboard::Key::A:
+							break;
+					}
+			}
         }
 
         view.update ();
