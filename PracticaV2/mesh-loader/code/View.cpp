@@ -8,6 +8,7 @@
 #include <cmath>
 #include "math.hpp"
 #include "View.hpp"
+#include "Camera.hpp"
 
 
 namespace render_engine
@@ -20,12 +21,15 @@ namespace render_engine
         color_buffer(width, height),
         rasterizer  (color_buffer ),
 		tree		(tree_file_path),
-		tree2       (tree_file_path)
+		tree2       (tree_file_path),
+		main_camera (20.6f, 1, 15, width, height)
     {
-		tree.set_position({ 0.f, 4.f, -10.f });
-		//tree2.set_mesh();
+		tree.set_position({ 0.f, 0.f, -10.f });
+		tree.set_scale(0.3f);
+
 		tree2.set_scale(0.45f);
-		tree2.set_position({ 0.f, 4.f, -10.f });
+		tree2.set_position({ 0.f, 0.f, -10.f });
+		main_camera.set_position({0.f, -5.f, -2.5f});
 		tree2.set_parent(tree);
     }
 
@@ -41,8 +45,8 @@ namespace render_engine
 
 		rasterizer.clear();
 
-		tree.render(rasterizer, projection, width, height);
-		tree2.render(rasterizer, projection, width, height);
+		tree.render(rasterizer, main_camera);
+		tree2.render(rasterizer, main_camera);
 
 		// Se copia el framebúffer oculto en el framebúffer de la ventana:
 

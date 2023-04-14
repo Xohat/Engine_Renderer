@@ -9,6 +9,7 @@
 #include "Entity.hpp"
 #include "math.hpp"
 #include "Rasterizer.hpp"
+#include "Camera.hpp"
 #include <vector>
 #include <string>
 
@@ -51,18 +52,8 @@ namespace render_engine
 
 		}
 
-		void set_position(const glm::vec3 & new_position)
-		{
-			position = new_position;
-		}
-
-		void set_scale(const float new_scale)
-		{
-			scale = new_scale;
-		}
-
 		void update();
-		void render(Rasterizer< Color_Buffer > & rasterizer, const Matrix44 & projection, unsigned width, unsigned height);
+		void render(Rasterizer< Color_Buffer >& rasterizer, const Camera& camera);
 
 	private:
 

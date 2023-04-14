@@ -12,6 +12,7 @@
     #include "Rasterizer.hpp"
     #include <vector>
     #include "Model.hpp"
+	#include "Camera.hpp"
 
     namespace render_engine
     {
@@ -45,8 +46,7 @@
             unsigned width;
             unsigned height;
 
-			// A + alto el primer numero diferente FOV (1 ya es muy lejos, jugar con decimales hasta 21 si se juega con ello)
-			Matrix44 projection = perspective(20.6f, 1, 15, float(width) / height);
+			Camera main_camera;
 
         public:
 

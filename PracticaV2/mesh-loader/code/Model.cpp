@@ -83,14 +83,13 @@ namespace render_engine
 	void Model::update()
 	{
 		angle += 0.025f;
+		set_rotation_y(angle);
 	}
 
-	void Model::render(Rasterizer< Color_Buffer >& rasterizer, const Matrix44 & projection, unsigned width, unsigned height)
+	void Model::render(Rasterizer< Color_Buffer >& rasterizer, const Camera & camera)
 	{
-		Matrix44 identity(1);
-
 		// Creación de la matriz de transformación unificada:
-		Matrix44 transformation = projection * get_transform_matrix(scale, angle, position);
+		Matrix44 transformation = camera.get_projection_matrix() * camera.get_transform_matrix_inverse() * get_transform_matrix();
 
 		// Se transforman todos los vértices usando la matriz de transformación resultante:
 
@@ -117,8 +116,10 @@ namespace render_engine
 		// La coordenada Z se escala a un valor suficientemente grande dentro del
 		// rango de int (que es lo que espera fill_convex_polygon_z_buffer).
 
-		scaling = glm::scale(identity, glm::vec3(float(width / 2), float(height / 2), 100000000.f));
-		translation = translate(identity, Vector3f{ float(width / 2), float(height / 2), 0.f });
+		Matrix44 identity(1);
+
+		glm::mat4 scaling = glm::scale(identity, glm::vec3(float(camera.get_width() / 2), float(camera.get_height() / 2), 100000000.f));
+		glm::mat4 translation = translate(identity, Vector3f{ float(camera.get_width() / 2), float(camera.get_height() / 2), 0.f });
 		transformation = translation * scaling;
 
 		for (size_t index = 0, number_of_vertices = transformed_vertices.size(); index < number_of_vertices; index++)
