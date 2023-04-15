@@ -28,9 +28,10 @@ namespace render_engine
 		tree.set_scale(0.3f);
 
 		tree2.set_scale(0.45f);
-		tree2.set_position({ 0.f, 0.f, -10.f });
-		main_camera.set_position({0.f, -5.f, -2.5f});
+		tree2.set_position({ 0.f, 0.f, -10.f });;
 		tree2.set_parent(tree);
+
+		main_camera.set_position({ 0.f, -2.5f, -2.5f })
     }
 
     void View::update ()

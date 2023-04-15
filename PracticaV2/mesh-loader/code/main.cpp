@@ -18,6 +18,8 @@ int main ()
     constexpr auto window_width  = 800u;
     constexpr auto window_height = 600u;
 
+	float test_x_pos = 0;
+
     Window window(VideoMode(window_width, window_height), "Mesh Loader", Style::Titlebar | Style::Close);
     View   view  (window_width, window_height);
 
@@ -43,6 +45,8 @@ int main ()
 					switch (event.key.code)
 					{
 						case Keyboard::Key::A:
+							test_x_pos += 10.f;
+							view.set_x_position(test_x_pos);
 							break;
 					}
 			}

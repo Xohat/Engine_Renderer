@@ -94,6 +94,7 @@
     <ClInclude Include="..\..\code\View.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\code\Camera.cpp" />
     <ClCompile Include="..\..\code\main.cpp" />
     <ClCompile Include="..\..\code\Model.cpp" />
     <ClCompile Include="..\..\code\View.cpp" />

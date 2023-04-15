@@ -26,27 +26,18 @@ namespace render_engine
 		{
 			parent = &given_parent;
 		}
-
 		void set_position(const glm::vec3 & new_position) 
 		{
 			position = new_position;
 		}
-
 		void set_scale(const float new_scale)
 		{
 			scale = new_scale;
 		}
-
 		void set_rotation_y(float new_rotation_y)
 		{
 			rotation_y = new_rotation_y;
 		}
-
-		void move_position(const glm::vec3& delta_position)
-		{
-			position += delta_position;
-		}
-
 
 		glm::mat4 get_transform_matrix() const
 		{
@@ -64,6 +55,11 @@ namespace render_engine
 
 			// Creación de la matriz de transformación unificada:
 			else return transform_matrix;
+		}
+
+		void move_position(const glm::vec3& delta_position)
+		{
+			position += delta_position;
 		}
 	};
 }

@@ -40,17 +40,17 @@ namespace render_engine
 		vector< Point4i > display_vertices;
 
 		float angle = 0.f;
-		float scale = 0.3f;
-		Vector3f position{ 0.f, 0.5f, -10.f };
 
 	public:
 
 		Model(const string & model_path);
 
-		void set_mesh() 
-		{
+		/*
+			void set_mesh() 
+			{
 
-		}
+			}
+		*/
 
 		void update();
 		void render(Rasterizer< Color_Buffer >& rasterizer, const Camera& camera);

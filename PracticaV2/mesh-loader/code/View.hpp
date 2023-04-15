@@ -46,11 +46,41 @@
             unsigned width;
             unsigned height;
 
+			float x_added_position = 0;
+			float y_added_position = 0;
+			float z_added_position = 0;
+
 			Camera main_camera;
 
         public:
 
             View(unsigned width, unsigned height);
+
+			void set_x_position(float new_x_added_position) 
+			{
+				x_added_position = new_x_added_position;
+			}
+			void set_y_position(float new_y_added_position)
+			{
+				y_added_position = new_y_added_position;
+			}
+			void set_z_position(float new_z_added_position)
+			{
+				z_added_position = new_z_added_position;
+			}
+
+			float get_x_position() const
+			{
+				return x_added_position;
+			} 
+			float get_y_position() const
+			{
+				return y_added_position;
+			}
+			float get_z_position() const
+			{
+				return z_added_position;
+			}
 
             void update ();
             void render ();
