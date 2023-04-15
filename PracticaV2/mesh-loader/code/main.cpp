@@ -44,9 +44,18 @@ int main ()
 				case Event::KeyPressed:
 					switch (event.key.code)
 					{
+						case Keyboard::Key::W:
+							break;
+
 						case Keyboard::Key::A:
 							test_x_pos += 10.f;
 							view.set_x_position(test_x_pos);
+							break;
+
+						case Keyboard::Key::S:
+							break;
+
+						case Keyboard::Key::D:
 							break;
 					}
 			}

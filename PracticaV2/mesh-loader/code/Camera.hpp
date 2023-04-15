@@ -46,9 +46,8 @@ namespace render_engine
 		glm::mat4 get_projection_matrix() const
 		{
 			return projection;
-		}
-		//Movimiento en el eje inverso al de la cámara
-		glm::mat4 get_transform_matrix_inverse() const
+		}		
+		glm::mat4 get_transform_matrix_inverse() const //< Movimiento en el eje inverso al de la cámara
 		{
 			return glm::inverse(get_transform_matrix());
 		}
