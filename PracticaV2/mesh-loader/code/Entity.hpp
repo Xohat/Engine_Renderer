@@ -39,6 +39,11 @@ namespace render_engine
 			rotation_y = new_rotation_y;
 		}
 
+		glm::vec3 get_position() const
+		{
+			return position;
+		}
+
 		glm::mat4 get_transform_matrix() const
 		{
 			glm::mat4 identity(1);

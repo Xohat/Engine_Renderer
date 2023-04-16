@@ -38,6 +38,11 @@ namespace render_engine
     {
 		tree.update();
 		tree2.update();
+
+		main_camera.set_position({
+			main_camera.get_position().x + x_added_position, 
+			main_camera.get_position().y + y_added_position, 
+			main_camera.get_position().z + z_added_position });
     }
 
     void View::render ()

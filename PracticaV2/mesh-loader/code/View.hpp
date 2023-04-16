@@ -54,7 +54,7 @@
 
         public:
 
-            View(unsigned width, unsigned height);
+            View(unsigned width, unsigned height);		
 
 			void set_x_position(float new_x_added_position) 
 			{
@@ -80,6 +80,15 @@
 			float get_z_position() const
 			{
 				return z_added_position;
+			}
+
+			void reset_inputs(View view) 
+			{
+				view.set_x_position(0);
+				x_added_position = 0;
+
+				view.set_y_position(0);
+				y_added_position = 0;
 			}
 
             void update ();
