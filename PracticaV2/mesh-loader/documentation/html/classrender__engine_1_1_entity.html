@@ -116,15 +116,14 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aa4d70b6e1bcb479712822d6b6b791be7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_entity.html#aa4d70b6e1bcb479712822d6b6b791be7">scale</a> = 1.f</td></tr>
+<tr class="memdesc:aa4d70b6e1bcb479712822d6b6b791be7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escala del objeto por defecto en 1.f.  <br /></td></tr>
 <tr class="separator:aa4d70b6e1bcb479712822d6b6b791be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa18416cf92fa9c5554f1157db33a65af"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_entity.html#aa18416cf92fa9c5554f1157db33a65af">rotation_y</a> = 0</td></tr>
-<tr class="memdesc:aa18416cf92fa9c5554f1157db33a65af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escala del objeto por defecto en 1.f.  <br /></td></tr>
+<tr class="memdesc:aa18416cf92fa9c5554f1157db33a65af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotacion alrededor del eje y.  <br /></td></tr>
 <tr class="separator:aa18416cf92fa9c5554f1157db33a65af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86789ade43c1394aae361a822330ce2b"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_entity.html#a86789ade43c1394aae361a822330ce2b">position</a> = {0, 0, 0}</td></tr>
-<tr class="memdesc:a86789ade43c1394aae361a822330ce2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotacion alrededor del eje y.  <br /></td></tr>
 <tr class="separator:a86789ade43c1394aae361a822330ce2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41df50b35d92c726c21ffc38daf6fc45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_entity.html#a41df50b35d92c726c21ffc38daf6fc45">parent</a> = nullptr</td></tr>
-<tr class="memdesc:a41df50b35d92c726c21ffc38daf6fc45"><td class="mdescLeft">&#160;</td><td class="mdescRight">parent esta incializado de base a nullptr para que no haga falsos positivos  <br /></td></tr>
 <tr class="separator:a41df50b35d92c726c21ffc38daf6fc45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -340,8 +339,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>parent esta incializado de base a nullptr para que no haga falsos positivos </p>
+<p>parent esta incializado de base a nullptr para que el puntero no apunte a algo aleatorio si no se asigna </p>
 
 </div>
 </div>
@@ -365,8 +363,6 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Rotacion alrededor del eje y. </p>
-
 </div>
 </div>
 <a id="aa18416cf92fa9c5554f1157db33a65af" name="aa18416cf92fa9c5554f1157db33a65af"></a>
@@ -389,7 +385,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Escala del objeto por defecto en 1.f. </p>
+<p>Rotacion alrededor del eje y. </p>
 
 </div>
 </div>
@@ -412,6 +408,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Escala del objeto por defecto en 1.f. </p>
 
 </div>
 </div>

@@ -75,6 +75,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classrender__engine_1_1_camera-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">render_engine::Camera Class Reference</div></div>
 </div><!--header-->
@@ -94,7 +96,6 @@ Inheritance diagram for render_engine::Camera:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae95217ddd579453e71ae81388b1d51b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_camera.html#ae95217ddd579453e71ae81388b1d51b8">Camera::Camera</a> (float given_FOV, float given_near_distance, float given_far_distance, unsigned given_width, unsigned given_height)</td></tr>
-<tr class="memdesc:ae95217ddd579453e71ae81388b1d51b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window height.  <br /></td></tr>
 <tr class="separator:ae95217ddd579453e71ae81388b1d51b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bb9c618bb6bf3c055fb76ba37b03e92"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_camera.html#a2bb9c618bb6bf3c055fb76ba37b03e92">get_fov</a> () const</td></tr>
 <tr class="separator:a2bb9c618bb6bf3c055fb76ba37b03e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,19 +136,44 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3a06266ccf5fba2ccdcca9265283d146 inherit pub_methods_classrender__engine_1_1_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta funcion incrementa la posicion actual en base a la nueva recibida, se usa principalmente en la cámara.  <br /></td></tr>
 <tr class="separator:a3a06266ccf5fba2ccdcca9265283d146 inherit pub_methods_classrender__engine_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9720ffc4e2e4a1faf5bdf55a22c76f51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_camera.html#a9720ffc4e2e4a1faf5bdf55a22c76f51">refresh_projection_matrix</a> ()</td></tr>
+<tr class="memdesc:a9720ffc4e2e4a1faf5bdf55a22c76f51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta funcion se encarga de refrescar la matriz de proyección, esto se debe hacer cuando se modifiquen los valores de FOV, near_distance, far_distance, width o height.  <br /></td></tr>
+<tr class="separator:a9720ffc4e2e4a1faf5bdf55a22c76f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a3c6ba7e7abb96a78990458e85ea0e274"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_camera.html#a3c6ba7e7abb96a78990458e85ea0e274">projection</a></td></tr>
+<tr class="separator:a3c6ba7e7abb96a78990458e85ea0e274"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a1afc785191225acb04fef8cd38880e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_camera.html#a0a1afc785191225acb04fef8cd38880e">FOV</a></td></tr>
+<tr class="memdesc:a0a1afc785191225acb04fef8cd38880e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Field of view.  <br /></td></tr>
+<tr class="separator:a0a1afc785191225acb04fef8cd38880e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48885192ba72543ea40fa67f9a665918"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_camera.html#a48885192ba72543ea40fa67f9a665918">near_distance</a></td></tr>
+<tr class="memdesc:a48885192ba72543ea40fa67f9a665918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Near distance.  <br /></td></tr>
+<tr class="separator:a48885192ba72543ea40fa67f9a665918"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2ee4bfb377b7a6a1457fb343f16aabf"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_camera.html#ae2ee4bfb377b7a6a1457fb343f16aabf">far_distance</a></td></tr>
+<tr class="memdesc:ae2ee4bfb377b7a6a1457fb343f16aabf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Far distance.  <br /></td></tr>
+<tr class="separator:ae2ee4bfb377b7a6a1457fb343f16aabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc7b1910c83570d5692de1dddf4d1ee9"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_camera.html#acc7b1910c83570d5692de1dddf4d1ee9">width</a></td></tr>
+<tr class="memdesc:acc7b1910c83570d5692de1dddf4d1ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window width.  <br /></td></tr>
+<tr class="separator:acc7b1910c83570d5692de1dddf4d1ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46d6b0ad411e06cd5777a6fcd7cb432c"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_camera.html#a46d6b0ad411e06cd5777a6fcd7cb432c">height</a></td></tr>
+<tr class="memdesc:a46d6b0ad411e06cd5777a6fcd7cb432c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window height.  <br /></td></tr>
+<tr class="separator:a46d6b0ad411e06cd5777a6fcd7cb432c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classrender__engine_1_1_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classrender__engine_1_1_entity')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classrender__engine_1_1_entity.html">render_engine::Entity</a></td></tr>
 <tr class="memitem:aa4d70b6e1bcb479712822d6b6b791be7 inherit pro_attribs_classrender__engine_1_1_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_entity.html#aa4d70b6e1bcb479712822d6b6b791be7">scale</a> = 1.f</td></tr>
+<tr class="memdesc:aa4d70b6e1bcb479712822d6b6b791be7 inherit pro_attribs_classrender__engine_1_1_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escala del objeto por defecto en 1.f.  <br /></td></tr>
 <tr class="separator:aa4d70b6e1bcb479712822d6b6b791be7 inherit pro_attribs_classrender__engine_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa18416cf92fa9c5554f1157db33a65af inherit pro_attribs_classrender__engine_1_1_entity"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_entity.html#aa18416cf92fa9c5554f1157db33a65af">rotation_y</a> = 0</td></tr>
-<tr class="memdesc:aa18416cf92fa9c5554f1157db33a65af inherit pro_attribs_classrender__engine_1_1_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escala del objeto por defecto en 1.f.  <br /></td></tr>
+<tr class="memdesc:aa18416cf92fa9c5554f1157db33a65af inherit pro_attribs_classrender__engine_1_1_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotacion alrededor del eje y.  <br /></td></tr>
 <tr class="separator:aa18416cf92fa9c5554f1157db33a65af inherit pro_attribs_classrender__engine_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86789ade43c1394aae361a822330ce2b inherit pro_attribs_classrender__engine_1_1_entity"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_entity.html#a86789ade43c1394aae361a822330ce2b">position</a> = {0, 0, 0}</td></tr>
-<tr class="memdesc:a86789ade43c1394aae361a822330ce2b inherit pro_attribs_classrender__engine_1_1_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotacion alrededor del eje y.  <br /></td></tr>
 <tr class="separator:a86789ade43c1394aae361a822330ce2b inherit pro_attribs_classrender__engine_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41df50b35d92c726c21ffc38daf6fc45 inherit pro_attribs_classrender__engine_1_1_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_entity.html#a41df50b35d92c726c21ffc38daf6fc45">parent</a> = nullptr</td></tr>
-<tr class="memdesc:a41df50b35d92c726c21ffc38daf6fc45 inherit pro_attribs_classrender__engine_1_1_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">parent esta incializado de base a nullptr para que no haga falsos positivos  <br /></td></tr>
 <tr class="separator:a41df50b35d92c726c21ffc38daf6fc45 inherit pro_attribs_classrender__engine_1_1_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -194,8 +220,6 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Window height. </p>
 
 </div>
 </div>
@@ -374,6 +398,33 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a9720ffc4e2e4a1faf5bdf55a22c76f51" name="a9720ffc4e2e4a1faf5bdf55a22c76f51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9720ffc4e2e4a1faf5bdf55a22c76f51">&#9670;&#160;</a></span>refresh_projection_matrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_engine::Camera::refresh_projection_matrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Esta funcion se encarga de refrescar la matriz de proyección, esto se debe hacer cuando se modifiquen los valores de FOV, near_distance, far_distance, width o height. </p>
+
+</div>
+</div>
 <a id="a03d12cfab8a97089f960f3c3ee59ed24" name="a03d12cfab8a97089f960f3c3ee59ed24"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03d12cfab8a97089f960f3c3ee59ed24">&#9670;&#160;</a></span>set_far_distance()</h2>
 
@@ -449,6 +500,149 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae2ee4bfb377b7a6a1457fb343f16aabf" name="ae2ee4bfb377b7a6a1457fb343f16aabf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2ee4bfb377b7a6a1457fb343f16aabf">&#9670;&#160;</a></span>far_distance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float render_engine::Camera::far_distance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Far distance. </p>
+
+</div>
+</div>
+<a id="a0a1afc785191225acb04fef8cd38880e" name="a0a1afc785191225acb04fef8cd38880e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a1afc785191225acb04fef8cd38880e">&#9670;&#160;</a></span>FOV</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float render_engine::Camera::FOV</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Field of view. </p>
+
+</div>
+</div>
+<a id="a46d6b0ad411e06cd5777a6fcd7cb432c" name="a46d6b0ad411e06cd5777a6fcd7cb432c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46d6b0ad411e06cd5777a6fcd7cb432c">&#9670;&#160;</a></span>height</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned render_engine::Camera::height</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Window height. </p>
+
+</div>
+</div>
+<a id="a48885192ba72543ea40fa67f9a665918" name="a48885192ba72543ea40fa67f9a665918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48885192ba72543ea40fa67f9a665918">&#9670;&#160;</a></span>near_distance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float render_engine::Camera::near_distance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Near distance. </p>
+
+</div>
+</div>
+<a id="a3c6ba7e7abb96a78990458e85ea0e274" name="a3c6ba7e7abb96a78990458e85ea0e274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c6ba7e7abb96a78990458e85ea0e274">&#9670;&#160;</a></span>projection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 render_engine::Camera::projection</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc7b1910c83570d5692de1dddf4d1ee9" name="acc7b1910c83570d5692de1dddf4d1ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc7b1910c83570d5692de1dddf4d1ee9">&#9670;&#160;</a></span>width</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned render_engine::Camera::width</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Window width. </p>
 
 </div>
 </div>

@@ -14,7 +14,7 @@ Inheritance diagram for render\+\_\+engine\+::Camera\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classrender__engine_1_1_camera_ae95217ddd579453e71ae81388b1d51b8}{Camera\+::\+Camera}} (float given\+\_\+\+FOV, float given\+\_\+near\+\_\+distance, float given\+\_\+far\+\_\+distance, unsigned given\+\_\+width, unsigned given\+\_\+height)
-\begin{DoxyCompactList}\small\item\em Window height. \end{DoxyCompactList}\item 
+\item 
 float \mbox{\hyperlink{classrender__engine_1_1_camera_a2bb9c618bb6bf3c055fb76ba37b03e92}{get\+\_\+fov}} () const
 \item 
 float \mbox{\hyperlink{classrender__engine_1_1_camera_ab41ff576a6559054d30b5a20e84c00a4}{get\+\_\+near\+\_\+distance}} () const
@@ -52,18 +52,38 @@ glm\+::mat4 \mbox{\hyperlink{classrender__engine_1_1_entity_a4285772fd09e471a7e6
 \begin{DoxyCompactList}\small\item\em Esta funcion devuelve la transform matrix, esto se usa principalmente para hacer una transform matrix basada en la de el padre si lo hay, asi pudiendo hacer movimientos en coordenadas relativas a dicho parent. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classrender__engine_1_1_entity_a3a06266ccf5fba2ccdcca9265283d146}{move\+\_\+position}} (const glm\+::vec3 \&delta\+\_\+position)
 \begin{DoxyCompactList}\small\item\em Esta funcion incrementa la posicion actual en base a la nueva recibida, se usa principalmente en la cámara. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_camera_a9720ffc4e2e4a1faf5bdf55a22c76f51}{refresh\+\_\+projection\+\_\+matrix}} ()
+\begin{DoxyCompactList}\small\item\em Esta funcion se encarga de refrescar la matriz de proyección, esto se debe hacer cuando se modifiquen los valores de FOV, near\+\_\+distance, far\+\_\+distance, width o height. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+glm\+::mat4 \mbox{\hyperlink{classrender__engine_1_1_camera_a3c6ba7e7abb96a78990458e85ea0e274}{projection}}
+\item 
+float \mbox{\hyperlink{classrender__engine_1_1_camera_a0a1afc785191225acb04fef8cd38880e}{FOV}}
+\begin{DoxyCompactList}\small\item\em Field of view. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrender__engine_1_1_camera_a48885192ba72543ea40fa67f9a665918}{near\+\_\+distance}}
+\begin{DoxyCompactList}\small\item\em Near distance. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrender__engine_1_1_camera_ae2ee4bfb377b7a6a1457fb343f16aabf}{far\+\_\+distance}}
+\begin{DoxyCompactList}\small\item\em Far distance. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classrender__engine_1_1_camera_acc7b1910c83570d5692de1dddf4d1ee9}{width}}
+\begin{DoxyCompactList}\small\item\em Window width. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classrender__engine_1_1_camera_a46d6b0ad411e06cd5777a6fcd7cb432c}{height}}
+\begin{DoxyCompactList}\small\item\em Window height. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classrender__engine_1_1_entity}{render\+\_\+engine\+::\+Entity}}}
 \begin{DoxyCompactItemize}
 \item 
 float \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}} = 1.f
-\item 
-float \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\+\_\+y}} = 0
 \begin{DoxyCompactList}\small\item\em Escala del objeto por defecto en 1.\+f. \end{DoxyCompactList}\item 
-glm\+::vec3 \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}} = \{0, 0, 0\}
+float \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\+\_\+y}} = 0
 \begin{DoxyCompactList}\small\item\em Rotacion alrededor del eje y. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}} = \{0, 0, 0\}
+\item 
 \mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}} $\ast$ \mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}} = nullptr
-\begin{DoxyCompactList}\small\item\em parent esta incializado de base a nullptr para que no haga falsos positivos \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
@@ -72,10 +92,6 @@ glm\+::vec3 \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae3
 \index{Camera::Camera@{Camera::Camera}!render\_engine::Camera@{render\_engine::Camera}}
 \doxysubsubsection{\texorpdfstring{Camera::Camera()}{Camera::Camera()}}
 {\footnotesize\ttfamily render\+\_\+engine\+::\+Camera\+::\+Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{float}]{given\+\_\+\+FOV,  }\item[{float}]{given\+\_\+near\+\_\+distance,  }\item[{float}]{given\+\_\+far\+\_\+distance,  }\item[{unsigned}]{given\+\_\+width,  }\item[{unsigned}]{given\+\_\+height }\end{DoxyParamCaption})}
-
-
-
-Window height. 
 
 \mbox{\Hypertarget{classrender__engine_1_1_camera_aa0a34705f3099957de6c8cc97cc462e2}\label{classrender__engine_1_1_camera_aa0a34705f3099957de6c8cc97cc462e2}} 
 \index{render\_engine::Camera@{render\_engine::Camera}!get\_far\_distance@{get\_far\_distance}}
@@ -119,6 +135,16 @@ Window height.
 \doxysubsubsection{\texorpdfstring{get\_width()}{get\_width()}}
 {\footnotesize\ttfamily unsigned render\+\_\+engine\+::\+Camera\+::get\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
+\mbox{\Hypertarget{classrender__engine_1_1_camera_a9720ffc4e2e4a1faf5bdf55a22c76f51}\label{classrender__engine_1_1_camera_a9720ffc4e2e4a1faf5bdf55a22c76f51}} 
+\index{render\_engine::Camera@{render\_engine::Camera}!refresh\_projection\_matrix@{refresh\_projection\_matrix}}
+\index{refresh\_projection\_matrix@{refresh\_projection\_matrix}!render\_engine::Camera@{render\_engine::Camera}}
+\doxysubsubsection{\texorpdfstring{refresh\_projection\_matrix()}{refresh\_projection\_matrix()}}
+{\footnotesize\ttfamily void render\+\_\+engine\+::\+Camera\+::refresh\+\_\+projection\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Esta funcion se encarga de refrescar la matriz de proyección, esto se debe hacer cuando se modifiquen los valores de FOV, near\+\_\+distance, far\+\_\+distance, width o height. 
+
 \mbox{\Hypertarget{classrender__engine_1_1_camera_a03d12cfab8a97089f960f3c3ee59ed24}\label{classrender__engine_1_1_camera_a03d12cfab8a97089f960f3c3ee59ed24}} 
 \index{render\_engine::Camera@{render\_engine::Camera}!set\_far\_distance@{set\_far\_distance}}
 \index{set\_far\_distance@{set\_far\_distance}!render\_engine::Camera@{render\_engine::Camera}}
@@ -136,6 +162,65 @@ Window height.
 \index{set\_near\_distance@{set\_near\_distance}!render\_engine::Camera@{render\_engine::Camera}}
 \doxysubsubsection{\texorpdfstring{set\_near\_distance()}{set\_near\_distance()}}
 {\footnotesize\ttfamily void render\+\_\+engine\+::\+Camera\+::set\+\_\+near\+\_\+distance (\begin{DoxyParamCaption}\item[{float}]{new\+\_\+near\+\_\+distance }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classrender__engine_1_1_camera_ae2ee4bfb377b7a6a1457fb343f16aabf}\label{classrender__engine_1_1_camera_ae2ee4bfb377b7a6a1457fb343f16aabf}} 
+\index{render\_engine::Camera@{render\_engine::Camera}!far\_distance@{far\_distance}}
+\index{far\_distance@{far\_distance}!render\_engine::Camera@{render\_engine::Camera}}
+\doxysubsubsection{\texorpdfstring{far\_distance}{far\_distance}}
+{\footnotesize\ttfamily float render\+\_\+engine\+::\+Camera\+::far\+\_\+distance\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Far distance. 
+
+\mbox{\Hypertarget{classrender__engine_1_1_camera_a0a1afc785191225acb04fef8cd38880e}\label{classrender__engine_1_1_camera_a0a1afc785191225acb04fef8cd38880e}} 
+\index{render\_engine::Camera@{render\_engine::Camera}!FOV@{FOV}}
+\index{FOV@{FOV}!render\_engine::Camera@{render\_engine::Camera}}
+\doxysubsubsection{\texorpdfstring{FOV}{FOV}}
+{\footnotesize\ttfamily float render\+\_\+engine\+::\+Camera\+::\+FOV\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Field of view. 
+
+\mbox{\Hypertarget{classrender__engine_1_1_camera_a46d6b0ad411e06cd5777a6fcd7cb432c}\label{classrender__engine_1_1_camera_a46d6b0ad411e06cd5777a6fcd7cb432c}} 
+\index{render\_engine::Camera@{render\_engine::Camera}!height@{height}}
+\index{height@{height}!render\_engine::Camera@{render\_engine::Camera}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily unsigned render\+\_\+engine\+::\+Camera\+::height\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Window height. 
+
+\mbox{\Hypertarget{classrender__engine_1_1_camera_a48885192ba72543ea40fa67f9a665918}\label{classrender__engine_1_1_camera_a48885192ba72543ea40fa67f9a665918}} 
+\index{render\_engine::Camera@{render\_engine::Camera}!near\_distance@{near\_distance}}
+\index{near\_distance@{near\_distance}!render\_engine::Camera@{render\_engine::Camera}}
+\doxysubsubsection{\texorpdfstring{near\_distance}{near\_distance}}
+{\footnotesize\ttfamily float render\+\_\+engine\+::\+Camera\+::near\+\_\+distance\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Near distance. 
+
+\mbox{\Hypertarget{classrender__engine_1_1_camera_a3c6ba7e7abb96a78990458e85ea0e274}\label{classrender__engine_1_1_camera_a3c6ba7e7abb96a78990458e85ea0e274}} 
+\index{render\_engine::Camera@{render\_engine::Camera}!projection@{projection}}
+\index{projection@{projection}!render\_engine::Camera@{render\_engine::Camera}}
+\doxysubsubsection{\texorpdfstring{projection}{projection}}
+{\footnotesize\ttfamily glm\+::mat4 render\+\_\+engine\+::\+Camera\+::projection\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_camera_acc7b1910c83570d5692de1dddf4d1ee9}\label{classrender__engine_1_1_camera_acc7b1910c83570d5692de1dddf4d1ee9}} 
+\index{render\_engine::Camera@{render\_engine::Camera}!width@{width}}
+\index{width@{width}!render\_engine::Camera@{render\_engine::Camera}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily unsigned render\+\_\+engine\+::\+Camera\+::width\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Window width. 
 
 
 

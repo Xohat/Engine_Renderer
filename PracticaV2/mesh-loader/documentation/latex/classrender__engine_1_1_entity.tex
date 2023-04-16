@@ -31,13 +31,13 @@ void \mbox{\hyperlink{classrender__engine_1_1_entity_a3a06266ccf5fba2ccdcca92652
 \begin{DoxyCompactItemize}
 \item 
 float \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}} = 1.f
-\item 
-float \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\+\_\+y}} = 0
 \begin{DoxyCompactList}\small\item\em Escala del objeto por defecto en 1.\+f. \end{DoxyCompactList}\item 
-glm\+::vec3 \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}} = \{0, 0, 0\}
+float \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\+\_\+y}} = 0
 \begin{DoxyCompactList}\small\item\em Rotacion alrededor del eje y. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}} = \{0, 0, 0\}
+\item 
 \mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}} $\ast$ \mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}} = nullptr
-\begin{DoxyCompactList}\small\item\em parent esta incializado de base a nullptr para que no haga falsos positivos \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
@@ -109,19 +109,11 @@ Esta funcion settea la entidad de tipo padre.
 \doxysubsubsection{\texorpdfstring{parent}{parent}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}}$\ast$ render\+\_\+engine\+::\+Entity\+::parent = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
 
-
-
-parent esta incializado de base a nullptr para que no haga falsos positivos 
-
-\mbox{\Hypertarget{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}\label{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}} 
+parent esta incializado de base a nullptr para que el puntero no apunte a algo aleatorio si no se asigna \mbox{\Hypertarget{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}\label{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}} 
 \index{render\_engine::Entity@{render\_engine::Entity}!position@{position}}
 \index{position@{position}!render\_engine::Entity@{render\_engine::Entity}}
 \doxysubsubsection{\texorpdfstring{position}{position}}
 {\footnotesize\ttfamily glm\+::vec3 render\+\_\+engine\+::\+Entity\+::position = \{0, 0, 0\}\hspace{0.3cm}{\ttfamily [protected]}}
-
-
-
-Rotacion alrededor del eje y. 
 
 \mbox{\Hypertarget{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}\label{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}} 
 \index{render\_engine::Entity@{render\_engine::Entity}!rotation\_y@{rotation\_y}}
@@ -131,13 +123,17 @@ Rotacion alrededor del eje y.
 
 
 
-Escala del objeto por defecto en 1.\+f. 
+Rotacion alrededor del eje y. 
 
 \mbox{\Hypertarget{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}\label{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}} 
 \index{render\_engine::Entity@{render\_engine::Entity}!scale@{scale}}
 \index{scale@{scale}!render\_engine::Entity@{render\_engine::Entity}}
 \doxysubsubsection{\texorpdfstring{scale}{scale}}
 {\footnotesize\ttfamily float render\+\_\+engine\+::\+Entity\+::scale = 1.f\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Escala del objeto por defecto en 1.\+f. 
 
 
 

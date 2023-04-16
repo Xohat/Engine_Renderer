@@ -21,8 +21,6 @@ namespace render_engine
 
     View::View(unsigned width, unsigned height)
     :
-        width			(width ),										//screen_width
-        height			(height),										//screen_height
         color_buffer	(width, height),								//color buffer
         rasterizer		(color_buffer ),								//rasterizer
 

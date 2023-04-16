@@ -19,11 +19,20 @@ namespace render_engine
 	{
 		glm::mat4 projection;
 
-		float FOV;				///Field of view
-		float near_distance;	///Near distance
-		float far_distance;		///Far distance 
-		unsigned width;			///Window width
-		unsigned height;		///Window height
+		/// Field of view
+		float FOV;	
+
+		/// Near distance
+		float near_distance;
+
+		/// Far distance
+		float far_distance;	
+
+		/// Window width
+		unsigned width;	
+
+		/// Window height
+		unsigned height;		
 
 	public:
 
@@ -79,7 +88,7 @@ namespace render_engine
 	private:
 
 		/**
-		* @brief Esta función se encarga de refrescar la matriz de proyección, 
+		* @brief Esta funcion se encarga de refrescar la matriz de proyección, 
 		* esto se debe hacer cuando se modifiquen los valores de FOV, near_distance, far_distance, width o height
 		*/
 		void refresh_projection_matrix() 

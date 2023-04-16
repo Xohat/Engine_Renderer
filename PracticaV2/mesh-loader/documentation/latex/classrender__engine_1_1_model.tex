@@ -17,8 +17,14 @@ Inheritance diagram for render\+\_\+engine\+::Model\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Constructor de \mbox{\hyperlink{classrender__engine_1_1_model}{Model}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classrender__engine_1_1_model_a83bf0c45467d86cb8f050311efb615ce}{update}} ()
 \item 
-void \mbox{\hyperlink{classrender__engine_1_1_model_adf9450bac85cd9c55a33490273190821}{render}} (\mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer}}$<$ Color\+\_\+\+Buffer $>$ \&rasterizer, const \mbox{\hyperlink{classrender__engine_1_1_camera}{Camera}} \&camera)
-\begin{DoxyCompactList}\small\item\em Esta funcion se encarga de renderizar, los detalles estan dentro del código de la función. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classrender__engine_1_1_model_adf9450bac85cd9c55a33490273190821}{render}} (\mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer}}$<$ \mbox{\hyperlink{classrender__engine_1_1_model_a6169b74f87ce26027be93cfe60304dc8}{Color\+\_\+\+Buffer}} $>$ \&rasterizer, const \mbox{\hyperlink{classrender__engine_1_1_camera}{Camera}} \&camera)
+\begin{DoxyCompactList}\small\item\em Esta funcion se encarga de renderizar, los detalles paso a paso estan dentro del codigo de la funcion. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrender__engine_1_1_model_a7abdb53641e38e52f4e736ae08513c15}{process\+\_\+vertexes}} (size\+\_\+t number)
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_model_a199ef73fab5501e4b9049602e68db75a}{process\+\_\+colors}} (size\+\_\+t number)
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_model_a68d107477fa8fa1d6a7ac05ec8e1e03e}{process\+\_\+indexes}} (size\+\_\+t number)
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrender__engine_1_1_entity}{render\+\_\+engine\+::\+Entity}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,18 +42,96 @@ glm\+::mat4 \mbox{\hyperlink{classrender__engine_1_1_entity_a4285772fd09e471a7e6
 \begin{DoxyCompactList}\small\item\em Esta funcion devuelve la transform matrix, esto se usa principalmente para hacer una transform matrix basada en la de el padre si lo hay, asi pudiendo hacer movimientos en coordenadas relativas a dicho parent. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classrender__engine_1_1_entity_a3a06266ccf5fba2ccdcca9265283d146}{move\+\_\+position}} (const glm\+::vec3 \&delta\+\_\+position)
 \begin{DoxyCompactList}\small\item\em Esta funcion incrementa la posicion actual en base a la nueva recibida, se usa principalmente en la cámara. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Rgb888 \mbox{\hyperlink{classrender__engine_1_1_model_a8a0ad62c92ca86d4a56cd0399df0d79d}{Color}}
+\item 
+typedef \mbox{\hyperlink{classrender__engine_1_1_model_a6169b74f87ce26027be93cfe60304dc8}{Color\+\_\+\+Buffer}}$<$ \mbox{\hyperlink{classrender__engine_1_1_model_a8a0ad62c92ca86d4a56cd0399df0d79d}{Color}} $>$ \mbox{\hyperlink{classrender__engine_1_1_model_a6169b74f87ce26027be93cfe60304dc8}{Color\+\_\+\+Buffer}}
+\item 
+typedef \mbox{\hyperlink{namespacerender__engine_a4edc2793d2a61603b9188eb167f6f00b}{Point4f}} \mbox{\hyperlink{classrender__engine_1_1_model_a3843077199990e1117f5432b406f6bc7}{Vertex}}
+\item 
+typedef vector$<$ \mbox{\hyperlink{classrender__engine_1_1_model_a3843077199990e1117f5432b406f6bc7}{Vertex}} $>$ \mbox{\hyperlink{classrender__engine_1_1_model_ac559e94cf958d34b25ad2a5b000de85f}{Vertex\+\_\+\+Buffer}}
+\item 
+typedef vector$<$ int $>$ \mbox{\hyperlink{classrender__engine_1_1_model_aeca7e14f8069aa8dfe3c35b42ad4ac56}{Index\+\_\+\+Buffer}}
+\item 
+typedef vector$<$ \mbox{\hyperlink{classrender__engine_1_1_model_a8a0ad62c92ca86d4a56cd0399df0d79d}{Color}} $>$ \mbox{\hyperlink{classrender__engine_1_1_model_a8bed786581c9c5a6cc3fbdf00ca478b5}{Vertex\+\_\+\+Colors}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classrender__engine_1_1_model_a85f1770ec2504c646f907e68e8eae6fa}{is\+\_\+frontface}} (const \mbox{\hyperlink{classrender__engine_1_1_model_a3843077199990e1117f5432b406f6bc7}{Vertex}} $\ast$const projected\+\_\+vertices, const int $\ast$const indices)
+\begin{DoxyCompactList}\small\item\em Esta funcion se encarga de cortar las backfaces del objeto para optimizar rendimiento. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrender__engine_1_1_model_a6449da4a91f19d8edfa6320b602f1e52}{rand\+\_\+clamp}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrender__engine_1_1_model_ac559e94cf958d34b25ad2a5b000de85f}{Vertex\+\_\+\+Buffer}} \mbox{\hyperlink{classrender__engine_1_1_model_abf104df42ad6dd7c6bb7114726e1b839}{original\+\_\+vertices}}
+\item 
+\mbox{\hyperlink{classrender__engine_1_1_model_aeca7e14f8069aa8dfe3c35b42ad4ac56}{Index\+\_\+\+Buffer}} \mbox{\hyperlink{classrender__engine_1_1_model_a5fc7d8d8d5962c0953c3437baa39564a}{original\+\_\+indices}}
+\item 
+\mbox{\hyperlink{classrender__engine_1_1_model_a8bed786581c9c5a6cc3fbdf00ca478b5}{Vertex\+\_\+\+Colors}} \mbox{\hyperlink{classrender__engine_1_1_model_abf3f5edb3d5e6e9ff8ddf1cd44bf54f5}{original\+\_\+colors}}
+\item 
+\mbox{\hyperlink{classrender__engine_1_1_model_ac559e94cf958d34b25ad2a5b000de85f}{Vertex\+\_\+\+Buffer}} \mbox{\hyperlink{classrender__engine_1_1_model_ae4488106063371b78989a0ae5f4a608b}{transformed\+\_\+vertices}}
+\item 
+vector$<$ \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}} $>$ \mbox{\hyperlink{classrender__engine_1_1_model_a59acff31698d88da8d03620391676064}{display\+\_\+vertices}}
+\item 
+vector$<$ glm\+::vec3 $>$ \mbox{\hyperlink{classrender__engine_1_1_model_aceeea7f449e754ce69fc2ad3ff37a75a}{original\+\_\+normals}}
+\item 
+vector$<$ glm\+::vec3 $>$ \mbox{\hyperlink{classrender__engine_1_1_model_a6d06e61ff8ff413e6af065e8ba7f9347}{transformed\+\_\+normals}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classrender__engine_1_1_entity}{render\+\_\+engine\+::\+Entity}}}
 \begin{DoxyCompactItemize}
 \item 
 float \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}} = 1.f
-\item 
-float \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\+\_\+y}} = 0
 \begin{DoxyCompactList}\small\item\em Escala del objeto por defecto en 1.\+f. \end{DoxyCompactList}\item 
-glm\+::vec3 \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}} = \{0, 0, 0\}
+float \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\+\_\+y}} = 0
 \begin{DoxyCompactList}\small\item\em Rotacion alrededor del eje y. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}} = \{0, 0, 0\}
+\item 
 \mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}} $\ast$ \mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}} = nullptr
-\begin{DoxyCompactList}\small\item\em parent esta incializado de base a nullptr para que no haga falsos positivos \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classrender__engine_1_1_model_a8a0ad62c92ca86d4a56cd0399df0d79d}\label{classrender__engine_1_1_model_a8a0ad62c92ca86d4a56cd0399df0d79d}} 
+\index{render\_engine::Model@{render\_engine::Model}!Color@{Color}}
+\index{Color@{Color}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{Color}{Color}}
+{\footnotesize\ttfamily typedef Rgb888 \mbox{\hyperlink{classrender__engine_1_1_model_a8a0ad62c92ca86d4a56cd0399df0d79d}{render\+\_\+engine\+::\+Model\+::\+Color}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_a6169b74f87ce26027be93cfe60304dc8}\label{classrender__engine_1_1_model_a6169b74f87ce26027be93cfe60304dc8}} 
+\index{render\_engine::Model@{render\_engine::Model}!Color\_Buffer@{Color\_Buffer}}
+\index{Color\_Buffer@{Color\_Buffer}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{Color\_Buffer}{Color\_Buffer}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classrender__engine_1_1_model_a6169b74f87ce26027be93cfe60304dc8}{Color\+\_\+\+Buffer}}$<$ \mbox{\hyperlink{classrender__engine_1_1_model_a8a0ad62c92ca86d4a56cd0399df0d79d}{Color}} $>$ \mbox{\hyperlink{classrender__engine_1_1_model_a6169b74f87ce26027be93cfe60304dc8}{render\+\_\+engine\+::\+Model\+::\+Color\+\_\+\+Buffer}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_aeca7e14f8069aa8dfe3c35b42ad4ac56}\label{classrender__engine_1_1_model_aeca7e14f8069aa8dfe3c35b42ad4ac56}} 
+\index{render\_engine::Model@{render\_engine::Model}!Index\_Buffer@{Index\_Buffer}}
+\index{Index\_Buffer@{Index\_Buffer}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{Index\_Buffer}{Index\_Buffer}}
+{\footnotesize\ttfamily typedef vector$<$ int $>$ \mbox{\hyperlink{classrender__engine_1_1_model_aeca7e14f8069aa8dfe3c35b42ad4ac56}{render\+\_\+engine\+::\+Model\+::\+Index\+\_\+\+Buffer}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_a3843077199990e1117f5432b406f6bc7}\label{classrender__engine_1_1_model_a3843077199990e1117f5432b406f6bc7}} 
+\index{render\_engine::Model@{render\_engine::Model}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{Vertex}{Vertex}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{namespacerender__engine_a4edc2793d2a61603b9188eb167f6f00b}{Point4f}} \mbox{\hyperlink{classrender__engine_1_1_model_a3843077199990e1117f5432b406f6bc7}{render\+\_\+engine\+::\+Model\+::\+Vertex}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_ac559e94cf958d34b25ad2a5b000de85f}\label{classrender__engine_1_1_model_ac559e94cf958d34b25ad2a5b000de85f}} 
+\index{render\_engine::Model@{render\_engine::Model}!Vertex\_Buffer@{Vertex\_Buffer}}
+\index{Vertex\_Buffer@{Vertex\_Buffer}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{Vertex\_Buffer}{Vertex\_Buffer}}
+{\footnotesize\ttfamily typedef vector$<$ \mbox{\hyperlink{classrender__engine_1_1_model_a3843077199990e1117f5432b406f6bc7}{Vertex}} $>$ \mbox{\hyperlink{classrender__engine_1_1_model_ac559e94cf958d34b25ad2a5b000de85f}{render\+\_\+engine\+::\+Model\+::\+Vertex\+\_\+\+Buffer}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_a8bed786581c9c5a6cc3fbdf00ca478b5}\label{classrender__engine_1_1_model_a8bed786581c9c5a6cc3fbdf00ca478b5}} 
+\index{render\_engine::Model@{render\_engine::Model}!Vertex\_Colors@{Vertex\_Colors}}
+\index{Vertex\_Colors@{Vertex\_Colors}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{Vertex\_Colors}{Vertex\_Colors}}
+{\footnotesize\ttfamily typedef vector$<$ \mbox{\hyperlink{classrender__engine_1_1_model_a8a0ad62c92ca86d4a56cd0399df0d79d}{Color}} $>$ \mbox{\hyperlink{classrender__engine_1_1_model_a8bed786581c9c5a6cc3fbdf00ca478b5}{render\+\_\+engine\+::\+Model\+::\+Vertex\+\_\+\+Colors}}\hspace{0.3cm}{\ttfamily [private]}}
+
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -73,15 +157,56 @@ Constructor de \mbox{\hyperlink{classrender__engine_1_1_model}{Model}}.
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classrender__engine_1_1_model_a85f1770ec2504c646f907e68e8eae6fa}\label{classrender__engine_1_1_model_a85f1770ec2504c646f907e68e8eae6fa}} 
+\index{render\_engine::Model@{render\_engine::Model}!is\_frontface@{is\_frontface}}
+\index{is\_frontface@{is\_frontface}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{is\_frontface()}{is\_frontface()}}
+{\footnotesize\ttfamily bool render\+\_\+engine\+::\+Model\+::is\+\_\+frontface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrender__engine_1_1_model_a3843077199990e1117f5432b406f6bc7}{Vertex}} $\ast$const}]{projected\+\_\+vertices,  }\item[{const int $\ast$const}]{indices }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Esta funcion se encarga de cortar las backfaces del objeto para optimizar rendimiento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em projected\+\_\+vertices} & es la cadena de vertices proporcionada \\
+\hline
+{\em indices} & es los indices de dichos vertices \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrender__engine_1_1_model_a199ef73fab5501e4b9049602e68db75a}\label{classrender__engine_1_1_model_a199ef73fab5501e4b9049602e68db75a}} 
+\index{render\_engine::Model@{render\_engine::Model}!process\_colors@{process\_colors}}
+\index{process\_colors@{process\_colors}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{process\_colors()}{process\_colors()}}
+{\footnotesize\ttfamily void render\+\_\+engine\+::\+Model\+::process\+\_\+colors (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_a68d107477fa8fa1d6a7ac05ec8e1e03e}\label{classrender__engine_1_1_model_a68d107477fa8fa1d6a7ac05ec8e1e03e}} 
+\index{render\_engine::Model@{render\_engine::Model}!process\_indexes@{process\_indexes}}
+\index{process\_indexes@{process\_indexes}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{process\_indexes()}{process\_indexes()}}
+{\footnotesize\ttfamily void render\+\_\+engine\+::\+Model\+::process\+\_\+indexes (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_a7abdb53641e38e52f4e736ae08513c15}\label{classrender__engine_1_1_model_a7abdb53641e38e52f4e736ae08513c15}} 
+\index{render\_engine::Model@{render\_engine::Model}!process\_vertexes@{process\_vertexes}}
+\index{process\_vertexes@{process\_vertexes}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{process\_vertexes()}{process\_vertexes()}}
+{\footnotesize\ttfamily void render\+\_\+engine\+::\+Model\+::process\+\_\+vertexes (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{number }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_a6449da4a91f19d8edfa6320b602f1e52}\label{classrender__engine_1_1_model_a6449da4a91f19d8edfa6320b602f1e52}} 
+\index{render\_engine::Model@{render\_engine::Model}!rand\_clamp@{rand\_clamp}}
+\index{rand\_clamp@{rand\_clamp}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{rand\_clamp()}{rand\_clamp()}}
+{\footnotesize\ttfamily float render\+\_\+engine\+::\+Model\+::rand\+\_\+clamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
 \mbox{\Hypertarget{classrender__engine_1_1_model_adf9450bac85cd9c55a33490273190821}\label{classrender__engine_1_1_model_adf9450bac85cd9c55a33490273190821}} 
 \index{render\_engine::Model@{render\_engine::Model}!render@{render}}
 \index{render@{render}!render\_engine::Model@{render\_engine::Model}}
 \doxysubsubsection{\texorpdfstring{render()}{render()}}
-{\footnotesize\ttfamily void render\+\_\+engine\+::\+Model\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer}}$<$ Color\+\_\+\+Buffer $>$ \&}]{rasterizer,  }\item[{const \mbox{\hyperlink{classrender__engine_1_1_camera}{Camera}} \&}]{camera }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void render\+\_\+engine\+::\+Model\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer}}$<$ \mbox{\hyperlink{classrender__engine_1_1_model_a6169b74f87ce26027be93cfe60304dc8}{Color\+\_\+\+Buffer}} $>$ \&}]{rasterizer,  }\item[{const \mbox{\hyperlink{classrender__engine_1_1_camera}{Camera}} \&}]{camera }\end{DoxyParamCaption})}
 
 
 
-Esta funcion se encarga de renderizar, los detalles estan dentro del código de la función. 
+Esta funcion se encarga de renderizar, los detalles paso a paso estan dentro del codigo de la funcion. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -95,6 +220,51 @@ Esta funcion se encarga de renderizar, los detalles estan dentro del código de l
 \index{update@{update}!render\_engine::Model@{render\_engine::Model}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
 {\footnotesize\ttfamily void render\+\_\+engine\+::\+Model\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classrender__engine_1_1_model_a59acff31698d88da8d03620391676064}\label{classrender__engine_1_1_model_a59acff31698d88da8d03620391676064}} 
+\index{render\_engine::Model@{render\_engine::Model}!display\_vertices@{display\_vertices}}
+\index{display\_vertices@{display\_vertices}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{display\_vertices}{display\_vertices}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}} $>$ render\+\_\+engine\+::\+Model\+::display\+\_\+vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_abf3f5edb3d5e6e9ff8ddf1cd44bf54f5}\label{classrender__engine_1_1_model_abf3f5edb3d5e6e9ff8ddf1cd44bf54f5}} 
+\index{render\_engine::Model@{render\_engine::Model}!original\_colors@{original\_colors}}
+\index{original\_colors@{original\_colors}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{original\_colors}{original\_colors}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrender__engine_1_1_model_a8bed786581c9c5a6cc3fbdf00ca478b5}{Vertex\+\_\+\+Colors}} render\+\_\+engine\+::\+Model\+::original\+\_\+colors\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_a5fc7d8d8d5962c0953c3437baa39564a}\label{classrender__engine_1_1_model_a5fc7d8d8d5962c0953c3437baa39564a}} 
+\index{render\_engine::Model@{render\_engine::Model}!original\_indices@{original\_indices}}
+\index{original\_indices@{original\_indices}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{original\_indices}{original\_indices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrender__engine_1_1_model_aeca7e14f8069aa8dfe3c35b42ad4ac56}{Index\+\_\+\+Buffer}} render\+\_\+engine\+::\+Model\+::original\+\_\+indices\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_aceeea7f449e754ce69fc2ad3ff37a75a}\label{classrender__engine_1_1_model_aceeea7f449e754ce69fc2ad3ff37a75a}} 
+\index{render\_engine::Model@{render\_engine::Model}!original\_normals@{original\_normals}}
+\index{original\_normals@{original\_normals}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{original\_normals}{original\_normals}}
+{\footnotesize\ttfamily vector$<$ glm\+::vec3 $>$ render\+\_\+engine\+::\+Model\+::original\+\_\+normals\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_abf104df42ad6dd7c6bb7114726e1b839}\label{classrender__engine_1_1_model_abf104df42ad6dd7c6bb7114726e1b839}} 
+\index{render\_engine::Model@{render\_engine::Model}!original\_vertices@{original\_vertices}}
+\index{original\_vertices@{original\_vertices}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{original\_vertices}{original\_vertices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrender__engine_1_1_model_ac559e94cf958d34b25ad2a5b000de85f}{Vertex\+\_\+\+Buffer}} render\+\_\+engine\+::\+Model\+::original\+\_\+vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_a6d06e61ff8ff413e6af065e8ba7f9347}\label{classrender__engine_1_1_model_a6d06e61ff8ff413e6af065e8ba7f9347}} 
+\index{render\_engine::Model@{render\_engine::Model}!transformed\_normals@{transformed\_normals}}
+\index{transformed\_normals@{transformed\_normals}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{transformed\_normals}{transformed\_normals}}
+{\footnotesize\ttfamily vector$<$ glm\+::vec3 $>$ render\+\_\+engine\+::\+Model\+::transformed\+\_\+normals\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_model_ae4488106063371b78989a0ae5f4a608b}\label{classrender__engine_1_1_model_ae4488106063371b78989a0ae5f4a608b}} 
+\index{render\_engine::Model@{render\_engine::Model}!transformed\_vertices@{transformed\_vertices}}
+\index{transformed\_vertices@{transformed\_vertices}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{transformed\_vertices}{transformed\_vertices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrender__engine_1_1_model_ac559e94cf958d34b25ad2a5b000de85f}{Vertex\+\_\+\+Buffer}} render\+\_\+engine\+::\+Model\+::transformed\+\_\+vertices\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

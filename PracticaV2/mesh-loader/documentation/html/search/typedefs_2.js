@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['point2f_0',['Point2f',['../namespacerender__engine.html#a70097b6fc0e80ce22691edcc6b980547',1,'render_engine']]],
-  ['point2i_1',['Point2i',['../namespacerender__engine.html#a5742e237613eed81e66141a1a996a905',1,'render_engine']]],
-  ['point3f_2',['Point3f',['../namespacerender__engine.html#a9ce28f1fc1eeb774eb80e4ff33c395c5',1,'render_engine']]],
-  ['point3i_3',['Point3i',['../namespacerender__engine.html#a1edf73b6c55c335e3b4fd7063d82cd01',1,'render_engine']]],
-  ['point4f_4',['Point4f',['../namespacerender__engine.html#a4edc2793d2a61603b9188eb167f6f00b',1,'render_engine']]],
-  ['point4i_5',['Point4i',['../namespacerender__engine.html#a970e1c072684f3d8361f4ab260f28107',1,'render_engine']]]
+  ['matrix22_0',['Matrix22',['../namespacerender__engine.html#adc08458299bc01937690e1e89a4752a8',1,'render_engine']]],
+  ['matrix33_1',['Matrix33',['../namespacerender__engine.html#a8556672b1e009f0409a62cc552419c1d',1,'render_engine']]],
+  ['matrix44_2',['Matrix44',['../namespacerender__engine.html#acd02e981ea527ad5f4b6d304cd6f2445',1,'render_engine']]]
 ];

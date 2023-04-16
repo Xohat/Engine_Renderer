@@ -55,12 +55,14 @@
 			Model mill_root2;
 			Model mill_extras;
 
-            unsigned width;
-            unsigned height;
+			///Coordenadas usadas para los inputs del usuario en main.cpp
+			float x_added_position = 0; 
 
-			float x_added_position = 0; ///Coordenadas usadas para los inputs del usuario en main.cpp
-			float y_added_position = 0;	///Coordenadas usadas para los inputs del usuario en main.cpp
-			float z_added_position = 0;	///Coordenadas usadas para los inputs del usuario en main.cpp
+			///Coordenadas usadas para los inputs del usuario en main.cpp
+			float y_added_position = 0;
+
+			///Coordenadas usadas para los inputs del usuario en main.cpp
+			float z_added_position = 0;
 
 			Camera main_camera;
 
@@ -96,6 +98,11 @@
 				return z_added_position;
 			}
 
+			/**
+			* @brief Esta funcion se encraga de reinciar los axis de inputs para 
+			* no hacer movimientos mezclados como diagonales y sucedaneos
+			* @param view de que escena se resetean los valores de movimiento de la camra
+			*/
 			void reset_inputs(View view) 
 			{
 				view.set_x_position(0);

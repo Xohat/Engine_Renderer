@@ -75,6 +75,9 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classrender__engine_1_1_view-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">render_engine::View Class Reference</div></div>
 </div><!--header-->
@@ -99,6 +102,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a740ea0f4bc1ce2573f5720027e61663c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a740ea0f4bc1ce2573f5720027e61663c">get_z_position</a> () const</td></tr>
 <tr class="separator:a740ea0f4bc1ce2573f5720027e61663c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e7c16e805ff02509ce3b073afd6d6da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a6e7c16e805ff02509ce3b073afd6d6da">reset_inputs</a> (<a class="el" href="classrender__engine_1_1_view.html">View</a> view)</td></tr>
+<tr class="memdesc:a6e7c16e805ff02509ce3b073afd6d6da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta funcion se encraga de reinciar los axis de inputs para no hacer movimientos mezclados como diagonales y sucedaneos.  <br /></td></tr>
 <tr class="separator:a6e7c16e805ff02509ce3b073afd6d6da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa82b7c547fd101e5887af1ffda47644"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#afa82b7c547fd101e5887af1ffda47644">update_camera_position</a> ()</td></tr>
 <tr class="separator:afa82b7c547fd101e5887af1ffda47644"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,7 +110,196 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a22218439a59938cd5dd41d81fd61bbec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad71cc2d45f2ff1509910fc5eb011e9d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#ad71cc2d45f2ff1509910fc5eb011e9d7">render</a> ()</td></tr>
 <tr class="separator:ad71cc2d45f2ff1509910fc5eb011e9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a83efbbaadbd674f123c61a1f24db1e86"><td class="memItemLeft" align="right" valign="top">typedef Rgb888&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a83efbbaadbd674f123c61a1f24db1e86">Color</a></td></tr>
+<tr class="separator:a83efbbaadbd674f123c61a1f24db1e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a45c64045a74bb88b2209010bc97dd"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="classrender__engine_1_1_view.html#ab7a45c64045a74bb88b2209010bc97dd">Color_Buffer</a>&lt; <a class="el" href="classrender__engine_1_1_view.html#a83efbbaadbd674f123c61a1f24db1e86">Color</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#ab7a45c64045a74bb88b2209010bc97dd">Color_Buffer</a></td></tr>
+<tr class="separator:ab7a45c64045a74bb88b2209010bc97dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7d12789c6a5392c47ea6375ab3aced1"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="namespacerender__engine.html#a4edc2793d2a61603b9188eb167f6f00b">Point4f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#af7d12789c6a5392c47ea6375ab3aced1">Vertex</a></td></tr>
+<tr class="separator:af7d12789c6a5392c47ea6375ab3aced1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ec5c62ea60f0a8daa94458d38fc0b5"><td class="memItemLeft" align="right" valign="top">typedef vector&lt; <a class="el" href="classrender__engine_1_1_view.html#af7d12789c6a5392c47ea6375ab3aced1">Vertex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a76ec5c62ea60f0a8daa94458d38fc0b5">Vertex_Buffer</a></td></tr>
+<tr class="separator:a76ec5c62ea60f0a8daa94458d38fc0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab816417aea63c887933b980bc946ac96"><td class="memItemLeft" align="right" valign="top">typedef vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#ab816417aea63c887933b980bc946ac96">Index_Buffer</a></td></tr>
+<tr class="separator:ab816417aea63c887933b980bc946ac96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5389d7615ae4a85535aa8da660a8dc9"><td class="memItemLeft" align="right" valign="top">typedef vector&lt; <a class="el" href="classrender__engine_1_1_view.html#a83efbbaadbd674f123c61a1f24db1e86">Color</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#af5389d7615ae4a85535aa8da660a8dc9">Vertex_Colors</a></td></tr>
+<tr class="separator:af5389d7615ae4a85535aa8da660a8dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a05a69fa49b16bbc42a6220342637e09d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_view.html#ab7a45c64045a74bb88b2209010bc97dd">Color_Buffer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a05a69fa49b16bbc42a6220342637e09d">color_buffer</a></td></tr>
+<tr class="separator:a05a69fa49b16bbc42a6220342637e09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a981f24df2d2cec5f2351b2d7b086d5cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_rasterizer.html">Rasterizer</a>&lt; <a class="el" href="classrender__engine_1_1_view.html#ab7a45c64045a74bb88b2209010bc97dd">Color_Buffer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a981f24df2d2cec5f2351b2d7b086d5cd">rasterizer</a></td></tr>
+<tr class="separator:a981f24df2d2cec5f2351b2d7b086d5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41085a4127bb23ccc4b6e0ebcd682e79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_model.html">Model</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a41085a4127bb23ccc4b6e0ebcd682e79">floor</a></td></tr>
+<tr class="separator:a41085a4127bb23ccc4b6e0ebcd682e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7db289e9774ee817f3479ab08f40c879"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_model.html">Model</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a7db289e9774ee817f3479ab08f40c879">floor_grass</a></td></tr>
+<tr class="separator:a7db289e9774ee817f3479ab08f40c879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2249c68f8fe512d28afc698531b9c22e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_model.html">Model</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a2249c68f8fe512d28afc698531b9c22e">mill_tree_root</a></td></tr>
+<tr class="separator:a2249c68f8fe512d28afc698531b9c22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a019035c9953df5360e4e4bed60e2e937"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_model.html">Model</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a019035c9953df5360e4e4bed60e2e937">mill_tree_leaf</a></td></tr>
+<tr class="separator:a019035c9953df5360e4e4bed60e2e937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a981fad605773f585b4d29437c24901"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_model.html">Model</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a3a981fad605773f585b4d29437c24901">mill_root</a></td></tr>
+<tr class="separator:a3a981fad605773f585b4d29437c24901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a741d8b2e2622413c9c9ae907fcfaff21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_model.html">Model</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a741d8b2e2622413c9c9ae907fcfaff21">mill_root2</a></td></tr>
+<tr class="separator:a741d8b2e2622413c9c9ae907fcfaff21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abecd29b03882fdae905817e222ad4652"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_model.html">Model</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#abecd29b03882fdae905817e222ad4652">mill_extras</a></td></tr>
+<tr class="separator:abecd29b03882fdae905817e222ad4652"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe0d85fd7048b8531384fd2d8dc54355"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#afe0d85fd7048b8531384fd2d8dc54355">x_added_position</a> = 0</td></tr>
+<tr class="memdesc:afe0d85fd7048b8531384fd2d8dc54355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordenadas usadas para los inputs del usuario en <a class="el" href="main_8cpp.html" title="Archivo main.">main.cpp</a>.  <br /></td></tr>
+<tr class="separator:afe0d85fd7048b8531384fd2d8dc54355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae427f09369418218b2962c3e03b2981f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#ae427f09369418218b2962c3e03b2981f">y_added_position</a> = 0</td></tr>
+<tr class="memdesc:ae427f09369418218b2962c3e03b2981f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordenadas usadas para los inputs del usuario en <a class="el" href="main_8cpp.html" title="Archivo main.">main.cpp</a>.  <br /></td></tr>
+<tr class="separator:ae427f09369418218b2962c3e03b2981f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad250aec278101f66f4efe30d09092cd9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#ad250aec278101f66f4efe30d09092cd9">z_added_position</a> = 0</td></tr>
+<tr class="memdesc:ad250aec278101f66f4efe30d09092cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coordenadas usadas para los inputs del usuario en <a class="el" href="main_8cpp.html" title="Archivo main.">main.cpp</a>.  <br /></td></tr>
+<tr class="separator:ad250aec278101f66f4efe30d09092cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d8808b03eaba9bf11a77818e223b938"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classrender__engine_1_1_camera.html">Camera</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a8d8808b03eaba9bf11a77818e223b938">main_camera</a></td></tr>
+<tr class="separator:a8d8808b03eaba9bf11a77818e223b938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:aa26a7b41b59c77092a363871750f4d0f"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#aa26a7b41b59c77092a363871750f4d0f">mill_floor_file_path</a> [] = &quot;../../../../shared/assets/Low-Poly-Mill-floor.obj&quot;</td></tr>
+<tr class="separator:aa26a7b41b59c77092a363871750f4d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe0cb16d4af850c219982afb1ff6163"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a3fe0cb16d4af850c219982afb1ff6163">mill_tree_file_path</a> [] = &quot;../../../../shared/assets/Low-Poly-Mill-tree.obj&quot;</td></tr>
+<tr class="separator:a3fe0cb16d4af850c219982afb1ff6163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a725d0118e603926511e102ed960b0159"><td class="memItemLeft" align="right" valign="top">static constexpr char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrender__engine_1_1_view.html#a725d0118e603926511e102ed960b0159">mill_file_path</a> [] = &quot;../../../../shared/assets/Low-Poly-Mill-mill.obj&quot;</td></tr>
+<tr class="separator:a725d0118e603926511e102ed960b0159"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a83efbbaadbd674f123c61a1f24db1e86" name="a83efbbaadbd674f123c61a1f24db1e86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83efbbaadbd674f123c61a1f24db1e86">&#9670;&#160;</a></span>Color</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef Rgb888 <a class="el" href="classrender__engine_1_1_view.html#a83efbbaadbd674f123c61a1f24db1e86">render_engine::View::Color</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7a45c64045a74bb88b2209010bc97dd" name="ab7a45c64045a74bb88b2209010bc97dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7a45c64045a74bb88b2209010bc97dd">&#9670;&#160;</a></span>Color_Buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="classrender__engine_1_1_view.html#ab7a45c64045a74bb88b2209010bc97dd">Color_Buffer</a>&lt; <a class="el" href="classrender__engine_1_1_view.html#a83efbbaadbd674f123c61a1f24db1e86">Color</a> &gt; <a class="el" href="classrender__engine_1_1_view.html#ab7a45c64045a74bb88b2209010bc97dd">render_engine::View::Color_Buffer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab816417aea63c887933b980bc946ac96" name="ab816417aea63c887933b980bc946ac96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab816417aea63c887933b980bc946ac96">&#9670;&#160;</a></span>Index_Buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef vector&lt; int &gt; <a class="el" href="classrender__engine_1_1_view.html#ab816417aea63c887933b980bc946ac96">render_engine::View::Index_Buffer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7d12789c6a5392c47ea6375ab3aced1" name="af7d12789c6a5392c47ea6375ab3aced1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7d12789c6a5392c47ea6375ab3aced1">&#9670;&#160;</a></span>Vertex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="namespacerender__engine.html#a4edc2793d2a61603b9188eb167f6f00b">Point4f</a> <a class="el" href="classrender__engine_1_1_view.html#af7d12789c6a5392c47ea6375ab3aced1">render_engine::View::Vertex</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76ec5c62ea60f0a8daa94458d38fc0b5" name="a76ec5c62ea60f0a8daa94458d38fc0b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ec5c62ea60f0a8daa94458d38fc0b5">&#9670;&#160;</a></span>Vertex_Buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef vector&lt; <a class="el" href="classrender__engine_1_1_view.html#af7d12789c6a5392c47ea6375ab3aced1">Vertex</a> &gt; <a class="el" href="classrender__engine_1_1_view.html#a76ec5c62ea60f0a8daa94458d38fc0b5">render_engine::View::Vertex_Buffer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5389d7615ae4a85535aa8da660a8dc9" name="af5389d7615ae4a85535aa8da660a8dc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5389d7615ae4a85535aa8da660a8dc9">&#9670;&#160;</a></span>Vertex_Colors</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef vector&lt; <a class="el" href="classrender__engine_1_1_view.html#a83efbbaadbd674f123c61a1f24db1e86">Color</a> &gt; <a class="el" href="classrender__engine_1_1_view.html#af5389d7615ae4a85535aa8da660a8dc9">render_engine::View::Vertex_Colors</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a173d7406237e6c3800e8138ffb998b66" name="a173d7406237e6c3800e8138ffb998b66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a173d7406237e6c3800e8138ffb998b66">&#9670;&#160;</a></span>View()</h2>
@@ -253,6 +446,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Esta funcion se encraga de reinciar los axis de inputs para no hacer movimientos mezclados como diagonales y sucedaneos. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">view</td><td>de que escena se resetean los valores de movimiento de la camra </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aab3abe10a5adaa2123875ee784f3fc70" name="aab3abe10a5adaa2123875ee784f3fc70"></a>
@@ -372,6 +573,365 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a05a69fa49b16bbc42a6220342637e09d" name="a05a69fa49b16bbc42a6220342637e09d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05a69fa49b16bbc42a6220342637e09d">&#9670;&#160;</a></span>color_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrender__engine_1_1_view.html#ab7a45c64045a74bb88b2209010bc97dd">Color_Buffer</a> render_engine::View::color_buffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41085a4127bb23ccc4b6e0ebcd682e79" name="a41085a4127bb23ccc4b6e0ebcd682e79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41085a4127bb23ccc4b6e0ebcd682e79">&#9670;&#160;</a></span>floor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrender__engine_1_1_model.html">Model</a> render_engine::View::floor</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7db289e9774ee817f3479ab08f40c879" name="a7db289e9774ee817f3479ab08f40c879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7db289e9774ee817f3479ab08f40c879">&#9670;&#160;</a></span>floor_grass</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrender__engine_1_1_model.html">Model</a> render_engine::View::floor_grass</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8d8808b03eaba9bf11a77818e223b938" name="a8d8808b03eaba9bf11a77818e223b938"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d8808b03eaba9bf11a77818e223b938">&#9670;&#160;</a></span>main_camera</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrender__engine_1_1_camera.html">Camera</a> render_engine::View::main_camera</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abecd29b03882fdae905817e222ad4652" name="abecd29b03882fdae905817e222ad4652"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abecd29b03882fdae905817e222ad4652">&#9670;&#160;</a></span>mill_extras</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrender__engine_1_1_model.html">Model</a> render_engine::View::mill_extras</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a725d0118e603926511e102ed960b0159" name="a725d0118e603926511e102ed960b0159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a725d0118e603926511e102ed960b0159">&#9670;&#160;</a></span>mill_file_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char render_engine::View::mill_file_path[] = &quot;../../../../shared/assets/Low-Poly-Mill-mill.obj&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa26a7b41b59c77092a363871750f4d0f" name="aa26a7b41b59c77092a363871750f4d0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa26a7b41b59c77092a363871750f4d0f">&#9670;&#160;</a></span>mill_floor_file_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char render_engine::View::mill_floor_file_path[] = &quot;../../../../shared/assets/Low-Poly-Mill-floor.obj&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3a981fad605773f585b4d29437c24901" name="a3a981fad605773f585b4d29437c24901"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a981fad605773f585b4d29437c24901">&#9670;&#160;</a></span>mill_root</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrender__engine_1_1_model.html">Model</a> render_engine::View::mill_root</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a741d8b2e2622413c9c9ae907fcfaff21" name="a741d8b2e2622413c9c9ae907fcfaff21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a741d8b2e2622413c9c9ae907fcfaff21">&#9670;&#160;</a></span>mill_root2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrender__engine_1_1_model.html">Model</a> render_engine::View::mill_root2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3fe0cb16d4af850c219982afb1ff6163" name="a3fe0cb16d4af850c219982afb1ff6163"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe0cb16d4af850c219982afb1ff6163">&#9670;&#160;</a></span>mill_tree_file_path</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr char render_engine::View::mill_tree_file_path[] = &quot;../../../../shared/assets/Low-Poly-Mill-tree.obj&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a019035c9953df5360e4e4bed60e2e937" name="a019035c9953df5360e4e4bed60e2e937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a019035c9953df5360e4e4bed60e2e937">&#9670;&#160;</a></span>mill_tree_leaf</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrender__engine_1_1_model.html">Model</a> render_engine::View::mill_tree_leaf</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2249c68f8fe512d28afc698531b9c22e" name="a2249c68f8fe512d28afc698531b9c22e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2249c68f8fe512d28afc698531b9c22e">&#9670;&#160;</a></span>mill_tree_root</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrender__engine_1_1_model.html">Model</a> render_engine::View::mill_tree_root</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a981f24df2d2cec5f2351b2d7b086d5cd" name="a981f24df2d2cec5f2351b2d7b086d5cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a981f24df2d2cec5f2351b2d7b086d5cd">&#9670;&#160;</a></span>rasterizer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classrender__engine_1_1_rasterizer.html">Rasterizer</a>&lt; <a class="el" href="classrender__engine_1_1_view.html#ab7a45c64045a74bb88b2209010bc97dd">Color_Buffer</a> &gt; render_engine::View::rasterizer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe0d85fd7048b8531384fd2d8dc54355" name="afe0d85fd7048b8531384fd2d8dc54355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe0d85fd7048b8531384fd2d8dc54355">&#9670;&#160;</a></span>x_added_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float render_engine::View::x_added_position = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Coordenadas usadas para los inputs del usuario en <a class="el" href="main_8cpp.html" title="Archivo main.">main.cpp</a>. </p>
+
+</div>
+</div>
+<a id="ae427f09369418218b2962c3e03b2981f" name="ae427f09369418218b2962c3e03b2981f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae427f09369418218b2962c3e03b2981f">&#9670;&#160;</a></span>y_added_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float render_engine::View::y_added_position = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Coordenadas usadas para los inputs del usuario en <a class="el" href="main_8cpp.html" title="Archivo main.">main.cpp</a>. </p>
+
+</div>
+</div>
+<a id="ad250aec278101f66f4efe30d09092cd9" name="ad250aec278101f66f4efe30d09092cd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad250aec278101f66f4efe30d09092cd9">&#9670;&#160;</a></span>z_added_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float render_engine::View::z_added_position = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Coordenadas usadas para los inputs del usuario en <a class="el" href="main_8cpp.html" title="Archivo main.">main.cpp</a>. </p>
 
 </div>
 </div>

@@ -20,12 +20,16 @@ namespace render_engine
 
 	protected:
 
-		float scale = 1.f;					///Escala del objeto por defecto en 1.f
-		float rotation_y = 0;				///Rotacion alrededor del eje y
-		glm::vec3 position = {0, 0, 0};
+		///Escala del objeto por defecto en 1.f
+		float scale = 1.f;
 
-		Entity * parent = nullptr;			/// parent esta incializado de base a nullptr para que 
-											/// el puntero no apunte a algo aleatorio si no se asigna
+		///Rotacion alrededor del eje y
+		float rotation_y = 0;				
+		glm::vec3 position = {0, 0, 0};		
+
+		/// parent esta incializado de base a nullptr para que 
+		/// el puntero no apunte a algo aleatorio si no se asigna
+		Entity * parent = nullptr;			
 
 	public:
 

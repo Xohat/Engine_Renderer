@@ -18,67 +18,64 @@
 \DoxyCodeLine{00020\ }
 \DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{protected}:}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}}\ =\ 1.f;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\_y}}\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}}\ =\ \{0,\ 0,\ 0\};}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}}\ *\ \mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}}\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}}\ =\ 1.f;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\_y}}\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}}\ =\ \{0,\ 0,\ 0\};\ \ \ \ \ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}}\ *\ \mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}}\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ @brief\ es\ texto}}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ @parm\ es\ parametros\ que\ toma\ la\ función}}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ @return\ es\ lo\ que\ devuelve\ la\ función}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a3a7b3aaa802a77db35464159742c4521}{set\_parent}}(\mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}}\ \&\ given\_parent)\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}}\ =\ \&given\_parent;}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_entity_aed165c64917418d57d3965b02c5d1f47}{set\_position}}(\textcolor{keyword}{const}\ glm::vec3\ \&\ new\_position)\ }
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}}\ =\ new\_position;}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a6105cc206d8ee88958ab81f4a8d16042}{set\_scale}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ new\_scale)}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}}\ =\ new\_scale;}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a0d3de51495cab515810d155d6d3f71d5}{set\_rotation\_y}}(\textcolor{keywordtype}{float}\ new\_rotation\_y)}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\_y}}\ =\ new\_rotation\_y;}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a3a7b3aaa802a77db35464159742c4521}{set\_parent}}(\mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}}\ \&\ given\_parent)\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}}\ =\ \&given\_parent;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_entity_aed165c64917418d57d3965b02c5d1f47}{set\_position}}(\textcolor{keyword}{const}\ glm::vec3\ \&\ new\_position)\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}}\ =\ new\_position;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a6105cc206d8ee88958ab81f4a8d16042}{set\_scale}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ new\_scale)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}}\ =\ new\_scale;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a0d3de51495cab515810d155d6d3f71d5}{set\_rotation\_y}}(\textcolor{keywordtype}{float}\ new\_rotation\_y)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\_y}}\ =\ new\_rotation\_y;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
 \DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{classrender__engine_1_1_entity_a175e3f8a07b2a566b7b12a9fbc083a33}{get\_position}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00064\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}};}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ glm::mat4\ \mbox{\hyperlink{classrender__engine_1_1_entity_a4285772fd09e471a7e6f9b5f827e60cb}{get\_transform\_matrix}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00073\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ identity(1);}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ scaling\ =\ glm::scale(identity,\ glm::vec3(\mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}},\ \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}},\ \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}}));}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ rotation\ =\ \mbox{\hyperlink{namespacerender__engine_a4bc4f95e759f87430ad7e8108397da89}{rotate\_around\_y}}(identity,\ \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\_y}});}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ translation\ =\ \mbox{\hyperlink{namespacerender__engine_aced3d2200c9ea7983d6621c05405557b}{translate}}(identity,\ \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}});\ \ \ \ \ \ \ \ \ \textcolor{comment}{//<\ X,\ Y,\ Z\ axises\ distance\ (Arriba\ izquierda\ es\ el\ 0,0)}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{classrender__engine_1_1_entity_a175e3f8a07b2a566b7b12a9fbc083a33}{get\_position}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00062\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ glm::mat4\ \mbox{\hyperlink{classrender__engine_1_1_entity_a4285772fd09e471a7e6f9b5f827e60cb}{get\_transform\_matrix}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00071\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ identity(1);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ scaling\ =\ glm::scale(identity,\ glm::vec3(\mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}},\ \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}},\ \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}}));}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ rotation\ =\ \mbox{\hyperlink{namespacerender__engine_a4bc4f95e759f87430ad7e8108397da89}{rotate\_around\_y}}(identity,\ \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\_y}});}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ translation\ =\ \mbox{\hyperlink{namespacerender__engine_aced3d2200c9ea7983d6621c05405557b}{translate}}(identity,\ \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}});\ \ \ \ \ \ \ \ \ \textcolor{comment}{//<\ X,\ Y,\ Z\ axises\ distance\ (Arriba\ izquierda\ es\ el\ 0,0)}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ transform\_matrix\ =\ translation\ *\ rotation\ *\ scaling;}
 \DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ transform\_matrix\ =\ translation\ *\ rotation\ *\ scaling;}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}}\ !=\ \textcolor{keyword}{nullptr})}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}}-\/>\mbox{\hyperlink{classrender__engine_1_1_entity_a4285772fd09e471a7e6f9b5f827e60cb}{get\_transform\_matrix}}()\ *\ transform\_matrix;}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación de\ la\ matriz\ de\ transformación unificada:}}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ transform\_matrix;}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a3a06266ccf5fba2ccdcca9265283d146}{move\_position}}(\textcolor{keyword}{const}\ glm::vec3\&\ delta\_position)}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}}\ +=\ delta\_position;}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00098\ \ \ \ \ \};}
-\DoxyCodeLine{00099\ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}}\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}}-\/>\mbox{\hyperlink{classrender__engine_1_1_entity_a4285772fd09e471a7e6f9b5f827e60cb}{get\_transform\_matrix}}()\ *\ transform\_matrix;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación de\ la\ matriz\ de\ transformación unificada:}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ transform\_matrix;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_entity_a3a06266ccf5fba2ccdcca9265283d146}{move\_position}}(\textcolor{keyword}{const}\ glm::vec3\&\ delta\_position)}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}}\ +=\ delta\_position;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00096\ \ \ \ \ \};}
+\DoxyCodeLine{00097\ \}}
 
 \end{DoxyCode}

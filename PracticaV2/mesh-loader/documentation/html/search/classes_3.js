@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['model_0',['Model',['../classrender__engine_1_1_model.html',1,'render_engine']]]
+  ['rasterizer_0',['Rasterizer',['../classrender__engine_1_1_rasterizer.html',1,'render_engine']]],
+  ['rasterizer_3c_20color_5fbuffer_20_3e_1',['Rasterizer&lt; Color_Buffer &gt;',['../classrender__engine_1_1_rasterizer.html',1,'render_engine']]]
 ];
