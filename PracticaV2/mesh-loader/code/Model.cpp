@@ -1,3 +1,8 @@
+/**
+* @file Model.cpp
+* @brief Implementacion de Model
+* @author Arturo Vilar Carretero / Ángel Rodriguez Ballesteros
+*/
 
 // Copyright (c) 2023 Arturo / Xohat
 // arturovilarc@gmail.com / xohatlatte@gmail.com
@@ -13,17 +18,17 @@
 namespace render_engine
 {
 
-	Model::Model(const string& model_path, int n_mesh)
+	Model::Model(const string& model_path, int n_mesh, glm::vec3 mesh_color)
 	{
 		Assimp::Importer importer;
 
 		auto scene = importer.ReadFile
 		(
 			model_path,
-			aiProcess_Triangulate | aiProcess_JoinIdenticalVertices | aiProcess_SortByPType
+			aiProcess_Triangulate | aiProcess_JoinIdenticalVertices | aiProcess_SortByPType | aiProcess_GenNormals
 		);
 
-		// Si scene es un puntero nulo significa que el archivo no se pudo cargar con éxito:
+		//Si scene es un puntero nulo significa que el archivo no se pudo cargar con éxito :
 
 		if (scene && scene->mNumMeshes > 0)
 		{
@@ -36,13 +41,18 @@ namespace render_engine
 			// Se copian los datos de coordenadas de vértices:
 
 			original_vertices.resize(number_of_vertices);
+			original_normals.resize(number_of_vertices);
 
 			for (size_t index = 0; index < number_of_vertices; index++)
 			{
 				auto& vertex = mesh->mVertices[index];
+				auto& normal_vertex = mesh->mNormals[index];
 
 				original_vertices[index] = Vertex(vertex.x, -vertex.z, vertex.y, 1.f);
+				original_normals[index] = glm::vec3(normal_vertex.x, -normal_vertex.z, normal_vertex.y);
 			}
+
+			//transformed_normals.resize(number_of_vertices);
 
 			transformed_vertices.resize(number_of_vertices);
 			display_vertices.resize(number_of_vertices);
@@ -53,7 +63,7 @@ namespace render_engine
 
 			for (size_t index = 0; index < number_of_vertices; index++)
 			{
-				original_colors[index].set(rand_clamp(), rand_clamp(), rand_clamp());
+				original_colors[index].set(mesh_color.x, mesh_color.y, mesh_color.z);
 			}
 
 			// Se generan los índices de los triángulos:
@@ -80,10 +90,25 @@ namespace render_engine
 
 	}
 
+	void Model::process_vertexes(size_t number) 
+	{
+
+	}
+
+	void Model::process_colors(size_t number)
+	{
+
+	}
+
+	void Model::process_indexes(size_t number)
+	{
+
+	}
+
 	void Model::update()
 	{
-		angle += 0.025f;
-		set_rotation_y(angle);
+		rotation_y += 0.025f;
+		set_rotation_y(rotation_y);
 	}
 
 	void Model::render(Rasterizer< Color_Buffer >& rasterizer, const Camera & camera)

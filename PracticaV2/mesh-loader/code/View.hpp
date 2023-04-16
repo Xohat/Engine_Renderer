@@ -1,3 +1,8 @@
+/**
+* @file View.hpp
+* @brief Codigo de View
+* @author Arturo Vilar Carretero
+*/
 
 // Copyright (c) 2023 Arturo / Xohat
 // arturovilarc@gmail.com / xohatlatte@gmail.com
@@ -34,21 +39,28 @@
 
         private:
 
-            static constexpr char tree_file_path[] = "../../../../shared/assets/Tree.fbx";
-			static constexpr char mesh_file_path_2[] = "../../../../shared/assets/Tree2.fbx";
+            static constexpr char mill_floor_file_path[] = "../../../../shared/assets/Low-Poly-Mill-floor.obj";
+			static constexpr char mill_tree_file_path[] = "../../../../shared/assets/Low-Poly-Mill-tree.obj";
+			static constexpr char mill_file_path[] = "../../../../shared/assets/Low-Poly-Mill-mill.obj";
 
             Color_Buffer               color_buffer;
             Rasterizer< Color_Buffer > rasterizer;
 
-			Model tree;
-			Model tree_leaf;
+			// Todos los modelos a cargar
+			Model floor;			
+			Model floor_grass;
+			Model mill_tree_root;
+			Model mill_tree_leaf;
+			Model mill_root;
+			Model mill_root2;
+			Model mill_extras;
 
             unsigned width;
             unsigned height;
 
-			float x_added_position = 0;
-			float y_added_position = 0;
-			float z_added_position = 0;
+			float x_added_position = 0; ///Coordenadas usadas para los inputs del usuario en main.cpp
+			float y_added_position = 0;	///Coordenadas usadas para los inputs del usuario en main.cpp
+			float z_added_position = 0;	///Coordenadas usadas para los inputs del usuario en main.cpp
 
 			Camera main_camera;
 
@@ -56,6 +68,7 @@
 
             View(unsigned width, unsigned height);		
 
+			// Setters
 			void set_x_position(float new_x_added_position) 
 			{
 				x_added_position = new_x_added_position;
@@ -69,6 +82,7 @@
 				z_added_position = new_z_added_position;
 			}
 
+			// Getters
 			float get_x_position() const
 			{
 				return x_added_position;
@@ -96,10 +110,9 @@
 
 			void update_camera_position() 
 			{
-				main_camera.set_position({
-					main_camera.get_position().x + x_added_position,
-					main_camera.get_position().y + y_added_position,
-					main_camera.get_position().z + z_added_position });
+				main_camera.move_position({ x_added_position, 0, 0 });
+				main_camera.move_position({ 0, y_added_position, 0 });
+				main_camera.move_position({ 0, 0, z_added_position });
 			}
 
             void update ();

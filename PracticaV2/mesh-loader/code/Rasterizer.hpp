@@ -1,3 +1,8 @@
+/**
+* @file Rasterizer.hpp
+* @brief Codigo y implementacion de Rasterizer
+* @author Angel Rodirguez Ballesteros
+*/
 
 // Este código es de dominio público.
 // angel.rodriguez@esne.edu
@@ -65,7 +70,7 @@
 
             void clear ()
             {
-                color_buffer.clear ({ 0, 0, 0 });
+                color_buffer.clear ({ 0.07f, 0.6f, 0.82f });
 
                 for (int * z = z_buffer.data (), * end = z + z_buffer.size (); z != end; z++)
                 {
