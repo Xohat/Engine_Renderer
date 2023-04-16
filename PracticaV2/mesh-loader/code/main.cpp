@@ -20,6 +20,7 @@ int main ()
 
 	float test_x_pos = 0;
 	float test_y_pos = 0;
+	float test_z_pos = 0;
 
     Window window(VideoMode(window_width, window_height), "Mesh Loader", Style::Titlebar | Style::Close);
     View   view  (window_width, window_height);
@@ -64,6 +65,16 @@ int main ()
 							test_x_pos -= 1.f;
 							view.set_x_position(test_x_pos);
 							break;
+
+						case Keyboard::Key::Up:
+							test_z_pos += 1.f;
+							view.set_z_position(test_z_pos);
+							break;
+
+						case Keyboard::Key::Down:
+							test_z_pos -= 1.f;
+							view.set_z_position(test_z_pos);
+							break;
 					}
 
 				/*
@@ -89,9 +100,9 @@ int main ()
 
         view.update ();
 
-        view.render ();
-
 		view.reset_inputs(view);
+
+        view.render ();
 
         window.display ();
     }

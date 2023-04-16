@@ -89,6 +89,9 @@
 
 				view.set_y_position(0);
 				y_added_position = 0;
+
+				view.set_z_position(0);
+				z_added_position = 0;
 			}
 
             void update ();

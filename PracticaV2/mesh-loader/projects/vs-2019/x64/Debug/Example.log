@@ -1,2 +1,2 @@
 ﻿  main.cpp
-LINK : fatal error LNK1201: error al escribir en la base de datos del programa 'C:\Users\Xohat\Downloads\AAADownloads\angel-esne-c-graphics-examples-d75d0872cfe1\angel-esne-c-graphics-examples-d75d0872cfe1\Engine_Renderer\PracticaV2\mesh-loader\projects\vs-2019\x64\Debug\Mesh Loader.pdb'; compruebe si tiene suficiente espacio en disco, si la ruta es válida o si tiene privilegios suficientes
+  Example.vcxproj -> C:\Users\Xohat\Downloads\AAADownloads\angel-esne-c-graphics-examples-d75d0872cfe1\angel-esne-c-graphics-examples-d75d0872cfe1\Engine_Renderer\PracticaV2\mesh-loader\projects\vs-2019\x64\Debug\Mesh Loader.exe
