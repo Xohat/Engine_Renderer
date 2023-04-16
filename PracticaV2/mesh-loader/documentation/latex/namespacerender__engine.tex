@@ -1,0 +1,270 @@
+\hypertarget{namespacerender__engine}{}\doxysection{render\+\_\+engine Namespace Reference}
+\label{namespacerender__engine}\index{render\_engine@{render\_engine}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrender__engine_1_1_camera}{Camera}}
+\item 
+class \mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}}
+\item 
+class \mbox{\hyperlink{classrender__engine_1_1_light}{Light}}
+\item 
+class \mbox{\hyperlink{classrender__engine_1_1_model}{Model}}
+\item 
+class \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer}}
+\item 
+class \mbox{\hyperlink{classrender__engine_1_1_view}{View}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef glm\+::ivec2 \mbox{\hyperlink{namespacerender__engine_a04306f11db02ae59e54ff2fcc790e99c}{Vector2i}}
+\item 
+typedef glm\+::ivec3 \mbox{\hyperlink{namespacerender__engine_a52012f5bcea0ef66f67cd86082f736e5}{Vector3i}}
+\item 
+typedef glm\+::ivec4 \mbox{\hyperlink{namespacerender__engine_abd4e767c498016b444ec36e8d5fc281e}{Vector4i}}
+\item 
+typedef glm\+::fvec2 \mbox{\hyperlink{namespacerender__engine_a4addf7ebef792f64b6800e17a52c650d}{Vector2f}}
+\item 
+typedef glm\+::fvec3 \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}}
+\item 
+typedef glm\+::fvec4 \mbox{\hyperlink{namespacerender__engine_adac7a979b352849af990c1d88c01fa42}{Vector4f}}
+\item 
+typedef glm\+::quat \mbox{\hyperlink{namespacerender__engine_ac580373810767e40d2a9dae3bc03beb0}{Quaternion}}
+\item 
+typedef glm\+::mat2 \mbox{\hyperlink{namespacerender__engine_adc08458299bc01937690e1e89a4752a8}{Matrix22}}
+\item 
+typedef glm\+::mat3 \mbox{\hyperlink{namespacerender__engine_a8556672b1e009f0409a62cc552419c1d}{Matrix33}}
+\item 
+typedef glm\+::mat4 \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}
+\item 
+typedef glm\+::ivec2 \mbox{\hyperlink{namespacerender__engine_a5742e237613eed81e66141a1a996a905}{Point2i}}
+\item 
+typedef glm\+::ivec3 \mbox{\hyperlink{namespacerender__engine_a1edf73b6c55c335e3b4fd7063d82cd01}{Point3i}}
+\item 
+typedef glm\+::ivec4 \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}}
+\item 
+typedef glm\+::fvec2 \mbox{\hyperlink{namespacerender__engine_a70097b6fc0e80ce22691edcc6b980547}{Point2f}}
+\item 
+typedef glm\+::fvec3 \mbox{\hyperlink{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}{Point3f}}
+\item 
+typedef glm\+::fvec4 \mbox{\hyperlink{namespacerender__engine_a4edc2793d2a61603b9188eb167f6f00b}{Point4f}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class CLASS $>$ }\\const float $\ast$ \mbox{\hyperlink{namespacerender__engine_acf00e33836885cc9cfaf153a04652bb7}{get\+\_\+values}} (const CLASS \&object)
+\item 
+\mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \mbox{\hyperlink{namespacerender__engine_a293879179ceee71c7303b4148b07d7e4}{inverse}} (const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&matrix)
+\item 
+\mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \mbox{\hyperlink{namespacerender__engine_aedd8637fea62e3c53fedc38c0ea139ed}{transpose}} (const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&matrix)
+\item 
+\mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \mbox{\hyperlink{namespacerender__engine_aced3d2200c9ea7983d6621c05405557b}{translate}} (const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&matrix, const \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}} \&displacement)
+\item 
+\mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \mbox{\hyperlink{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}{scale}} (const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&matrix, float scale)
+\item 
+\mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \mbox{\hyperlink{namespacerender__engine_a695b030ab2b413207aca0be8e3719665}{scale}} (const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&matrix, float scale\+\_\+x, float scale\+\_\+y, float scale\+\_\+z)
+\item 
+\mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \mbox{\hyperlink{namespacerender__engine_a0bd798783fe15778c20d911a2505b230}{rotate\+\_\+around\+\_\+x}} (const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&matrix, float angle)
+\item 
+\mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \mbox{\hyperlink{namespacerender__engine_a4bc4f95e759f87430ad7e8108397da89}{rotate\+\_\+around\+\_\+y}} (const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&matrix, float angle)
+\item 
+\mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \mbox{\hyperlink{namespacerender__engine_a9a567943fc98a780fa3ae3a5a3f68d53}{rotate\+\_\+around\+\_\+z}} (const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&matrix, float angle)
+\item 
+\mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \mbox{\hyperlink{namespacerender__engine_a98f0811cd251bfafcb93705b858c7bbe}{perspective}} (float fov, float near\+\_\+d, float far\+\_\+d, float aspect\+\_\+ratio)
+\item 
+\mbox{\hyperlink{namespacerender__engine_a4addf7ebef792f64b6800e17a52c650d}{Vector2f}} \mbox{\hyperlink{namespacerender__engine_ae505d75410c32c73554058d51867d466}{extract\+\_\+translation}} (const \mbox{\hyperlink{namespacerender__engine_a8556672b1e009f0409a62cc552419c1d}{Matrix33}} \&transformation)
+\item 
+\mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}} \mbox{\hyperlink{namespacerender__engine_a39edd21a90bab66584cb01e801062d79}{extract\+\_\+translation}} (const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&transformation)
+\item 
+\mbox{\hyperlink{namespacerender__engine_ac580373810767e40d2a9dae3bc03beb0}{Quaternion}} \mbox{\hyperlink{namespacerender__engine_a49fd5f19b72d8a14dd529d67153bb1f2}{extract\+\_\+rotation}} (const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&transformation)
+\item 
+\mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \mbox{\hyperlink{namespacerender__engine_adf213514b0d230761fbc1eb7695f8fa3}{look\+\_\+at}} (const \mbox{\hyperlink{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}{Point3f}} \&from, const \mbox{\hyperlink{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}{Point3f}} \&to)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespacerender__engine_adc08458299bc01937690e1e89a4752a8}\label{namespacerender__engine_adc08458299bc01937690e1e89a4752a8}} 
+\index{render\_engine@{render\_engine}!Matrix22@{Matrix22}}
+\index{Matrix22@{Matrix22}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Matrix22}{Matrix22}}
+{\footnotesize\ttfamily typedef glm\+::mat2 \mbox{\hyperlink{namespacerender__engine_adc08458299bc01937690e1e89a4752a8}{render\+\_\+engine\+::\+Matrix22}}}
+
+\mbox{\Hypertarget{namespacerender__engine_a8556672b1e009f0409a62cc552419c1d}\label{namespacerender__engine_a8556672b1e009f0409a62cc552419c1d}} 
+\index{render\_engine@{render\_engine}!Matrix33@{Matrix33}}
+\index{Matrix33@{Matrix33}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Matrix33}{Matrix33}}
+{\footnotesize\ttfamily typedef glm\+::mat3 \mbox{\hyperlink{namespacerender__engine_a8556672b1e009f0409a62cc552419c1d}{render\+\_\+engine\+::\+Matrix33}}}
+
+\mbox{\Hypertarget{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}\label{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}} 
+\index{render\_engine@{render\_engine}!Matrix44@{Matrix44}}
+\index{Matrix44@{Matrix44}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Matrix44}{Matrix44}}
+{\footnotesize\ttfamily typedef glm\+::mat4 \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{render\+\_\+engine\+::\+Matrix44}}}
+
+\mbox{\Hypertarget{namespacerender__engine_a70097b6fc0e80ce22691edcc6b980547}\label{namespacerender__engine_a70097b6fc0e80ce22691edcc6b980547}} 
+\index{render\_engine@{render\_engine}!Point2f@{Point2f}}
+\index{Point2f@{Point2f}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Point2f}{Point2f}}
+{\footnotesize\ttfamily typedef glm\+::fvec2 \mbox{\hyperlink{namespacerender__engine_a70097b6fc0e80ce22691edcc6b980547}{render\+\_\+engine\+::\+Point2f}}}
+
+\mbox{\Hypertarget{namespacerender__engine_a5742e237613eed81e66141a1a996a905}\label{namespacerender__engine_a5742e237613eed81e66141a1a996a905}} 
+\index{render\_engine@{render\_engine}!Point2i@{Point2i}}
+\index{Point2i@{Point2i}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Point2i}{Point2i}}
+{\footnotesize\ttfamily typedef glm\+::ivec2 \mbox{\hyperlink{namespacerender__engine_a5742e237613eed81e66141a1a996a905}{render\+\_\+engine\+::\+Point2i}}}
+
+\mbox{\Hypertarget{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}\label{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}} 
+\index{render\_engine@{render\_engine}!Point3f@{Point3f}}
+\index{Point3f@{Point3f}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Point3f}{Point3f}}
+{\footnotesize\ttfamily typedef glm\+::fvec3 \mbox{\hyperlink{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}{render\+\_\+engine\+::\+Point3f}}}
+
+\mbox{\Hypertarget{namespacerender__engine_a1edf73b6c55c335e3b4fd7063d82cd01}\label{namespacerender__engine_a1edf73b6c55c335e3b4fd7063d82cd01}} 
+\index{render\_engine@{render\_engine}!Point3i@{Point3i}}
+\index{Point3i@{Point3i}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Point3i}{Point3i}}
+{\footnotesize\ttfamily typedef glm\+::ivec3 \mbox{\hyperlink{namespacerender__engine_a1edf73b6c55c335e3b4fd7063d82cd01}{render\+\_\+engine\+::\+Point3i}}}
+
+\mbox{\Hypertarget{namespacerender__engine_a4edc2793d2a61603b9188eb167f6f00b}\label{namespacerender__engine_a4edc2793d2a61603b9188eb167f6f00b}} 
+\index{render\_engine@{render\_engine}!Point4f@{Point4f}}
+\index{Point4f@{Point4f}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Point4f}{Point4f}}
+{\footnotesize\ttfamily typedef glm\+::fvec4 \mbox{\hyperlink{namespacerender__engine_a4edc2793d2a61603b9188eb167f6f00b}{render\+\_\+engine\+::\+Point4f}}}
+
+\mbox{\Hypertarget{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}\label{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}} 
+\index{render\_engine@{render\_engine}!Point4i@{Point4i}}
+\index{Point4i@{Point4i}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Point4i}{Point4i}}
+{\footnotesize\ttfamily typedef glm\+::ivec4 \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{render\+\_\+engine\+::\+Point4i}}}
+
+\mbox{\Hypertarget{namespacerender__engine_ac580373810767e40d2a9dae3bc03beb0}\label{namespacerender__engine_ac580373810767e40d2a9dae3bc03beb0}} 
+\index{render\_engine@{render\_engine}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Quaternion}{Quaternion}}
+{\footnotesize\ttfamily typedef glm\+::quat \mbox{\hyperlink{namespacerender__engine_ac580373810767e40d2a9dae3bc03beb0}{render\+\_\+engine\+::\+Quaternion}}}
+
+\mbox{\Hypertarget{namespacerender__engine_a4addf7ebef792f64b6800e17a52c650d}\label{namespacerender__engine_a4addf7ebef792f64b6800e17a52c650d}} 
+\index{render\_engine@{render\_engine}!Vector2f@{Vector2f}}
+\index{Vector2f@{Vector2f}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Vector2f}{Vector2f}}
+{\footnotesize\ttfamily typedef glm\+::fvec2 \mbox{\hyperlink{namespacerender__engine_a4addf7ebef792f64b6800e17a52c650d}{render\+\_\+engine\+::\+Vector2f}}}
+
+\mbox{\Hypertarget{namespacerender__engine_a04306f11db02ae59e54ff2fcc790e99c}\label{namespacerender__engine_a04306f11db02ae59e54ff2fcc790e99c}} 
+\index{render\_engine@{render\_engine}!Vector2i@{Vector2i}}
+\index{Vector2i@{Vector2i}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Vector2i}{Vector2i}}
+{\footnotesize\ttfamily typedef glm\+::ivec2 \mbox{\hyperlink{namespacerender__engine_a04306f11db02ae59e54ff2fcc790e99c}{render\+\_\+engine\+::\+Vector2i}}}
+
+\mbox{\Hypertarget{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}\label{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}} 
+\index{render\_engine@{render\_engine}!Vector3f@{Vector3f}}
+\index{Vector3f@{Vector3f}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Vector3f}{Vector3f}}
+{\footnotesize\ttfamily typedef glm\+::fvec3 \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{render\+\_\+engine\+::\+Vector3f}}}
+
+\mbox{\Hypertarget{namespacerender__engine_a52012f5bcea0ef66f67cd86082f736e5}\label{namespacerender__engine_a52012f5bcea0ef66f67cd86082f736e5}} 
+\index{render\_engine@{render\_engine}!Vector3i@{Vector3i}}
+\index{Vector3i@{Vector3i}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Vector3i}{Vector3i}}
+{\footnotesize\ttfamily typedef glm\+::ivec3 \mbox{\hyperlink{namespacerender__engine_a52012f5bcea0ef66f67cd86082f736e5}{render\+\_\+engine\+::\+Vector3i}}}
+
+\mbox{\Hypertarget{namespacerender__engine_adac7a979b352849af990c1d88c01fa42}\label{namespacerender__engine_adac7a979b352849af990c1d88c01fa42}} 
+\index{render\_engine@{render\_engine}!Vector4f@{Vector4f}}
+\index{Vector4f@{Vector4f}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Vector4f}{Vector4f}}
+{\footnotesize\ttfamily typedef glm\+::fvec4 \mbox{\hyperlink{namespacerender__engine_adac7a979b352849af990c1d88c01fa42}{render\+\_\+engine\+::\+Vector4f}}}
+
+\mbox{\Hypertarget{namespacerender__engine_abd4e767c498016b444ec36e8d5fc281e}\label{namespacerender__engine_abd4e767c498016b444ec36e8d5fc281e}} 
+\index{render\_engine@{render\_engine}!Vector4i@{Vector4i}}
+\index{Vector4i@{Vector4i}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{Vector4i}{Vector4i}}
+{\footnotesize\ttfamily typedef glm\+::ivec4 \mbox{\hyperlink{namespacerender__engine_abd4e767c498016b444ec36e8d5fc281e}{render\+\_\+engine\+::\+Vector4i}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacerender__engine_a49fd5f19b72d8a14dd529d67153bb1f2}\label{namespacerender__engine_a49fd5f19b72d8a14dd529d67153bb1f2}} 
+\index{render\_engine@{render\_engine}!extract\_rotation@{extract\_rotation}}
+\index{extract\_rotation@{extract\_rotation}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{extract\_rotation()}{extract\_rotation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_ac580373810767e40d2a9dae3bc03beb0}{Quaternion}} render\+\_\+engine\+::extract\+\_\+rotation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&}]{transformation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_ae505d75410c32c73554058d51867d466}\label{namespacerender__engine_ae505d75410c32c73554058d51867d466}} 
+\index{render\_engine@{render\_engine}!extract\_translation@{extract\_translation}}
+\index{extract\_translation@{extract\_translation}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{extract\_translation()}{extract\_translation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_a4addf7ebef792f64b6800e17a52c650d}{Vector2f}} render\+\_\+engine\+::extract\+\_\+translation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_a8556672b1e009f0409a62cc552419c1d}{Matrix33}} \&}]{transformation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_a39edd21a90bab66584cb01e801062d79}\label{namespacerender__engine_a39edd21a90bab66584cb01e801062d79}} 
+\index{render\_engine@{render\_engine}!extract\_translation@{extract\_translation}}
+\index{extract\_translation@{extract\_translation}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{extract\_translation()}{extract\_translation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}} render\+\_\+engine\+::extract\+\_\+translation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&}]{transformation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_acf00e33836885cc9cfaf153a04652bb7}\label{namespacerender__engine_acf00e33836885cc9cfaf153a04652bb7}} 
+\index{render\_engine@{render\_engine}!get\_values@{get\_values}}
+\index{get\_values@{get\_values}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{get\_values()}{get\_values()}}
+{\footnotesize\ttfamily template$<$class CLASS $>$ \\
+const float $\ast$ render\+\_\+engine\+::get\+\_\+values (\begin{DoxyParamCaption}\item[{const CLASS \&}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_a293879179ceee71c7303b4148b07d7e4}\label{namespacerender__engine_a293879179ceee71c7303b4148b07d7e4}} 
+\index{render\_engine@{render\_engine}!inverse@{inverse}}
+\index{inverse@{inverse}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} render\+\_\+engine\+::inverse (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&}]{matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_adf213514b0d230761fbc1eb7695f8fa3}\label{namespacerender__engine_adf213514b0d230761fbc1eb7695f8fa3}} 
+\index{render\_engine@{render\_engine}!look\_at@{look\_at}}
+\index{look\_at@{look\_at}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{look\_at()}{look\_at()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} render\+\_\+engine\+::look\+\_\+at (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}{Point3f}} \&}]{from,  }\item[{const \mbox{\hyperlink{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}{Point3f}} \&}]{to }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_a98f0811cd251bfafcb93705b858c7bbe}\label{namespacerender__engine_a98f0811cd251bfafcb93705b858c7bbe}} 
+\index{render\_engine@{render\_engine}!perspective@{perspective}}
+\index{perspective@{perspective}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{perspective()}{perspective()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} render\+\_\+engine\+::perspective (\begin{DoxyParamCaption}\item[{float}]{fov,  }\item[{float}]{near\+\_\+d,  }\item[{float}]{far\+\_\+d,  }\item[{float}]{aspect\+\_\+ratio }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_a0bd798783fe15778c20d911a2505b230}\label{namespacerender__engine_a0bd798783fe15778c20d911a2505b230}} 
+\index{render\_engine@{render\_engine}!rotate\_around\_x@{rotate\_around\_x}}
+\index{rotate\_around\_x@{rotate\_around\_x}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{rotate\_around\_x()}{rotate\_around\_x()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} render\+\_\+engine\+::rotate\+\_\+around\+\_\+x (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&}]{matrix,  }\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_a4bc4f95e759f87430ad7e8108397da89}\label{namespacerender__engine_a4bc4f95e759f87430ad7e8108397da89}} 
+\index{render\_engine@{render\_engine}!rotate\_around\_y@{rotate\_around\_y}}
+\index{rotate\_around\_y@{rotate\_around\_y}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{rotate\_around\_y()}{rotate\_around\_y()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} render\+\_\+engine\+::rotate\+\_\+around\+\_\+y (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&}]{matrix,  }\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_a9a567943fc98a780fa3ae3a5a3f68d53}\label{namespacerender__engine_a9a567943fc98a780fa3ae3a5a3f68d53}} 
+\index{render\_engine@{render\_engine}!rotate\_around\_z@{rotate\_around\_z}}
+\index{rotate\_around\_z@{rotate\_around\_z}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{rotate\_around\_z()}{rotate\_around\_z()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} render\+\_\+engine\+::rotate\+\_\+around\+\_\+z (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&}]{matrix,  }\item[{float}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}\label{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}} 
+\index{render\_engine@{render\_engine}!scale@{scale}}
+\index{scale@{scale}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} render\+\_\+engine\+::scale (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&}]{matrix,  }\item[{float}]{scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_a695b030ab2b413207aca0be8e3719665}\label{namespacerender__engine_a695b030ab2b413207aca0be8e3719665}} 
+\index{render\_engine@{render\_engine}!scale@{scale}}
+\index{scale@{scale}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} render\+\_\+engine\+::scale (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&}]{matrix,  }\item[{float}]{scale\+\_\+x,  }\item[{float}]{scale\+\_\+y,  }\item[{float}]{scale\+\_\+z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_aced3d2200c9ea7983d6621c05405557b}\label{namespacerender__engine_aced3d2200c9ea7983d6621c05405557b}} 
+\index{render\_engine@{render\_engine}!translate@{translate}}
+\index{translate@{translate}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{translate()}{translate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} render\+\_\+engine\+::translate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&}]{matrix,  }\item[{const \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}} \&}]{displacement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{namespacerender__engine_aedd8637fea62e3c53fedc38c0ea139ed}\label{namespacerender__engine_aedd8637fea62e3c53fedc38c0ea139ed}} 
+\index{render\_engine@{render\_engine}!transpose@{transpose}}
+\index{transpose@{transpose}!render\_engine@{render\_engine}}
+\doxysubsubsection{\texorpdfstring{transpose()}{transpose()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} render\+\_\+engine\+::transpose (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}} \&}]{matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

@@ -1,0 +1,104 @@
+\hypertarget{classrender__engine_1_1_model}{}\doxysection{render\+\_\+engine\+::Model Class Reference}
+\label{classrender__engine_1_1_model}\index{render\_engine::Model@{render\_engine::Model}}
+
+
+{\ttfamily \#include $<$Model.\+hpp$>$}
+
+Inheritance diagram for render\+\_\+engine\+::Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrender__engine_1_1_model}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrender__engine_1_1_model_a90987ed2b1a4f90dbe5dc7cddda801df}{Model}} (const string \&model\+\_\+path, int n\+\_\+mesh, glm\+::vec3 mesh\+\_\+color)
+\begin{DoxyCompactList}\small\item\em Constructor de \mbox{\hyperlink{classrender__engine_1_1_model}{Model}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrender__engine_1_1_model_a83bf0c45467d86cb8f050311efb615ce}{update}} ()
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_model_adf9450bac85cd9c55a33490273190821}{render}} (\mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer}}$<$ Color\+\_\+\+Buffer $>$ \&rasterizer, const \mbox{\hyperlink{classrender__engine_1_1_camera}{Camera}} \&camera)
+\begin{DoxyCompactList}\small\item\em Esta funcion se encarga de renderizar, los detalles estan dentro del código de la función. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrender__engine_1_1_entity}{render\+\_\+engine\+::\+Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_entity_a3a7b3aaa802a77db35464159742c4521}{set\+\_\+parent}} (\mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}} \&given\+\_\+parent)
+\begin{DoxyCompactList}\small\item\em Esta funcion settea la entidad de tipo padre. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrender__engine_1_1_entity_aed165c64917418d57d3965b02c5d1f47}{set\+\_\+position}} (const glm\+::vec3 \&new\+\_\+position)
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_entity_a6105cc206d8ee88958ab81f4a8d16042}{set\+\_\+scale}} (const float new\+\_\+scale)
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_entity_a0d3de51495cab515810d155d6d3f71d5}{set\+\_\+rotation\+\_\+y}} (float new\+\_\+rotation\+\_\+y)
+\item 
+glm\+::vec3 \mbox{\hyperlink{classrender__engine_1_1_entity_a175e3f8a07b2a566b7b12a9fbc083a33}{get\+\_\+position}} () const
+\item 
+glm\+::mat4 \mbox{\hyperlink{classrender__engine_1_1_entity_a4285772fd09e471a7e6f9b5f827e60cb}{get\+\_\+transform\+\_\+matrix}} () const
+\begin{DoxyCompactList}\small\item\em Esta funcion devuelve la transform matrix, esto se usa principalmente para hacer una transform matrix basada en la de el padre si lo hay, asi pudiendo hacer movimientos en coordenadas relativas a dicho parent. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrender__engine_1_1_entity_a3a06266ccf5fba2ccdcca9265283d146}{move\+\_\+position}} (const glm\+::vec3 \&delta\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Esta funcion incrementa la posicion actual en base a la nueva recibida, se usa principalmente en la cámara. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classrender__engine_1_1_entity}{render\+\_\+engine\+::\+Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classrender__engine_1_1_entity_aa4d70b6e1bcb479712822d6b6b791be7}{scale}} = 1.f
+\item 
+float \mbox{\hyperlink{classrender__engine_1_1_entity_aa18416cf92fa9c5554f1157db33a65af}{rotation\+\_\+y}} = 0
+\begin{DoxyCompactList}\small\item\em Escala del objeto por defecto en 1.\+f. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{classrender__engine_1_1_entity_a86789ade43c1394aae361a822330ce2b}{position}} = \{0, 0, 0\}
+\begin{DoxyCompactList}\small\item\em Rotacion alrededor del eje y. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}} $\ast$ \mbox{\hyperlink{classrender__engine_1_1_entity_a41df50b35d92c726c21ffc38daf6fc45}{parent}} = nullptr
+\begin{DoxyCompactList}\small\item\em parent esta incializado de base a nullptr para que no haga falsos positivos \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classrender__engine_1_1_model_a90987ed2b1a4f90dbe5dc7cddda801df}\label{classrender__engine_1_1_model_a90987ed2b1a4f90dbe5dc7cddda801df}} 
+\index{render\_engine::Model@{render\_engine::Model}!Model@{Model}}
+\index{Model@{Model}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{Model()}{Model()}}
+{\footnotesize\ttfamily render\+\_\+engine\+::\+Model\+::\+Model (\begin{DoxyParamCaption}\item[{const string \&}]{model\+\_\+path,  }\item[{int}]{n\+\_\+mesh,  }\item[{glm\+::vec3}]{mesh\+\_\+color }\end{DoxyParamCaption})}
+
+
+
+Constructor de \mbox{\hyperlink{classrender__engine_1_1_model}{Model}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model\+\_\+path} & es la ruta del modelo a cargar \\
+\hline
+{\em n\+\_\+mesh} & es el numero de la mesh del objecto (Para objetos con múltiples meshes) \\
+\hline
+{\em mesh\+\_\+color} & es el color de los vértices de dicho trozo de mesh \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classrender__engine_1_1_model_adf9450bac85cd9c55a33490273190821}\label{classrender__engine_1_1_model_adf9450bac85cd9c55a33490273190821}} 
+\index{render\_engine::Model@{render\_engine::Model}!render@{render}}
+\index{render@{render}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void render\+\_\+engine\+::\+Model\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer}}$<$ Color\+\_\+\+Buffer $>$ \&}]{rasterizer,  }\item[{const \mbox{\hyperlink{classrender__engine_1_1_camera}{Camera}} \&}]{camera }\end{DoxyParamCaption})}
+
+
+
+Esta funcion se encarga de renderizar, los detalles estan dentro del código de la función. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rasterizer} & es un objeto de tipo \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer$<$ Color\+\_\+\+Buffer $>$}} \\
+\hline
+{\em camera} & es un objeto de tipo Camara \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classrender__engine_1_1_model_a83bf0c45467d86cb8f050311efb615ce}\label{classrender__engine_1_1_model_a83bf0c45467d86cb8f050311efb615ce}} 
+\index{render\_engine::Model@{render\_engine::Model}!update@{update}}
+\index{update@{update}!render\_engine::Model@{render\_engine::Model}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void render\+\_\+engine\+::\+Model\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_model_8hpp}{Model.\+hpp}}\item 
+\mbox{\hyperlink{_model_8cpp}{Model.\+cpp}}\end{DoxyCompactItemize}

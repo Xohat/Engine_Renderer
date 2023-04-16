@@ -1,0 +1,406 @@
+\hypertarget{_rasterizer_8hpp_source}{}\doxysection{Rasterizer.\+hpp}
+\mbox{\hyperlink{_rasterizer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Este\ código\ es\ de\ dominio\ público.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ angel.rodriguez@esne.edu}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2013.12\ -\/\ 2021.03}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ RASTERIZER\_HEADER}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ RASTERIZER\_HEADER}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#include\ <algorithm>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#include\ <ciso646>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \#include\ <cstdint>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \#include\ <limits>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{math_8hpp}{math.hpp}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerender__engine}{render\_engine}}}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{class}\ COLOR\_BUFFER\_TYPE\ >}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer}}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ COLOR\_BUFFER\_TYPE\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}{Color\_Buffer}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{typename}\ Color\_Buffer::Color\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_ac2dbdd0caecc0d5571630dbb3a3dd762}{Color}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}{Color\_Buffer}}\ \&\ color\_buffer;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ offset\_cache0[2160];}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ offset\_cache1[2160];}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ z\_cache0[2160];}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ z\_cache1[2160];}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_ac2dbdd0caecc0d5571630dbb3a3dd762}{Color}}\ color;}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<\ int\ >\ z\_buffer;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_ace57f832e1f678b7d1aecd6279bf5061}{Rasterizer}}(\mbox{\hyperlink{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}{Color\_Buffer}}\ \&\ target)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\_buffer(target),}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\_buffer(target.get\_width\ ()\ *\ target.get\_height\ ())}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}{Color\_Buffer}}\ \&\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a9b2ce7385221b489fa23c2ea2234883d}{get\_color\_buffer}}\ ()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (color\_buffer);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a7c89ce731686d2d5d5f572382358c8cb}{set\_color}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_ac2dbdd0caecc0d5571630dbb3a3dd762}{Color}}\ \&\ new\_color)}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\ =\ new\_color;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a0eb8b83c82195d85ab9cbef00a3e5bc1}{set\_color}}\ (\textcolor{keywordtype}{float}\ r,\ \textcolor{keywordtype}{float}\ g,\ \textcolor{keywordtype}{float}\ b)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\_buffer.set\ (r,\ g,\ b);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a7e3774baf3e519c00a20ad2739811bfa}{clear}}\ ()}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\_buffer.clear\ (\{\ 0.07f,\ 0.6f,\ 0.82f\ \});}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ *\ z\ =\ z\_buffer.data\ (),\ *\ end\ =\ z\ +\ z\_buffer.size\ ();\ z\ !=\ end;\ z++)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *z\ =\ std::numeric\_limits<\ int\ >::max\ ();}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_ae25f3ac8c696f14dc780a36baf3526ef}{fill\_convex\_polygon}}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}}\ *\ \textcolor{keyword}{const}\ vertices,\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ \ *\ \textcolor{keyword}{const}\ indices\_begin,\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ \ *\ \textcolor{keyword}{const}\ indices\_end}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a5c56fd8bfdd5b2085005f39c4fe3a29d}{fill\_convex\_polygon\_z\_buffer}}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}}\ *\ \textcolor{keyword}{const}\ vertices,\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ \ *\ \textcolor{keyword}{const}\ indices\_begin,\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ \ *\ \textcolor{keyword}{const}\ indices\_end}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{typename}\ VALUE\_TYPE,\ \textcolor{keywordtype}{size\_t}\ SHIFT\ >}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ interpolate\ (\textcolor{keywordtype}{int}\ *\ cache,\ \textcolor{keywordtype}{int}\ v0,\ \textcolor{keywordtype}{int}\ v1,\ \textcolor{keywordtype}{int}\ y\_min,\ \textcolor{keywordtype}{int}\ y\_max);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{class}\ COLOR\_BUFFER\_TYPE\ >\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer<\ COLOR\_BUFFER\_TYPE\ >::offset\_cache0}}[2160];}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{class}\ COLOR\_BUFFER\_TYPE\ >\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer<\ COLOR\_BUFFER\_TYPE\ >::offset\_cache1}}[2160];}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{class}\ COLOR\_BUFFER\_TYPE\ >\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer<\ COLOR\_BUFFER\_TYPE\ >::z\_cache0}}[2160];}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{class}\ COLOR\_BUFFER\_TYPE\ >\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer<\ COLOR\_BUFFER\_TYPE\ >::z\_cache1}}[2160];}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{class}\ \ COLOR\_BUFFER\_TYPE\ >}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_ae25f3ac8c696f14dc780a36baf3526ef}{Rasterizer<\ COLOR\_BUFFER\_TYPE\ >::fill\_convex\_polygon}}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}}\ *\ \textcolor{keyword}{const}\ vertices,\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ \ *\ \textcolor{keyword}{const}\ indices\_begin,\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ \ *\ \textcolor{keyword}{const}\ indices\_end}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ cachean\ algunos\ valores\ de\ interés:}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ pitch\ \ \ \ \ \ \ \ \ =\ color\_buffer.get\_width\ ();}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *\ offset\_cache0\ =\ this-\/>offset\_cache0;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *\ offset\_cache1\ =\ this-\/>offset\_cache1;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ indices\_back\ \ =\ indices\_end\ -\/\ 1;}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ busca\ el\ vértice\ de\ inicio\ (el\ que\ tiene\ menor\ Y)\ y\ el\ de\ terminación\ (el\ que\ tiene\ mayor\ Y):}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ start\_index\ \ \ =\ indices\_begin;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ start\_y\ \ \ \ \ \ \ =\ vertices[*start\_index][1];}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ end\_index\ \ \ \ \ =\ indices\_begin;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ end\_y\ \ \ \ \ \ \ \ \ =\ start\_y;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ index\_iterator\ =\ start\_index;\ ++index\_iterator\ <\ indices\_end;\ )}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ current\_y\ =\ vertices[*index\_iterator][1];}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_y\ <\ start\_y)}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\_y\ \ \ \ \ =\ current\_y;\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\_index\ =\ index\_iterator;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_y\ >\ end\_y)}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end\_y\ \ \ \ \ \ \ =\ current\_y;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end\_index\ \ \ =\ index\_iterator;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ cachean\ las\ coordenadas\ X\ de\ los\ lados\ que\ van\ desde\ el\ vértice\ con\ Y\ menor\ al}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vértice\ con\ Y\ mayor\ en\ sentido\ antihorario:}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ current\_index\ =\ start\_index;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ \ \ \ next\_index\ =\ start\_index\ >\ indices\_begin\ ?\ start\_index\ -\/\ 1\ :\ indices\_back;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y0\ =\ vertices[*current\_index][1];}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y1\ =\ vertices[*\ \ \ next\_index][1];}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ o0\ =\ vertices[*current\_index][0]\ +\ y0\ *\ pitch;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ o1\ =\ vertices[*\ \ \ next\_index][0]\ +\ y1\ *\ pitch;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ interpolate<\ int64\_t,\ 32\ >\ (offset\_cache0,\ o0,\ o1,\ y0,\ y1);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_index\ ==\ indices\_begin)\ current\_index\ =\ indices\_back;\ \textcolor{keywordflow}{else}\ current\_index-\/-\/;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_index\ ==\ end\_index\ \ \ \ )\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \ \ next\_index\ ==\ indices\_begin)\ next\_index\ \ \ \ =\ indices\_back;\ \textcolor{keywordflow}{else}\ \ \ \ next\_index-\/-\/;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y0\ =\ y1;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y1\ =\ vertices[*next\_index][1];}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o0\ =\ o1;}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o1\ =\ vertices[*next\_index][0]\ +\ y1\ *\ pitch;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ end\_offset\ =\ o1;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ cachean\ las\ coordenadas\ X\ de\ los\ lados\ que\ van\ desde\ el\ vértice\ con\ Y\ menor\ al}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vértice\ con\ Y\ mayor\ en\ sentido\ horario:}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ current\_index\ =\ start\_index;}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ next\_index\ =\ start\_index\ <\ indices\_back\ ?\ start\_index\ +\ 1\ :\ indices\_begin;}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ y0\ =\ vertices[*current\_index][1];}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ y1\ =\ vertices[*\ \ \ next\_index][1];}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ o0\ =\ vertices[*current\_index][0]\ +\ y0\ *\ pitch;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ o1\ =\ vertices[*\ \ \ next\_index][0]\ +\ y1\ *\ pitch;}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ interpolate<\ int64\_t,\ 32\ >\ (offset\_cache1,\ o0,\ o1,\ y0,\ y1);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_index\ ==\ indices\_back)\ current\_index\ =\ indices\_begin;\ \textcolor{keywordflow}{else}\ current\_index++;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_index\ ==\ end\_index\ \ \ )\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \ \ next\_index\ ==\ indices\_back)\ next\_index\ \ \ \ =\ indices\_begin;\ \textcolor{keywordflow}{else}\ next\_index++;}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y0\ =\ y1;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y1\ =\ vertices[*next\_index][1];}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o0\ =\ o1;}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o1\ =\ vertices[*next\_index][0]\ +\ y1\ *\ pitch;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (o1\ >\ end\_offset)\ end\_offset\ =\ o1;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ rellenan\ las\ scanlines\ desde\ la\ que\ tiene\ menor\ Y\ hasta\ la\ que\ tiene\ mayor\ Y:}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ offset\_cache0\ +=\ start\_y;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ offset\_cache1\ +=\ start\_y;}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ start\_y;\ y\ <\ end\_y;\ y++)}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o0\ =\ *offset\_cache0++;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o1\ =\ *offset\_cache1++;}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (o0\ <\ o1)}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (o0\ <\ o1)\ color\_buffer.set\_pixel\ (o0++);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (o0\ >\ end\_offset)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (o1\ <\ o0)\ color\_buffer.set\_pixel\ (o1++);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (o1\ >\ end\_offset)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{class}\ \ COLOR\_BUFFER\_TYPE\ >}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a5c56fd8bfdd5b2085005f39c4fe3a29d}{Rasterizer<\ COLOR\_BUFFER\_TYPE\ >::fill\_convex\_polygon\_z\_buffer}}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ (}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}}\ *\ \textcolor{keyword}{const}\ vertices,\ }
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ \ *\ \textcolor{keyword}{const}\ indices\_begin,\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \ \ \ \ *\ \textcolor{keyword}{const}\ indices\_end}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ )}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ cachean\ algunos\ valores\ de\ interés:}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ pitch\ \ \ \ \ \ \ \ \ =\ color\_buffer.get\_width\ ();}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *\ offset\_cache0\ =\ this-\/>offset\_cache0;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *\ offset\_cache1\ =\ this-\/>offset\_cache1;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *\ z\_cache0\ \ \ \ \ \ =\ this-\/>z\_cache0;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ *\ z\_cache1\ \ \ \ \ \ =\ this-\/>z\_cache1;}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ indices\_back\ \ =\ indices\_end\ -\/\ 1;}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ busca\ el\ vértice\ de\ inicio\ (el\ que\ tiene\ menor\ Y)\ y\ el\ de\ terminación\ (el\ que\ tiene\ mayor\ Y):}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ start\_index\ \ \ =\ indices\_begin;}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ start\_y\ \ \ \ \ \ \ =\ vertices[*start\_index][1];}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ end\_index\ \ \ \ \ =\ indices\_begin;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ end\_y\ \ \ \ \ \ \ \ \ =\ start\_y;}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ index\_iterator\ =\ start\_index;\ ++index\_iterator\ <\ indices\_end;\ )}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ current\_y\ =\ vertices[*index\_iterator][1];}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_y\ <\ start\_y)}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\_y\ \ \ \ \ =\ current\_y;\ }
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ start\_index\ =\ index\_iterator;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_y\ >\ end\_y)}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end\_y\ \ \ \ \ \ \ =\ current\_y;}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end\_index\ \ \ =\ index\_iterator;}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ cachean\ las\ coordenadas\ X\ de\ los\ lados\ que\ van\ desde\ el\ vértice\ con\ Y\ menor\ al}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vértice\ con\ Y\ mayor\ en\ sentido\ antihorario:}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ current\_index\ =\ start\_index;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ *\ \ \ \ next\_index\ =\ start\_index\ >\ indices\_begin\ ?\ start\_index\ -\/\ 1\ :\ indices\_back;}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y0\ =\ vertices[*current\_index][1];}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ y1\ =\ vertices[*\ \ \ next\_index][1];}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ z0\ =\ vertices[*current\_index][2];}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ z1\ =\ vertices[*\ \ \ next\_index][2];}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ o0\ =\ vertices[*current\_index][0]\ +\ y0\ *\ pitch;}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ o1\ =\ vertices[*\ \ \ next\_index][0]\ +\ y1\ *\ pitch;}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ interpolate<\ int64\_t,\ 32\ >\ (offset\_cache0,\ o0,\ o1,\ y0,\ y1);}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ interpolate<\ int32\_t,\ \ 0\ >\ (\ \ \ \ \ z\_cache0,\ z0,\ z1,\ y0,\ y1);}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_index\ ==\ indices\_begin)\ current\_index\ =\ indices\_back;\ \textcolor{keywordflow}{else}\ current\_index-\/-\/;}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_index\ ==\ end\_index\ \ \ \ )\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \ \ next\_index\ ==\ indices\_begin)\ next\_index\ \ \ \ =\ indices\_back;\ \textcolor{keywordflow}{else}\ \ \ \ next\_index-\/-\/;}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y0\ =\ y1;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y1\ =\ vertices[*next\_index][1];}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z0\ =\ z1;}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z1\ =\ vertices[*next\_index][2];}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o0\ =\ o1;}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o1\ =\ vertices[*next\_index][0]\ +\ y1\ *\ pitch;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ end\_offset\ =\ o1;}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ cachean\ las\ coordenadas\ X\ de\ los\ lados\ que\ van\ desde\ el\ vértice\ con\ Y\ menor\ al}}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vértice\ con\ Y\ mayor\ en\ sentido\ horario:}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ current\_index\ =\ start\_index;}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ next\_index\ =\ start\_index\ <\ indices\_back\ ?\ start\_index\ +\ 1\ :\ indices\_begin;}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ y0\ =\ vertices[*current\_index][1];}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ y1\ =\ vertices[*\ \ \ next\_index][1];}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ z0\ =\ vertices[*current\_index][2];}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ z1\ =\ vertices[*\ \ \ next\_index][2];}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ o0\ =\ vertices[*current\_index][0]\ +\ y0\ *\ pitch;}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ o1\ =\ vertices[*\ \ \ next\_index][0]\ +\ y1\ *\ pitch;}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ interpolate<\ int64\_t,\ 32\ >\ (offset\_cache1,\ o0,\ o1,\ y0,\ y1);}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ interpolate<\ int32\_t,\ \ 0\ >\ (\ \ \ \ \ z\_cache1,\ z0,\ z1,\ y0,\ y1);}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_index\ ==\ indices\_back)\ current\_index\ =\ indices\_begin;\ \textcolor{keywordflow}{else}\ current\_index++;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (current\_index\ ==\ end\_index\ \ \ )\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ \ \ next\_index\ ==\ indices\_back)\ next\_index\ \ \ \ =\ indices\_begin;\ \textcolor{keywordflow}{else}\ next\_index++;}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y0\ =\ y1;}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y1\ =\ vertices[*next\_index][1];}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z0\ =\ z1;}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z1\ =\ vertices[*next\_index][2];}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o0\ =\ o1;}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o1\ =\ vertices[*next\_index][0]\ +\ y1\ *\ pitch;}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (o1\ >\ end\_offset)\ end\_offset\ =\ o1;}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ rellenan\ las\ scanlines\ desde\ la\ que\ tiene\ menor\ Y\ hasta\ la\ que\ tiene\ mayor\ Y:}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ offset\_cache0\ +=\ start\_y;}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ offset\_cache1\ +=\ start\_y;}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ z\_cache0\ +=\ start\_y;}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ z\_cache1\ +=\ start\_y;}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ y\ =\ start\_y;\ y\ <\ end\_y;\ y++)}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o0\ =\ *offset\_cache0++;}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o1\ =\ *offset\_cache1++;}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z0\ =\ *z\_cache0++;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z1\ =\ *z\_cache1++;}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (o0\ <\ o1)}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ z\_step\ =\ (z1\ -\/\ z0)\ /\ (o1\ -\/\ o0);}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (o0\ <\ o1)}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (z0\ <\ z\_buffer[o0])}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\_buffer.set\_pixel\ (o0,\ color);}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\_buffer[o0]\ =\ z0;}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z0\ +=\ z\_step;}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o0++;}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (o0\ >\ end\_offset)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (o1\ <\ o0)}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ z\_step\ =\ (z0\ -\/\ z1)\ /\ (o0\ -\/\ o1);}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (o1\ <\ o0)}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (z1\ <\ z\_buffer[o1])}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color\_buffer.set\_pixel\ (o1,\ color);}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\_buffer[o1]\ =\ z1;}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z1\ +=\ z\_step;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ o1++;}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (o1\ >\ end\_offset)\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{class}\ \ COLOR\_BUFFER\_TYPE\ >}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{typename}\ VALUE\_TYPE,\ \textcolor{keywordtype}{size\_t}\ SHIFT\ >}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer<\ COLOR\_BUFFER\_TYPE\ >::interpolate}}\ (\textcolor{keywordtype}{int}\ *\ cache,\ \textcolor{keywordtype}{int}\ v0,\ \textcolor{keywordtype}{int}\ v1,\ \textcolor{keywordtype}{int}\ y\_min,\ \textcolor{keywordtype}{int}\ y\_max)}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y\_max\ >\ y\_min)}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_TYPE\ value\ =\ (VALUE\_TYPE(\ \ \ \ \ v0)\ <<\ SHIFT);}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VALUE\_TYPE\ step\ \ =\ (VALUE\_TYPE(v1\ -\/\ v0)\ <<\ SHIFT)\ /\ (y\_max\ -\/\ y\_min);}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ *\ iterator\ =\ cache\ +\ y\_min,\ *\ end\ =\ cache\ +\ y\_max;\ iterator\ <=\ end;\ )}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *iterator++\ =\ int(value\ >>\ SHIFT);}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ value\ +=\ step;}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *iterator++\ =\ int(value\ >>\ SHIFT);}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ value\ +=\ step;}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \ \ \ \ \}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

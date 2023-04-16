@@ -1,3 +1,9 @@
+/**
+* @file Camera.hpp
+* @brief Codigo de Camera
+* @author Arturo Vilar Carretero
+*/
+
 // Copyright (c) 2023 Arturo / Xohat
 // arturovilarc@gmail.com / xohatlatte@gmail.com
 // 2023.03 - 2023.04
@@ -13,16 +19,17 @@ namespace render_engine
 	{
 		glm::mat4 projection;
 
-		float FOV;
-		float near_distance;
-		float far_distance;
-		unsigned width;
-		unsigned height;
+		float FOV;				///Field of view
+		float near_distance;	///Near distance
+		float far_distance;		///Far distance 
+		unsigned width;			///Window width
+		unsigned height;		///Window height
 
 	public:
 
 		Camera::Camera(float given_FOV, float given_near_distance, float given_far_distance, unsigned given_width, unsigned given_height);
 
+		// Getters
 		float get_fov() const
 		{
 			return FOV;
@@ -52,6 +59,7 @@ namespace render_engine
 			return glm::inverse(get_transform_matrix());
 		}
 
+		// Setters
 		void set_fov(float new_fov) 
 		{
 			FOV = new_fov;
@@ -70,9 +78,12 @@ namespace render_engine
 
 	private:
 
+		/**
+		* @brief Esta función se encarga de refrescar la matriz de proyección, 
+		* esto se debe hacer cuando se modifiquen los valores de FOV, near_distance, far_distance, width o height
+		*/
 		void refresh_projection_matrix() 
 		{
-			// A + alto el primer numero diferente FOV (1 ya es muy lejos, jugar con decimales hasta 21 si se juega con ello)
 			projection = perspective(FOV, near_distance, far_distance, float(width) / height);
 		}
 	};

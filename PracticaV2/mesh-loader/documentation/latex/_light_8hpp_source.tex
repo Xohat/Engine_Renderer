@@ -1,0 +1,44 @@
+\hypertarget{_light_8hpp_source}{}\doxysection{Light.\+hpp}
+\mbox{\hyperlink{_light_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}glm/gtc/matrix\_transform.hpp"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerender__engine}{render\_engine}}\ }
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrender__engine_1_1_light}{Light}}\ }
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ light\_strength;}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ glm::vec3\ light\_direction;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ glm::vec3\ light\_color;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_light_a4d3618ddf12a3962715b25aa842f6721}{Light}}()}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ light\_strength\ =\ 1.f;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ light\_direction\ =\ \{-\/1.f,\ -\/1.f,\ -\/1.f\};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ light\_color\ =\ \{1,\ 1,\ 1\};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ glm::vec3\ \mbox{\hyperlink{classrender__engine_1_1_light_a62b2e0f065f90d62cca97505cdbce830}{CalcDirLight}}(\mbox{\hyperlink{classrender__engine_1_1_light}{Light}}\ light,\ glm::vec3\ normal)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ lightDir\ =\ glm::normalize(-\/light.light\_direction);}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ diffuse\ shading}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ diff\ =\ std::max(dot(normal,\ lightDir),\ 0.0f);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ combine\ results;}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ diffuse\ =\ diff\ *\ light.light\_color\ *\ light.light\_strength;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ diffuse;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \};}
+\DoxyCodeLine{00044\ \}}
+
+\end{DoxyCode}

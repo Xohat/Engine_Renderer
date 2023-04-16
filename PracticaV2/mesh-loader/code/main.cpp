@@ -1,7 +1,13 @@
 
-// Este código es de dominio público.
-// angel.rodriguez@esne.edu
-// 2021.12 - 2021.04
+/**
+* @file main.cpp
+* @brief Archivo main
+* @author Arturo Vilar Carretero
+*/
+
+// Copyright (c) 2023 Arturo / Xohat
+// arturovilarc@gmail.com / xohatlatte@gmail.com
+// 2023.03 - 2023.04
 
 #include "View.hpp"
 #include <SFML/Window.hpp>
@@ -17,10 +23,6 @@ int main ()
 
     constexpr auto window_width  = 800u;
     constexpr auto window_height = 600u;
-
-	float test_x_pos = 0;
-	float test_y_pos = 0;
-	float test_z_pos = 0;
 
     Window window(VideoMode(window_width, window_height), "Mesh Loader", Style::Titlebar | Style::Close);
     View   view  (window_width, window_height);
@@ -43,42 +45,39 @@ int main ()
 						exit = true;
 						break;
 
+				// Se encarga de los inputs para el movimeinto de la camara
 				case Event::KeyPressed:
 					switch (event.key.code)
 					{
+						// Axis inputs
 						case Keyboard::Key::W:
-							test_y_pos += 0.5f;
-							view.set_y_position(test_y_pos);
+							view.set_y_position(0.5f);
 							view.update_camera_position();
 							break;
 
 						case Keyboard::Key::A:
-							test_x_pos += 0.5f;
-							view.set_x_position(test_x_pos);
+							view.set_x_position(0.5f);
 							view.update_camera_position();
 							break;
 
 						case Keyboard::Key::S:
-							test_y_pos -= 0.5f;
-							view.set_y_position(test_y_pos);
+							view.set_y_position(-0.5f);
 							view.update_camera_position();
 							break;
 
 						case Keyboard::Key::D:
-							test_x_pos -= 0.5f;
-							view.set_x_position(test_x_pos);
+							view.set_x_position(-0.5f);
 							view.update_camera_position();
 							break;
 
+						// Zoom inputs
 						case Keyboard::Key::Up:
-							test_z_pos -= 0.5f;
-							view.set_z_position(test_z_pos);
+							view.set_z_position(-0.5f);
 							view.update_camera_position();
 							break;
 
 						case Keyboard::Key::Down:
-							test_z_pos += 0.5f;
-							view.set_z_position(test_z_pos);
+							view.set_z_position(0.5f);
 							view.update_camera_position();
 							break;
 					}

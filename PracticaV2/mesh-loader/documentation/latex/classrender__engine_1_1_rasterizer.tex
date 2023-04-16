@@ -1,0 +1,107 @@
+\hypertarget{classrender__engine_1_1_rasterizer}{}\doxysection{render\+\_\+engine\+::Rasterizer\texorpdfstring{$<$}{<} COLOR\+\_\+\+BUFFER\+\_\+\+TYPE \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classrender__engine_1_1_rasterizer}\index{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}}
+
+
+{\ttfamily \#include $<$Rasterizer.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef COLOR\+\_\+\+BUFFER\+\_\+\+TYPE \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}{Color\+\_\+\+Buffer}}
+\item 
+typedef Color\+\_\+\+Buffer\+::\+Color \mbox{\hyperlink{classrender__engine_1_1_rasterizer_ac2dbdd0caecc0d5571630dbb3a3dd762}{Color}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrender__engine_1_1_rasterizer_ace57f832e1f678b7d1aecd6279bf5061}{Rasterizer}} (\mbox{\hyperlink{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}{Color\+\_\+\+Buffer}} \&target)
+\item 
+const \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}{Color\+\_\+\+Buffer}} \& \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a9b2ce7385221b489fa23c2ea2234883d}{get\+\_\+color\+\_\+buffer}} () const
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a7c89ce731686d2d5d5f572382358c8cb}{set\+\_\+color}} (const \mbox{\hyperlink{classrender__engine_1_1_rasterizer_ac2dbdd0caecc0d5571630dbb3a3dd762}{Color}} \&new\+\_\+color)
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a0eb8b83c82195d85ab9cbef00a3e5bc1}{set\+\_\+color}} (float r, float g, float b)
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a7e3774baf3e519c00a20ad2739811bfa}{clear}} ()
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_rasterizer_ae25f3ac8c696f14dc780a36baf3526ef}{fill\+\_\+convex\+\_\+polygon}} (const \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}} $\ast$const vertices, const int $\ast$const indices\+\_\+begin, const int $\ast$const indices\+\_\+end)
+\item 
+void \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a5c56fd8bfdd5b2085005f39c4fe3a29d}{fill\+\_\+convex\+\_\+polygon\+\_\+z\+\_\+buffer}} (const \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}} $\ast$const vertices, const int $\ast$const indices\+\_\+begin, const int $\ast$const indices\+\_\+end)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classrender__engine_1_1_rasterizer_ac2dbdd0caecc0d5571630dbb3a3dd762}\label{classrender__engine_1_1_rasterizer_ac2dbdd0caecc0d5571630dbb3a3dd762}} 
+\index{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}!Color@{Color}}
+\index{Color@{Color}!render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{Color}{Color}}
+{\footnotesize\ttfamily template$<$class COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$ \\
+typedef Color\+\_\+\+Buffer\+::\+Color \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{render\+\_\+engine\+::\+Rasterizer}}$<$ COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$\+::\+Color}
+
+\mbox{\Hypertarget{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}\label{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}} 
+\index{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}!Color\_Buffer@{Color\_Buffer}}
+\index{Color\_Buffer@{Color\_Buffer}!render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{Color\_Buffer}{Color\_Buffer}}
+{\footnotesize\ttfamily template$<$class COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$ \\
+typedef COLOR\+\_\+\+BUFFER\+\_\+\+TYPE \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{render\+\_\+engine\+::\+Rasterizer}}$<$ COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$\+::\+Color\+\_\+\+Buffer}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classrender__engine_1_1_rasterizer_ace57f832e1f678b7d1aecd6279bf5061}\label{classrender__engine_1_1_rasterizer_ace57f832e1f678b7d1aecd6279bf5061}} 
+\index{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}!Rasterizer@{Rasterizer}}
+\index{Rasterizer@{Rasterizer}!render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{Rasterizer()}{Rasterizer()}}
+{\footnotesize\ttfamily template$<$class COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classrender__engine_1_1_rasterizer}{render\+\_\+engine\+::\+Rasterizer}}$<$ COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$\+::\+Rasterizer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}{Color\+\_\+\+Buffer}} \&}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classrender__engine_1_1_rasterizer_a7e3774baf3e519c00a20ad2739811bfa}\label{classrender__engine_1_1_rasterizer_a7e3774baf3e519c00a20ad2739811bfa}} 
+\index{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}!clear@{clear}}
+\index{clear@{clear}!render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$class COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{render\+\_\+engine\+::\+Rasterizer}}$<$ COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_rasterizer_ae25f3ac8c696f14dc780a36baf3526ef}\label{classrender__engine_1_1_rasterizer_ae25f3ac8c696f14dc780a36baf3526ef}} 
+\index{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}!fill\_convex\_polygon@{fill\_convex\_polygon}}
+\index{fill\_convex\_polygon@{fill\_convex\_polygon}!render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{fill\_convex\_polygon()}{fill\_convex\_polygon()}}
+{\footnotesize\ttfamily template$<$class COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{render\+\_\+engine\+::\+Rasterizer}}$<$ COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$\+::fill\+\_\+convex\+\_\+polygon (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}} $\ast$const}]{vertices,  }\item[{const int $\ast$const}]{indices\+\_\+begin,  }\item[{const int $\ast$const}]{indices\+\_\+end }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classrender__engine_1_1_rasterizer_a5c56fd8bfdd5b2085005f39c4fe3a29d}\label{classrender__engine_1_1_rasterizer_a5c56fd8bfdd5b2085005f39c4fe3a29d}} 
+\index{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}!fill\_convex\_polygon\_z\_buffer@{fill\_convex\_polygon\_z\_buffer}}
+\index{fill\_convex\_polygon\_z\_buffer@{fill\_convex\_polygon\_z\_buffer}!render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{fill\_convex\_polygon\_z\_buffer()}{fill\_convex\_polygon\_z\_buffer()}}
+{\footnotesize\ttfamily template$<$class COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{render\+\_\+engine\+::\+Rasterizer}}$<$ COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$\+::fill\+\_\+convex\+\_\+polygon\+\_\+z\+\_\+buffer (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}} $\ast$const}]{vertices,  }\item[{const int $\ast$const}]{indices\+\_\+begin,  }\item[{const int $\ast$const}]{indices\+\_\+end }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classrender__engine_1_1_rasterizer_a9b2ce7385221b489fa23c2ea2234883d}\label{classrender__engine_1_1_rasterizer_a9b2ce7385221b489fa23c2ea2234883d}} 
+\index{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}!get\_color\_buffer@{get\_color\_buffer}}
+\index{get\_color\_buffer@{get\_color\_buffer}!render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get\_color\_buffer()}{get\_color\_buffer()}}
+{\footnotesize\ttfamily template$<$class COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$ \\
+const \mbox{\hyperlink{classrender__engine_1_1_rasterizer_a2121986b7a97bb52ecd6d50210fa9d0e}{Color\+\_\+\+Buffer}} \& \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{render\+\_\+engine\+::\+Rasterizer}}$<$ COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$\+::get\+\_\+color\+\_\+buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_rasterizer_a7c89ce731686d2d5d5f572382358c8cb}\label{classrender__engine_1_1_rasterizer_a7c89ce731686d2d5d5f572382358c8cb}} 
+\index{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}!set\_color@{set\_color}}
+\index{set\_color@{set\_color}!render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{set\_color()}{set\_color()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{render\+\_\+engine\+::\+Rasterizer}}$<$ COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$\+::set\+\_\+color (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classrender__engine_1_1_rasterizer_ac2dbdd0caecc0d5571630dbb3a3dd762}{Color}} \&}]{new\+\_\+color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classrender__engine_1_1_rasterizer_a0eb8b83c82195d85ab9cbef00a3e5bc1}\label{classrender__engine_1_1_rasterizer_a0eb8b83c82195d85ab9cbef00a3e5bc1}} 
+\index{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}!set\_color@{set\_color}}
+\index{set\_color@{set\_color}!render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$@{render\_engine::Rasterizer$<$ COLOR\_BUFFER\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{set\_color()}{set\_color()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classrender__engine_1_1_rasterizer}{render\+\_\+engine\+::\+Rasterizer}}$<$ COLOR\+\_\+\+BUFFER\+\_\+\+TYPE $>$\+::set\+\_\+color (\begin{DoxyParamCaption}\item[{float}]{r,  }\item[{float}]{g,  }\item[{float}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_rasterizer_8hpp}{Rasterizer.\+hpp}}\end{DoxyCompactItemize}

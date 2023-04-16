@@ -1,0 +1,127 @@
+\hypertarget{math_8hpp_source}{}\doxysection{math.\+hpp}
+\mbox{\hyperlink{math_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Este\ código\ es\ de\ dominio\ público.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ angel.rodriguez@esne.edu}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2016.01\ -\/\ 2021.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ MATH\_HEADER}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MATH\_HEADER}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#include\ <glm/gtc/type\_ptr.hpp>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \#include\ <glm/gtx/matrix\_decompose.hpp>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \#include\ <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerender__engine}{render\_engine}}}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec2\ \mbox{\hyperlink{namespacerender__engine_a04306f11db02ae59e54ff2fcc790e99c}{Vector2i}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec3\ \mbox{\hyperlink{namespacerender__engine_a52012f5bcea0ef66f67cd86082f736e5}{Vector3i}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec4\ \mbox{\hyperlink{namespacerender__engine_abd4e767c498016b444ec36e8d5fc281e}{Vector4i}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec2\ \mbox{\hyperlink{namespacerender__engine_a4addf7ebef792f64b6800e17a52c650d}{Vector2f}};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec3\ \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec4\ \mbox{\hyperlink{namespacerender__engine_adac7a979b352849af990c1d88c01fa42}{Vector4f}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::quat\ \mbox{\hyperlink{namespacerender__engine_ac580373810767e40d2a9dae3bc03beb0}{Quaternion}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::mat2\ \mbox{\hyperlink{namespacerender__engine_adc08458299bc01937690e1e89a4752a8}{Matrix22}};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::mat3\ \mbox{\hyperlink{namespacerender__engine_a8556672b1e009f0409a62cc552419c1d}{Matrix33}};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::mat4\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec2\ \mbox{\hyperlink{namespacerender__engine_a5742e237613eed81e66141a1a996a905}{Point2i}};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec3\ \mbox{\hyperlink{namespacerender__engine_a1edf73b6c55c335e3b4fd7063d82cd01}{Point3i}};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec4\ \mbox{\hyperlink{namespacerender__engine_a970e1c072684f3d8361f4ab260f28107}{Point4i}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec2\ \mbox{\hyperlink{namespacerender__engine_a70097b6fc0e80ce22691edcc6b980547}{Point2f}};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec3\ \mbox{\hyperlink{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}{Point3f}};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec4\ \mbox{\hyperlink{namespacerender__engine_a4edc2793d2a61603b9188eb167f6f00b}{Point4f}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{class}\ CLASS\ >}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *\ \mbox{\hyperlink{namespacerender__engine_acf00e33836885cc9cfaf153a04652bb7}{get\_values}}\ (\textcolor{keyword}{const}\ CLASS\ \&\ \textcolor{keywordtype}{object})}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::value\_ptr(\textcolor{keywordtype}{object});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \mbox{\hyperlink{namespacerender__engine_a293879179ceee71c7303b4148b07d7e4}{inverse}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \&\ matrix)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::inverse\ (matrix);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \mbox{\hyperlink{namespacerender__engine_aedd8637fea62e3c53fedc38c0ea139ed}{transpose}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \&\ matrix)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::transpose\ (matrix);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \mbox{\hyperlink{namespacerender__engine_aced3d2200c9ea7983d6621c05405557b}{translate}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \&\ matrix,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}}\ \&\ displacement)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::translate\ (matrix,\ displacement);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \mbox{\hyperlink{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}{scale}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \&\ matrix,\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}{scale}})}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::scale\ (matrix,\ \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}}(\mbox{\hyperlink{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}{scale}},\ \mbox{\hyperlink{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}{scale}},\ \mbox{\hyperlink{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}{scale}}));}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \mbox{\hyperlink{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}{scale}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \&\ matrix,\ \textcolor{keywordtype}{float}\ scale\_x,\ \textcolor{keywordtype}{float}\ scale\_y,\ \textcolor{keywordtype}{float}\ scale\_z)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::scale\ (matrix,\ \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}}(scale\_x,\ scale\_y,\ scale\_z));}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \mbox{\hyperlink{namespacerender__engine_a0bd798783fe15778c20d911a2505b230}{rotate\_around\_x}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \&\ matrix,\ \textcolor{keywordtype}{float}\ angle)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::rotate\ (matrix,\ angle,\ glm::vec3(1.f,\ 0.f,\ 0.f));}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \mbox{\hyperlink{namespacerender__engine_a4bc4f95e759f87430ad7e8108397da89}{rotate\_around\_y}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \&\ matrix,\ \textcolor{keywordtype}{float}\ angle)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::rotate\ (matrix,\ angle,\ glm::vec3(0.f,\ 1.f,\ 0.f));}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \mbox{\hyperlink{namespacerender__engine_a9a567943fc98a780fa3ae3a5a3f68d53}{rotate\_around\_z}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \&\ matrix,\ \textcolor{keywordtype}{float}\ angle)}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::rotate\ (matrix,\ angle,\ glm::vec3(0.f,\ 0.f,\ 1.f));}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \mbox{\hyperlink{namespacerender__engine_a98f0811cd251bfafcb93705b858c7bbe}{perspective}}\ (\textcolor{keywordtype}{float}\ fov,\ \textcolor{keywordtype}{float}\ near\_d,\ \textcolor{keywordtype}{float}\ far\_d,\ \textcolor{keywordtype}{float}\ aspect\_ratio)}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::perspective\ (fov,\ aspect\_ratio,\ near\_d,\ far\_d);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_a4addf7ebef792f64b6800e17a52c650d}{Vector2f}}\ \mbox{\hyperlink{namespacerender__engine_ae505d75410c32c73554058d51867d466}{extract\_translation}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_a8556672b1e009f0409a62cc552419c1d}{Matrix33}}\ \&\ transformation)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \ \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}}\ \&\ translation\ =\ transformation[2];}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacerender__engine_a4addf7ebef792f64b6800e17a52c650d}{Vector2f}}(translation[0],\ translation[1]);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}}\ \mbox{\hyperlink{namespacerender__engine_ae505d75410c32c73554058d51867d466}{extract\_translation}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \&\ transformation)}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \ \mbox{\hyperlink{namespacerender__engine_adac7a979b352849af990c1d88c01fa42}{Vector4f}}\ \&\ translation\ =\ transformation[3];}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}}(translation[0],\ translation[1],\ translation[2]);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_ac580373810767e40d2a9dae3bc03beb0}{Quaternion}}\ \mbox{\hyperlink{namespacerender__engine_a49fd5f19b72d8a14dd529d67153bb1f2}{extract\_rotation}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \&\ transformation)}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}{scale}};}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ glm::quat\ rotation;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ translation;}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ skew;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec4\ \mbox{\hyperlink{namespacerender__engine_a98f0811cd251bfafcb93705b858c7bbe}{perspective}};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ glm::decompose\ (transformation,\ \mbox{\hyperlink{namespacerender__engine_ae528092fa96476d621de8c6951c9e6d4}{scale}},\ rotation,\ translation,\ skew,\ \mbox{\hyperlink{namespacerender__engine_a98f0811cd251bfafcb93705b858c7bbe}{perspective}});}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rotation;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacerender__engine_acd02e981ea527ad5f4b6d304cd6f2445}{Matrix44}}\ \mbox{\hyperlink{namespacerender__engine_adf213514b0d230761fbc1eb7695f8fa3}{look\_at}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}{Point3f}}\ \&\ from,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerender__engine_a9ce28f1fc1eeb774eb80e4ff33c395c5}{Point3f}}\ \&\ to)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::lookAt\ (from,\ to,\ \mbox{\hyperlink{namespacerender__engine_ab299ee1131cb676a4b8def9edffc9dc5}{Vector3f}}(0.f,\ 1.f,\ 0.f));}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

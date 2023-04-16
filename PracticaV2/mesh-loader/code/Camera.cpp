@@ -1,3 +1,9 @@
+/**
+* @file Camera.cpp
+* @brief Implementacion de Camera
+* @author Arturo Vilar Carretero
+*/
+
 // Copyright (c) 2023 Arturo / Xohat
 // arturovilarc@gmail.com / xohatlatte@gmail.com
 // 2023.03 - 2023.04

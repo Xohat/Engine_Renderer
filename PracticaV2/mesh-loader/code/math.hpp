@@ -1,3 +1,8 @@
+/**
+* @file math.hpp
+* @brief Codigo y implementación de math
+* @author Angel Rodirguez Ballesteros
+*/
 
 // Este código es de dominio público.
 // angel.rodriguez@esne.edu

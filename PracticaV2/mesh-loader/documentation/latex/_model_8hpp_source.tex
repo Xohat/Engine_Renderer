@@ -1,0 +1,65 @@
+\hypertarget{_model_8hpp_source}{}\doxysection{Model.\+hpp}
+\mbox{\hyperlink{_model_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <Color\_Buffer.hpp>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8hpp}{Entity.hpp}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{math_8hpp}{math.hpp}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rasterizer_8hpp}{Rasterizer.hpp}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_camera_8hpp}{Camera.hpp}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00022\ \textcolor{keyword}{using\ }std::string;}
+\DoxyCodeLine{00023\ \textcolor{keyword}{using\ }argb::Rgb888;}
+\DoxyCodeLine{00024\ \textcolor{keyword}{using\ }argb::Color\_Buffer;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerender__engine}{render\_engine}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrender__engine_1_1_model}{Model}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classrender__engine_1_1_entity}{Entity}}}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ Rgb888\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Color;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ Color\_Buffer<\ Color\ >\ Color\_Buffer;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{namespacerender__engine_a4edc2793d2a61603b9188eb167f6f00b}{Point4f}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vertex;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ vector<\ Vertex\ >\ \ \ \ \ \ Vertex\_Buffer;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ vector<\ int\ \ \ \ >\ \ \ \ \ \ Index\_Buffer;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ vector<\ Color\ \ >\ \ \ \ \ \ Vertex\_Colors;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ Vertex\_Buffer\ \ \ \ \ original\_vertices;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ Index\_Buffer\ \ \ \ \ \ original\_indices;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ Vertex\_Colors\ \ \ \ \ original\_colors;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ Vertex\_Buffer\ \ \ \ \ transformed\_vertices;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ vector<\ Point4i\ >\ display\_vertices;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ vector<\ glm::vec3\ >\ original\_normals;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ vector<\ glm::vec3\ >\ transformed\_normals;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ angle\ =\ 0.f;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrender__engine_1_1_model}{Model}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&\ model\_path,\ \textcolor{keywordtype}{int}\ n\_mesh,\ glm::vec3\ mesh\_color);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_model_a83bf0c45467d86cb8f050311efb615ce}{update}}();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrender__engine_1_1_model_adf9450bac85cd9c55a33490273190821}{render}}(\mbox{\hyperlink{classrender__engine_1_1_rasterizer}{Rasterizer<\ Color\_Buffer\ >}}\&\ rasterizer,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrender__engine_1_1_camera}{Camera}}\&\ camera);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ is\_frontface(\textcolor{keyword}{const}\ Vertex*\ \textcolor{keyword}{const}\ projected\_vertices,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ \textcolor{keyword}{const}\ indices);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ rand\_clamp()\ \{\ \textcolor{keywordflow}{return}\ float(rand()\ \&\ 0xff)\ *\ 0.0039215f;\ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}
