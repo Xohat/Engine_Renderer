@@ -20,29 +20,32 @@ namespace render_engine
         height      (height),
         color_buffer(width, height),
         rasterizer  (color_buffer ),
-		tree		(tree_file_path),
-		tree2       (tree_file_path),
+		tree		(tree_file_path, 1),
+		tree_leaf   (tree_file_path, 0),
 		main_camera (20.6f, 1, 15, width, height)
     {
 		tree.set_position({ 0.f, 0.f, -10.f });
 		tree.set_scale(0.3f);
 
-		tree2.set_scale(0.45f);
-		tree2.set_position({ 0.f, 0.f, -10.f });
-		tree2.set_parent(tree);
+		//Si no es relativa al parent
+		//tree_leaf.set_scale(0.3f);
+		//tree_leaf.set_position({ 0.f, 0.f, -10.f });
+		
+		//Si es relativa al parent
+		tree_leaf.set_parent(tree);
+		tree_leaf.set_scale(1.f);
+		tree_leaf.set_position({ 0.f, 0.f, 0.f });
 
+		//z --> + = + lejos
 		main_camera.set_position({ 0.f, -2.5f, -2.5f });
     }
 
     void View::update ()
     {
 		tree.update();
-		tree2.update();
 
-		main_camera.set_position({
-			main_camera.get_position().x + x_added_position, 
-			main_camera.get_position().y + y_added_position, 
-			main_camera.get_position().z + z_added_position });
+		//Si es relativa al parent
+		//tree_leaf.update();
     }
 
     void View::render ()
@@ -52,7 +55,7 @@ namespace render_engine
 		rasterizer.clear();
 
 		tree.render(rasterizer, main_camera);
-		tree2.render(rasterizer, main_camera);
+		tree_leaf.render(rasterizer, main_camera);
 
 		// Se copia el framebúffer oculto en el framebúffer de la ventana:
 

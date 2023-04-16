@@ -43,7 +43,6 @@ namespace render_engine
 		{
 			return position;
 		}
-
 		glm::mat4 get_transform_matrix() const
 		{
 			glm::mat4 identity(1);

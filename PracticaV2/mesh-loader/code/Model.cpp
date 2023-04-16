@@ -13,7 +13,7 @@
 namespace render_engine
 {
 
-	Model::Model(const string& model_path)
+	Model::Model(const string& model_path, int n_mesh)
 	{
 		Assimp::Importer importer;
 
@@ -29,7 +29,7 @@ namespace render_engine
 		{
 			// Para este ejemplo se coge la primera malla solamente:
 
-			auto mesh = scene->mMeshes[0];
+			auto mesh = scene->mMeshes[n_mesh];
 
 			size_t number_of_vertices = mesh->mNumVertices;
 

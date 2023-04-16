@@ -41,7 +41,7 @@
             Rasterizer< Color_Buffer > rasterizer;
 
 			Model tree;
-			Model tree2;
+			Model tree_leaf;
 
             unsigned width;
             unsigned height;
@@ -92,6 +92,14 @@
 
 				view.set_z_position(0);
 				z_added_position = 0;
+			}
+
+			void update_camera_position() 
+			{
+				main_camera.set_position({
+					main_camera.get_position().x + x_added_position,
+					main_camera.get_position().y + y_added_position,
+					main_camera.get_position().z + z_added_position });
 			}
 
             void update ();

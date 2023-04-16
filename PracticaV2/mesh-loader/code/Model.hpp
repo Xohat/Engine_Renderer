@@ -43,14 +43,7 @@ namespace render_engine
 
 	public:
 
-		Model(const string & model_path);
-
-		/*
-			void set_mesh() 
-			{
-
-			}
-		*/
+		Model(const string & model_path, int n_mesh);
 
 		void update();
 		void render(Rasterizer< Color_Buffer >& rasterizer, const Camera& camera);

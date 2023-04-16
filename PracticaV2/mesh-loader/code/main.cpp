@@ -47,62 +47,49 @@ int main ()
 					switch (event.key.code)
 					{
 						case Keyboard::Key::W:
-							test_y_pos += 1.f;
+							test_y_pos += 0.5f;
 							view.set_y_position(test_y_pos);
+							view.update_camera_position();
 							break;
 
 						case Keyboard::Key::A:
-							test_x_pos += 1.f;
+							test_x_pos += 0.5f;
 							view.set_x_position(test_x_pos);
+							view.update_camera_position();
 							break;
 
 						case Keyboard::Key::S:
-							test_y_pos -= 1.f;
+							test_y_pos -= 0.5f;
 							view.set_y_position(test_y_pos);
+							view.update_camera_position();
 							break;
 
 						case Keyboard::Key::D:
-							test_x_pos -= 1.f;
+							test_x_pos -= 0.5f;
 							view.set_x_position(test_x_pos);
+							view.update_camera_position();
 							break;
 
 						case Keyboard::Key::Up:
-							test_z_pos += 1.f;
+							test_z_pos -= 0.5f;
 							view.set_z_position(test_z_pos);
+							view.update_camera_position();
 							break;
 
 						case Keyboard::Key::Down:
-							test_z_pos -= 1.f;
+							test_z_pos += 0.5f;
 							view.set_z_position(test_z_pos);
+							view.update_camera_position();
 							break;
 					}
-
-				/*
-					case Event::KeyReleased: 
-					switch(event.key.code)
-					{
-						case Keyboard::Key::W:
-							break;
-
-						case Keyboard::Key::A:
-							view.set_x_position(0);
-							break;
-
-						case Keyboard::Key::S:
-							break;
-
-						case Keyboard::Key::D:
-							break;
-					}
-				*/
 			}
         }
 
         view.update ();
 
-		view.reset_inputs(view);
-
         view.render ();
+
+		view.reset_inputs(view);
 
         window.display ();
     }
