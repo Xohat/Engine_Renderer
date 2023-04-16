@@ -1,0 +1,2 @@
+WASD for camera movement
+Up and Down arrow for camera Zoom
