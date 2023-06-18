@@ -10,6 +10,10 @@ using std::string;
 using std::cerr;
 using std::endl;
 
+#define GLCall(x) GLClearError();\
+	x;\
+	ASSERT(GLLogCall(#x, __FILE__, __LINE__))
+
 namespace example 
 {
 	class Helper
