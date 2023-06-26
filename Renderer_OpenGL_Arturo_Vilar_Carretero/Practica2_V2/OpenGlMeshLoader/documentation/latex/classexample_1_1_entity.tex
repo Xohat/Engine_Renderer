@@ -1,0 +1,89 @@
+\doxysection{example\+::Entity Class Reference}
+\hypertarget{classexample_1_1_entity}{}\label{classexample_1_1_entity}\index{example::Entity@{example::Entity}}
+
+
+Codigo de \doxylink{classexample_1_1_entity}{Entity}, encargado de ser una manera sencilla y genérica de controlar los elementos.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
+Inheritance diagram for example\+::Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classexample_1_1_entity}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classexample_1_1_entity_a3ddd4a7035e9a0f2ef2fa6d2c94e32a4}{set\+\_\+parent}} (\mbox{\hyperlink{classexample_1_1_entity}{Entity}} \&given\+\_\+parent)
+\begin{DoxyCompactList}\small\item\em Esta funcion settea la entidad de tipo padre. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_entity_a40c95293e8e0e8fca0335a0e10c74dc1}\label{classexample_1_1_entity_a40c95293e8e0e8fca0335a0e10c74dc1} 
+void {\bfseries set\+\_\+position} (const glm\+::vec3 \&new\+\_\+position)
+\item 
+\Hypertarget{classexample_1_1_entity_a20531da6b800e6719d46580a22bee2b0}\label{classexample_1_1_entity_a20531da6b800e6719d46580a22bee2b0} 
+void {\bfseries set\+\_\+scale} (const float new\+\_\+scale)
+\item 
+\Hypertarget{classexample_1_1_entity_af54172cef954165edf4b4883776a6370}\label{classexample_1_1_entity_af54172cef954165edf4b4883776a6370} 
+void {\bfseries set\+\_\+rotation\+\_\+y} (float new\+\_\+rotation\+\_\+y)
+\item 
+\Hypertarget{classexample_1_1_entity_ab90c49321030b4364447de46b3ed885e}\label{classexample_1_1_entity_ab90c49321030b4364447de46b3ed885e} 
+glm\+::vec3 {\bfseries get\+\_\+position} () const
+\item 
+\Hypertarget{classexample_1_1_entity_a2744a9772a0627378ee176ad1f5cff96}\label{classexample_1_1_entity_a2744a9772a0627378ee176ad1f5cff96} 
+glm\+::mat4 {\bfseries get\+\_\+transform\+\_\+matrix} () const
+\begin{DoxyCompactList}\small\item\em Esta funcion devuelve la transform matrix, esto se usa principalmente para hacer una transform matrix basada en la de el padre si lo hay, asi pudiendo hacer movimientos en coordenadas relativas a dicho parent. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_entity_ab36d353138673221a2ac2fc37d13b309}\label{classexample_1_1_entity_ab36d353138673221a2ac2fc37d13b309} 
+void {\bfseries move\+\_\+position} (const glm\+::vec3 \&delta\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Esta funcion incrementa la posicion actual en base a la nueva recibida, se usa principalmente en la cámara. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classexample_1_1_entity_a33064221928cb315029913f771e4c35e}\label{classexample_1_1_entity_a33064221928cb315029913f771e4c35e} 
+float {\bfseries scale} = 1.f
+\begin{DoxyCompactList}\small\item\em Escala del objeto por defecto en 1.\+f. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_entity_a072f922cde7f5038936183404478f8d7}\label{classexample_1_1_entity_a072f922cde7f5038936183404478f8d7} 
+float {\bfseries rotation\+\_\+y} = 0
+\begin{DoxyCompactList}\small\item\em Rotacion alrededor del eje y. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_entity_a09dc8dd5b2c3a07e9ef937296acdf882}\label{classexample_1_1_entity_a09dc8dd5b2c3a07e9ef937296acdf882} 
+glm\+::vec3 {\bfseries position} = \{ 0, 0, 0 \}
+\item 
+\mbox{\hyperlink{classexample_1_1_entity}{Entity}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classexample_1_1_entity_a7e576d598592ebacdd8b047612842373}{parent}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Codigo de \doxylink{classexample_1_1_entity}{Entity}, encargado de ser una manera sencilla y genérica de controlar los elementos. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classexample_1_1_entity_a3ddd4a7035e9a0f2ef2fa6d2c94e32a4}\label{classexample_1_1_entity_a3ddd4a7035e9a0f2ef2fa6d2c94e32a4} 
+\index{example::Entity@{example::Entity}!set\_parent@{set\_parent}}
+\index{set\_parent@{set\_parent}!example::Entity@{example::Entity}}
+\doxysubsubsection{\texorpdfstring{set\_parent()}{set\_parent()}}
+{\footnotesize\ttfamily void example\+::\+Entity\+::set\+\_\+parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classexample_1_1_entity}{Entity}} \&}]{given\+\_\+parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Esta funcion settea la entidad de tipo padre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given\+\_\+parent} & es una variable que significa si la entidad en cuestion tiene un padre, por defecto esta setteado a nullptr para evadir falsos positivos \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classexample_1_1_entity_a7e576d598592ebacdd8b047612842373}\label{classexample_1_1_entity_a7e576d598592ebacdd8b047612842373} 
+\index{example::Entity@{example::Entity}!parent@{parent}}
+\index{parent@{parent}!example::Entity@{example::Entity}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classexample_1_1_entity}{Entity}}\texorpdfstring{$\ast$}{*} example\+::\+Entity\+::parent = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+parent esta incializado de base a nullptr para que el puntero no apunte a algo aleatorio si no se asigna 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Xohat/\+Desktop/\+Corerecion\+\_\+\+Angel\+\_\+\+Practica\+\_\+open\+Gl/\+Open\+GL/\+Practica2\+\_\+\+V2/\+Open\+Gl\+Mesh\+Loader/code/Entity.\+h\end{DoxyCompactItemize}

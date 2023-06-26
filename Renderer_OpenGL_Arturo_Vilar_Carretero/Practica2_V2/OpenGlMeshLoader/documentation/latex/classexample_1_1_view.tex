@@ -1,0 +1,103 @@
+\doxysection{example\+::View Class Reference}
+\hypertarget{classexample_1_1_view}{}\label{classexample_1_1_view}\index{example::View@{example::View}}
+
+
+Clase encargada de manejar todo el visionado de los elementos, es realmente un concepto similar a una escena.  
+
+
+
+
+{\ttfamily \#include $<$View.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classexample_1_1_view_ad0d0c9f8f216acba6353dc8568998c86}\label{classexample_1_1_view_ad0d0c9f8f216acba6353dc8568998c86} 
+{\bfseries View} (int width, int height)
+\item 
+\Hypertarget{classexample_1_1_view_a5d7943a77bb6ce297fccd2bbfbda3701}\label{classexample_1_1_view_a5d7943a77bb6ce297fccd2bbfbda3701} 
+void {\bfseries update} ()
+\begin{DoxyCompactList}\small\item\em Este método solo actualiza el ángulo y se lo settea a los modelos. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_view_a10ea89fc705a2ba2252f673499524bf2}\label{classexample_1_1_view_a10ea89fc705a2ba2252f673499524bf2} 
+void {\bfseries render} ()
+\begin{DoxyCompactList}\small\item\em Este método se itera por cada uno de los modelos en la escena y renderiza. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classexample_1_1_view_a2396337a1db393acefb174e386cde7d1}{resize}} (int width, int height)
+\begin{DoxyCompactList}\small\item\em Este método configura la projection matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classexample_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classexample_1_1_view_aeca4de6e05dcb74162e60cbf89298b9e}{get\+\_\+camera}} ()
+\begin{DoxyCompactList}\small\item\em Getter de camara. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classexample_1_1_view_ab106a0a519972120fa86e833f2742cd2}{add\+\_\+model}} (string model\+\_\+name, \mbox{\hyperlink{classexample_1_1_model}{Model}} \texorpdfstring{$\ast$}{*}model\+\_\+to\+\_\+add)
+\begin{DoxyCompactList}\small\item\em Añade un nuevo modelo a el array de modelos. \end{DoxyCompactList}\item 
+map$<$ string, \mbox{\hyperlink{classexample_1_1_model}{Model}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classexample_1_1_view_a2e9dd1ff83ec829cba7feecb115ece25}{get\+\_\+models}} ()
+\begin{DoxyCompactList}\small\item\em Getter del mapa de modelos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de manejar todo el visionado de los elementos, es realmente un concepto similar a una escena. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classexample_1_1_view_ab106a0a519972120fa86e833f2742cd2}\label{classexample_1_1_view_ab106a0a519972120fa86e833f2742cd2} 
+\index{example::View@{example::View}!add\_model@{add\_model}}
+\index{add\_model@{add\_model}!example::View@{example::View}}
+\doxysubsubsection{\texorpdfstring{add\_model()}{add\_model()}}
+{\footnotesize\ttfamily void example\+::\+View\+::add\+\_\+model (\begin{DoxyParamCaption}\item[{string}]{model\+\_\+name,  }\item[{\mbox{\hyperlink{classexample_1_1_model}{Model}} \texorpdfstring{$\ast$}{*}}]{model\+\_\+to\+\_\+add }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Añade un nuevo modelo a el array de modelos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model\+\_\+name} & \\
+\hline
+{\em model\+\_\+to\+\_\+add} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classexample_1_1_view_aeca4de6e05dcb74162e60cbf89298b9e}\label{classexample_1_1_view_aeca4de6e05dcb74162e60cbf89298b9e} 
+\index{example::View@{example::View}!get\_camera@{get\_camera}}
+\index{get\_camera@{get\_camera}!example::View@{example::View}}
+\doxysubsubsection{\texorpdfstring{get\_camera()}{get\_camera()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classexample_1_1_camera}{Camera}} \texorpdfstring{$\ast$}{*} example\+::\+View\+::get\+\_\+camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter de camara. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classexample_1_1_view_a2e9dd1ff83ec829cba7feecb115ece25}\label{classexample_1_1_view_a2e9dd1ff83ec829cba7feecb115ece25} 
+\index{example::View@{example::View}!get\_models@{get\_models}}
+\index{get\_models@{get\_models}!example::View@{example::View}}
+\doxysubsubsection{\texorpdfstring{get\_models()}{get\_models()}}
+{\footnotesize\ttfamily map$<$ string, \mbox{\hyperlink{classexample_1_1_model}{Model}} \texorpdfstring{$\ast$}{*} $>$ example\+::\+View\+::get\+\_\+models (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter del mapa de modelos. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classexample_1_1_view_a2396337a1db393acefb174e386cde7d1}\label{classexample_1_1_view_a2396337a1db393acefb174e386cde7d1} 
+\index{example::View@{example::View}!resize@{resize}}
+\index{resize@{resize}!example::View@{example::View}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void example\+::\+View\+::resize (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Este método configura la projection matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Xohat/\+Desktop/\+Corerecion\+\_\+\+Angel\+\_\+\+Practica\+\_\+open\+Gl/\+Open\+GL/\+Practica2\+\_\+\+V2/\+Open\+Gl\+Mesh\+Loader/code/\mbox{\hyperlink{_view_8hpp}{View.\+hpp}}\item 
+C\+:/\+Users/\+Xohat/\+Desktop/\+Corerecion\+\_\+\+Angel\+\_\+\+Practica\+\_\+open\+Gl/\+Open\+GL/\+Practica2\+\_\+\+V2/\+Open\+Gl\+Mesh\+Loader/code/\mbox{\hyperlink{_view_8cpp}{View.\+cpp}}\end{DoxyCompactItemize}

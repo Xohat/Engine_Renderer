@@ -1,0 +1,53 @@
+\doxysection{Model.\+h}
+\hypertarget{_model_8h_source}{}\label{_model_8h_source}\index{C:/Users/Xohat/Desktop/Corerecion\_Angel\_Practica\_openGl/OpenGL/Practica2\_V2/OpenGlMeshLoader/code/Model.h@{C:/Users/Xohat/Desktop/Corerecion\_Angel\_Practica\_openGl/OpenGL/Practica2\_V2/OpenGlMeshLoader/code/Model.h}}
+\mbox{\hyperlink{_model_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.05\ -\/\ 2023.06}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_helper_8h}{Helper.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mesh_8h}{Mesh.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vec3,\ vec4,\ ivec4,\ mat4}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <glm/gtc/matrix\_transform.hpp>}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ translate,\ rotate,\ scale,\ perspective}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <glm/gtc/type\_ptr.hpp>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ value\_ptr}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }example\ }
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classexample_1_1_model}{Model}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classexample_1_1_entity}{Entity}}}
+\DoxyCodeLine{00029\ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_helper}{Helper}}\ \ debugger;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_mesh}{Mesh}}\ \ \ \ mesh;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ angle;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_model}{Model}}()\ :\ angle(0)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classexample_1_1_model_a4781e6207ac4aba470aeaa417c020d11}{set\_angle}}(\textcolor{keywordtype}{float}\ new\_angle)}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ angle\ =\ new\_angle;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_mesh}{Mesh}}*\ \mbox{\hyperlink{classexample_1_1_model_a5dad3ffcec2d130ae3ff34f36b2ba345}{get\_mesh}}()}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&mesh;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ glm::mat4\ \mbox{\hyperlink{classexample_1_1_model_aa6afe423117b647a93330826e21f0df2}{get\_model\_view\_matrix}}()}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classexample_1_1_entity_a2744a9772a0627378ee176ad1f5cff96}{get\_transform\_matrix}}();}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \};}
+\DoxyCodeLine{00067\ \}}
+
+\end{DoxyCode}

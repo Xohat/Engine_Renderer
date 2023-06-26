@@ -1,0 +1,85 @@
+\doxysection{Entity.\+h}
+\hypertarget{_entity_8h_source}{}\label{_entity_8h_source}\index{C:/Users/Xohat/Desktop/Corerecion\_Angel\_Practica\_openGl/OpenGL/Practica2\_V2/OpenGlMeshLoader/code/Entity.h@{C:/Users/Xohat/Desktop/Corerecion\_Angel\_Practica\_openGl/OpenGL/Practica2\_V2/OpenGlMeshLoader/code/Entity.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ vec3,\ vec4,\ ivec4,\ mat4}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <glm/gtc/matrix\_transform.hpp>}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ translate,\ rotate,\ scale,\ perspective}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <glm/gtc/type\_ptr.hpp>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ value\_ptr}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }example}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classexample_1_1_entity}{Entity}}}
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classexample_1_1_entity_a33064221928cb315029913f771e4c35e}{scale}}\ =\ 1.f;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classexample_1_1_entity_a072f922cde7f5038936183404478f8d7}{rotation\_y}}\ =\ 0;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ glm::vec3\ position\ =\ \{\ 0,\ 0,\ 0\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_entity}{Entity}}*\ \mbox{\hyperlink{classexample_1_1_entity_a7e576d598592ebacdd8b047612842373}{parent}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classexample_1_1_entity_a3ddd4a7035e9a0f2ef2fa6d2c94e32a4}{set\_parent}}(\mbox{\hyperlink{classexample_1_1_entity}{Entity}}\&\ given\_parent)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_entity_a7e576d598592ebacdd8b047612842373}{parent}}\ =\ \&given\_parent;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_position(\textcolor{keyword}{const}\ glm::vec3\&\ new\_position)}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ position\ =\ new\_position;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_scale(\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ new\_scale)}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_entity_a33064221928cb315029913f771e4c35e}{scale}}\ =\ new\_scale;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_rotation\_y(\textcolor{keywordtype}{float}\ new\_rotation\_y)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_entity_a072f922cde7f5038936183404478f8d7}{rotation\_y}}\ =\ new\_rotation\_y;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ glm::vec3\ get\_position()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00068\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ position;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ glm::mat4\ \mbox{\hyperlink{classexample_1_1_entity_a2744a9772a0627378ee176ad1f5cff96}{get\_transform\_matrix}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00077\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ identity(1);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ scaling\ =\ glm::scale(identity,\ glm::vec3(\mbox{\hyperlink{classexample_1_1_entity_a33064221928cb315029913f771e4c35e}{scale}},\ \mbox{\hyperlink{classexample_1_1_entity_a33064221928cb315029913f771e4c35e}{scale}},\ \mbox{\hyperlink{classexample_1_1_entity_a33064221928cb315029913f771e4c35e}{scale}}));}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ rotation\ =\ glm::rotate(identity,\ \mbox{\hyperlink{classexample_1_1_entity_a072f922cde7f5038936183404478f8d7}{rotation\_y}},\ glm::vec3(0.f,\ 1.f,\ 0.f));}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ translation\ =\ translate(identity,\ position);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//<\ X,\ Y,\ Z\ axises\ distance\ (Arriba\ izquierda\ es\ el\ 0,0)}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ transform\_matrix\ =\ translation\ *\ rotation\ *\ scaling;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classexample_1_1_entity_a7e576d598592ebacdd8b047612842373}{parent}}\ !=\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classexample_1_1_entity_a7e576d598592ebacdd8b047612842373}{parent}}-\/>\mbox{\hyperlink{classexample_1_1_entity_a2744a9772a0627378ee176ad1f5cff96}{get\_transform\_matrix}}()\ *\ transform\_matrix;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Creación de\ la\ matriz\ de\ transformación unificada:}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{return}\ transform\_matrix;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classexample_1_1_entity_ab36d353138673221a2ac2fc37d13b309}{move\_position}}(\textcolor{keyword}{const}\ glm::vec3\&\ delta\_position)}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ position\ +=\ delta\_position;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \ \ \ \ \};}
+\DoxyCodeLine{00103\ \}}
+
+\end{DoxyCode}

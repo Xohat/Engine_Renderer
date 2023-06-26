@@ -1,0 +1,116 @@
+\doxysection{example\+::Camera Class Reference}
+\hypertarget{classexample_1_1_camera}{}\label{classexample_1_1_camera}\index{example::Camera@{example::Camera}}
+
+
+Codigo encargado de la cámara de visualización de los elementos en la escena.  
+
+
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+Inheritance diagram for example\+::Camera\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classexample_1_1_camera}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classexample_1_1_camera_ad8df94b3f60342602799f1d548152449}{Camera}} (float given\+\_\+\+FOV, float given\+\_\+near\+\_\+distance, float given\+\_\+far\+\_\+distance, unsigned given\+\_\+width, unsigned given\+\_\+height)
+\begin{DoxyCompactList}\small\item\em Constructor de \doxylink{classexample_1_1_camera}{Camera}. \end{DoxyCompactList}\item 
+\Hypertarget{classexample_1_1_camera_a036d3963a777f5ba79dc71d8809dfa2d}\label{classexample_1_1_camera_a036d3963a777f5ba79dc71d8809dfa2d} 
+float {\bfseries get\+\_\+fov} () const
+\item 
+\Hypertarget{classexample_1_1_camera_a5bee80c78bb6079c0670bd7512eeac01}\label{classexample_1_1_camera_a5bee80c78bb6079c0670bd7512eeac01} 
+float {\bfseries get\+\_\+near\+\_\+distance} () const
+\item 
+\Hypertarget{classexample_1_1_camera_aab1ad3781455b4dda6e984789d2115ef}\label{classexample_1_1_camera_aab1ad3781455b4dda6e984789d2115ef} 
+float {\bfseries get\+\_\+far\+\_\+distance} () const
+\item 
+\Hypertarget{classexample_1_1_camera_a603021507752a965bfe2d10596228086}\label{classexample_1_1_camera_a603021507752a965bfe2d10596228086} 
+unsigned {\bfseries get\+\_\+width} () const
+\item 
+\Hypertarget{classexample_1_1_camera_a06a3763c05cf1ed7b7d0fdacade263dd}\label{classexample_1_1_camera_a06a3763c05cf1ed7b7d0fdacade263dd} 
+unsigned {\bfseries get\+\_\+height} () const
+\item 
+\Hypertarget{classexample_1_1_camera_a12db8afe7018babb9965005ba79b9c05}\label{classexample_1_1_camera_a12db8afe7018babb9965005ba79b9c05} 
+glm\+::mat4 {\bfseries get\+\_\+projection\+\_\+matrix} () const
+\item 
+\Hypertarget{classexample_1_1_camera_a62e4dce9c6fc1ec18609b927c749c4c0}\label{classexample_1_1_camera_a62e4dce9c6fc1ec18609b927c749c4c0} 
+glm\+::mat4 {\bfseries get\+\_\+transform\+\_\+matrix\+\_\+inverse} () const
+\item 
+\Hypertarget{classexample_1_1_camera_abd6281e8951e0080e41823e804f55bb5}\label{classexample_1_1_camera_abd6281e8951e0080e41823e804f55bb5} 
+void {\bfseries set\+\_\+fov} (float new\+\_\+fov)
+\item 
+\Hypertarget{classexample_1_1_camera_a0be00a744a89122961de83b6c07f6442}\label{classexample_1_1_camera_a0be00a744a89122961de83b6c07f6442} 
+void {\bfseries set\+\_\+near\+\_\+distance} (float new\+\_\+near\+\_\+distance)
+\item 
+\Hypertarget{classexample_1_1_camera_a30d2fb8651eaf56aaf56bc2082951cde}\label{classexample_1_1_camera_a30d2fb8651eaf56aaf56bc2082951cde} 
+void {\bfseries set\+\_\+far\+\_\+distance} (float new\+\_\+far\+\_\+distance)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classexample_1_1_entity}{example\+::\+Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classexample_1_1_entity_a3ddd4a7035e9a0f2ef2fa6d2c94e32a4}{set\+\_\+parent}} (\mbox{\hyperlink{classexample_1_1_entity}{Entity}} \&given\+\_\+parent)
+\begin{DoxyCompactList}\small\item\em Esta funcion settea la entidad de tipo padre. \end{DoxyCompactList}\item 
+void {\bfseries set\+\_\+position} (const glm\+::vec3 \&new\+\_\+position)
+\item 
+void {\bfseries set\+\_\+scale} (const float new\+\_\+scale)
+\item 
+void {\bfseries set\+\_\+rotation\+\_\+y} (float new\+\_\+rotation\+\_\+y)
+\item 
+glm\+::vec3 {\bfseries get\+\_\+position} () const
+\item 
+glm\+::mat4 {\bfseries get\+\_\+transform\+\_\+matrix} () const
+\begin{DoxyCompactList}\small\item\em Esta funcion devuelve la transform matrix, esto se usa principalmente para hacer una transform matrix basada en la de el padre si lo hay, asi pudiendo hacer movimientos en coordenadas relativas a dicho parent. \end{DoxyCompactList}\item 
+void {\bfseries move\+\_\+position} (const glm\+::vec3 \&delta\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Esta funcion incrementa la posicion actual en base a la nueva recibida, se usa principalmente en la cámara. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classexample_1_1_entity}{example\+::\+Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+float {\bfseries scale} = 1.f
+\begin{DoxyCompactList}\small\item\em Escala del objeto por defecto en 1.\+f. \end{DoxyCompactList}\item 
+float {\bfseries rotation\+\_\+y} = 0
+\begin{DoxyCompactList}\small\item\em Rotacion alrededor del eje y. \end{DoxyCompactList}\item 
+glm\+::vec3 {\bfseries position} = \{ 0, 0, 0 \}
+\item 
+\mbox{\hyperlink{classexample_1_1_entity}{Entity}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classexample_1_1_entity_a7e576d598592ebacdd8b047612842373}{parent}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Codigo encargado de la cámara de visualización de los elementos en la escena. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classexample_1_1_camera_ad8df94b3f60342602799f1d548152449}\label{classexample_1_1_camera_ad8df94b3f60342602799f1d548152449} 
+\index{example::Camera@{example::Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!example::Camera@{example::Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}}
+{\footnotesize\ttfamily example\+::\+Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{float}]{given\+\_\+\+FOV,  }\item[{float}]{given\+\_\+near\+\_\+distance,  }\item[{float}]{given\+\_\+far\+\_\+distance,  }\item[{unsigned}]{given\+\_\+width,  }\item[{unsigned}]{given\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+Constructor de \doxylink{classexample_1_1_camera}{Camera}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given\+\_\+\+FOV} & \\
+\hline
+{\em given\+\_\+near\+\_\+distance} & \\
+\hline
+{\em given\+\_\+far\+\_\+distance} & \\
+\hline
+{\em given\+\_\+width} & \\
+\hline
+{\em given\+\_\+height} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Xohat/\+Desktop/\+Corerecion\+\_\+\+Angel\+\_\+\+Practica\+\_\+open\+Gl/\+Open\+GL/\+Practica2\+\_\+\+V2/\+Open\+Gl\+Mesh\+Loader/code/Camera.\+h\item 
+C\+:/\+Users/\+Xohat/\+Desktop/\+Corerecion\+\_\+\+Angel\+\_\+\+Practica\+\_\+open\+Gl/\+Open\+GL/\+Practica2\+\_\+\+V2/\+Open\+Gl\+Mesh\+Loader/code/\mbox{\hyperlink{_camera_8cpp}{Camera.\+cpp}}\end{DoxyCompactItemize}

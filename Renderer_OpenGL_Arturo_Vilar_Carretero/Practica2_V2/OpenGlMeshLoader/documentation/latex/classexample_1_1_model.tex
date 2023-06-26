@@ -1,0 +1,107 @@
+\doxysection{example\+::Model Class Reference}
+\hypertarget{classexample_1_1_model}{}\label{classexample_1_1_model}\index{example::Model@{example::Model}}
+
+
+Clase encargada de hacer un modelo, usando un objeto de mesh que es por asi decirlo la textura del modelo.  
+
+
+
+
+{\ttfamily \#include $<$Model.\+h$>$}
+
+Inheritance diagram for example\+::Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classexample_1_1_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classexample_1_1_model_a4781e6207ac4aba470aeaa417c020d11}{set\+\_\+angle}} (float new\+\_\+angle)
+\begin{DoxyCompactList}\small\item\em Configura el ángulo del modelo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classexample_1_1_mesh}{Mesh}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classexample_1_1_model_a5dad3ffcec2d130ae3ff34f36b2ba345}{get\+\_\+mesh}} ()
+\begin{DoxyCompactList}\small\item\em Getter de mesh. \end{DoxyCompactList}\item 
+glm\+::mat4 \mbox{\hyperlink{classexample_1_1_model_aa6afe423117b647a93330826e21f0df2}{get\+\_\+model\+\_\+view\+\_\+matrix}} ()
+\begin{DoxyCompactList}\small\item\em Getter de la matriz de model view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classexample_1_1_entity}{example\+::\+Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classexample_1_1_entity_a3ddd4a7035e9a0f2ef2fa6d2c94e32a4}{set\+\_\+parent}} (\mbox{\hyperlink{classexample_1_1_entity}{Entity}} \&given\+\_\+parent)
+\begin{DoxyCompactList}\small\item\em Esta funcion settea la entidad de tipo padre. \end{DoxyCompactList}\item 
+void {\bfseries set\+\_\+position} (const glm\+::vec3 \&new\+\_\+position)
+\item 
+void {\bfseries set\+\_\+scale} (const float new\+\_\+scale)
+\item 
+void {\bfseries set\+\_\+rotation\+\_\+y} (float new\+\_\+rotation\+\_\+y)
+\item 
+glm\+::vec3 {\bfseries get\+\_\+position} () const
+\item 
+glm\+::mat4 {\bfseries get\+\_\+transform\+\_\+matrix} () const
+\begin{DoxyCompactList}\small\item\em Esta funcion devuelve la transform matrix, esto se usa principalmente para hacer una transform matrix basada en la de el padre si lo hay, asi pudiendo hacer movimientos en coordenadas relativas a dicho parent. \end{DoxyCompactList}\item 
+void {\bfseries move\+\_\+position} (const glm\+::vec3 \&delta\+\_\+position)
+\begin{DoxyCompactList}\small\item\em Esta funcion incrementa la posicion actual en base a la nueva recibida, se usa principalmente en la cámara. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classexample_1_1_entity}{example\+::\+Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+float {\bfseries scale} = 1.f
+\begin{DoxyCompactList}\small\item\em Escala del objeto por defecto en 1.\+f. \end{DoxyCompactList}\item 
+float {\bfseries rotation\+\_\+y} = 0
+\begin{DoxyCompactList}\small\item\em Rotacion alrededor del eje y. \end{DoxyCompactList}\item 
+glm\+::vec3 {\bfseries position} = \{ 0, 0, 0 \}
+\item 
+\mbox{\hyperlink{classexample_1_1_entity}{Entity}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classexample_1_1_entity_a7e576d598592ebacdd8b047612842373}{parent}} = nullptr
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase encargada de hacer un modelo, usando un objeto de mesh que es por asi decirlo la textura del modelo. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classexample_1_1_model_a5dad3ffcec2d130ae3ff34f36b2ba345}\label{classexample_1_1_model_a5dad3ffcec2d130ae3ff34f36b2ba345} 
+\index{example::Model@{example::Model}!get\_mesh@{get\_mesh}}
+\index{get\_mesh@{get\_mesh}!example::Model@{example::Model}}
+\doxysubsubsection{\texorpdfstring{get\_mesh()}{get\_mesh()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classexample_1_1_mesh}{Mesh}} \texorpdfstring{$\ast$}{*} example\+::\+Model\+::get\+\_\+mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter de mesh. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classexample_1_1_model_aa6afe423117b647a93330826e21f0df2}\label{classexample_1_1_model_aa6afe423117b647a93330826e21f0df2} 
+\index{example::Model@{example::Model}!get\_model\_view\_matrix@{get\_model\_view\_matrix}}
+\index{get\_model\_view\_matrix@{get\_model\_view\_matrix}!example::Model@{example::Model}}
+\doxysubsubsection{\texorpdfstring{get\_model\_view\_matrix()}{get\_model\_view\_matrix()}}
+{\footnotesize\ttfamily glm\+::mat4 example\+::\+Model\+::get\+\_\+model\+\_\+view\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter de la matriz de model view. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\Hypertarget{classexample_1_1_model_a4781e6207ac4aba470aeaa417c020d11}\label{classexample_1_1_model_a4781e6207ac4aba470aeaa417c020d11} 
+\index{example::Model@{example::Model}!set\_angle@{set\_angle}}
+\index{set\_angle@{set\_angle}!example::Model@{example::Model}}
+\doxysubsubsection{\texorpdfstring{set\_angle()}{set\_angle()}}
+{\footnotesize\ttfamily void example\+::\+Model\+::set\+\_\+angle (\begin{DoxyParamCaption}\item[{float}]{new\+\_\+angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Configura el ángulo del modelo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+angle} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Xohat/\+Desktop/\+Corerecion\+\_\+\+Angel\+\_\+\+Practica\+\_\+open\+Gl/\+Open\+GL/\+Practica2\+\_\+\+V2/\+Open\+Gl\+Mesh\+Loader/code/\mbox{\hyperlink{_model_8h}{Model.\+h}}\end{DoxyCompactItemize}

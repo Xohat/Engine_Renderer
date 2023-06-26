@@ -1,0 +1,93 @@
+\doxysection{Camera.\+h}
+\hypertarget{_camera_8h_source}{}\label{_camera_8h_source}\index{C:/Users/Xohat/Desktop/Corerecion\_Angel\_Practica\_openGl/OpenGL/Practica2\_V2/OpenGlMeshLoader/code/Camera.h@{C:/Users/Xohat/Desktop/Corerecion\_Angel\_Practica\_openGl/OpenGL/Practica2\_V2/OpenGlMeshLoader/code/Camera.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.03\ -\/\ 2023.04}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Entity.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{using\ namespace\ }glm;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }example}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classexample_1_1_camera}{Camera}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classexample_1_1_entity}{Entity}}}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ glm::mat4\ projection;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ FOV;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ near\_distance;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ far\_distance;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ width;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ height;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_camera}{Camera}}(\textcolor{keywordtype}{float}\ given\_FOV,\ \textcolor{keywordtype}{float}\ given\_near\_distance,\ \textcolor{keywordtype}{float}\ given\_far\_distance,\ \textcolor{keywordtype}{unsigned}\ given\_width,\ \textcolor{keywordtype}{unsigned}\ given\_height);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ get\_fov()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ FOV;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ get\_near\_distance()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00051\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ near\_distance;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ get\_far\_distance()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ far\_distance;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ get\_width()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ width;}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ get\_height()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ height;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ glm::mat4\ get\_projection\_matrix()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00067\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ projection;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ glm::mat4\ get\_transform\_matrix\_inverse()\ \textcolor{keyword}{const}\ \textcolor{comment}{//<\ Movimiento\ en\ el\ eje\ inverso\ al\ de\ la\ cámara}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::inverse(\mbox{\hyperlink{classexample_1_1_entity_a2744a9772a0627378ee176ad1f5cff96}{get\_transform\_matrix}}());}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_fov(\textcolor{keywordtype}{float}\ new\_fov)}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ FOV\ =\ new\_fov;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ refresh\_projection\_matrix();}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_near\_distance(\textcolor{keywordtype}{float}\ new\_near\_distance)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ near\_distance\ =\ new\_near\_distance;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ refresh\_projection\_matrix();}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_far\_distance(\textcolor{keywordtype}{float}\ new\_far\_distance)}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ far\_distance\ =\ new\_far\_distance;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ refresh\_projection\_matrix();}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ refresh\_projection\_matrix()}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ a\_ratio\ =\ width\ /\ height;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ projection\ =\ glm::perspective(FOV,\ \textcolor{keywordtype}{float}(a\_ratio),\ near\_distance,\ far\_distance);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \};}
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}

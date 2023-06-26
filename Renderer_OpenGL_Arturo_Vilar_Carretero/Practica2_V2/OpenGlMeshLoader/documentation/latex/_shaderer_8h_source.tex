@@ -1,0 +1,172 @@
+\doxysection{Shaderer.\+h}
+\hypertarget{_shaderer_8h_source}{}\label{_shaderer_8h_source}\index{C:/Users/Xohat/Desktop/Corerecion\_Angel\_Practica\_openGl/OpenGL/Practica2\_V2/OpenGlMeshLoader/code/Shaderer.h@{C:/Users/Xohat/Desktop/Corerecion\_Angel\_Practica\_openGl/OpenGL/Practica2\_V2/OpenGlMeshLoader/code/Shaderer.h}}
+\mbox{\hyperlink{_shaderer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.05\ -\/\ 2023.06}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_helper_8h}{Helper.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }example\ }
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Struct\ creado\ para\ poder\ devolver\ dos\ datos\ con\ un\ solo\ return\ (Autor:\ TheCherno)}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structexample_1_1shader__code}{shader\_code}}\ }
+\DoxyCodeLine{00025\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ std::string\ vertex\_code;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::string\ fragment\_code;}
+\DoxyCodeLine{00028\ \ \ \ \ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Carga\ de\ meshes\ desde\ un\ archivo\ (Autor\ TheCherno)}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{structexample_1_1shader__code}{shader\_code}}\ parse\_shader(const::std::string\&\ path)}
+\DoxyCodeLine{00032\ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Carga\ el\ archivo}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ std::ifstream\ stream(path);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tipo\ de\ shader\ (Tener\ en\ cuenta\ los\ valores\ del\ enum)}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum\ class}\ shader\_type\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ NONE\ \ \ \ \ \ \ \ =\ -\/1,\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ VERTEX\ \ \ \ \ \ =\ 0,\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ FRAGMENT\ \ \ \ =\ 1}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Línea\ a\ analizar\ ahora}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::string\ line;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Array\ que\ se\ va\ a\ a\ devolver}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Hueco\ 0:\ Vertex\ shader}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Hueco\ 1:\ Fragment\ shader}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::stringstream\ return\_stream[2];}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ shader\_type\ type\ =\ shader\_type::NONE;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Revisa\ todo\ el\ documento\ viendo\ todo\ el\ archivo\ por\ stream\ y\ leyendo\ línea\ por\ línea}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (getline(stream,\ line))\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Por\ esto\ la\ sintaxis\ de\ los\ shaders\ debe\ ser}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \#shader\ vertex}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \#shader\ fragment}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ya\ que\ primero\ encuentra\ las\ líneas\ que\ tengan\ shader\ y\ tras\ eso\ la\ palabra\ clave\ vertex\ o\ fragment}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.find(\textcolor{stringliteral}{"{}\#shader"{}})\ !=\ std::string::npos)\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ encuentra\ una\ línea\ tras\ vertex\ la\ introduce\ en\ el\ }}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ hueco\ de\ shader\_type::VERTEX\ que\ al\ ser\ un\ enum\ tiene\ valor\ de\ 0}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (line.find(\textcolor{stringliteral}{"{}vertex"{}})\ !=\ std::string::npos)\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ shader\_type::VERTEX;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ encuentra\ una\ línea\ tras\ fragment\ la\ introduce\ en\ el\ }}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ hueco\ de\ shader\_type::fragment\ que\ al\ ser\ un\ enum\ tiene\ valor\ de\ 1}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (line.find(\textcolor{stringliteral}{"{}fragment"{}})\ !=\ std::string::npos)\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ type\ =\ shader\_type::FRAGMENT;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Si\ la\ línea\ no\ tiene\ ninguna\ de\ las\ dos\ marcas\ se\ supone\ que\ es\ el\ código\ }}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ correspondietne\ antes\ de\ entrar\ en\ el\ siguiente\ fragment\ maracdo\ por\ el\ line.find()}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\_stream[(int)type]\ <<\ line\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tras\ acabar\ de\ cargar\ el\ array\ se\ devuelven\ los\ datos\ en\ el\ formato\ de\ un\ struct\ shader\_code}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\ return\_stream[0].str(),\ return\_stream[1].str()\ \};}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classexample_1_1_shaderer}{Shaderer}}}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_helper}{Helper}}\ debugger;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structexample_1_1shader__code}{shader\_code}}\ source;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ GLuint\ current\_program\_id;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_shaderer_ab1f7fdb7e87d6932a5b74f54cd0913bd}{Shaderer}}()}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ GLuint\ \mbox{\hyperlink{classexample_1_1_shaderer_af0d4b7d2fc9db6e097c1f8a2911296c7}{compile\_shaders}}()}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Carga\ el\ shader\ desde\ el\ archivo}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ source\ =\ parse\_shader(\textcolor{stringliteral}{"{}../../code/resources/shader/BasicShader.shader"{}});}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ GLint\ succeeded\ =\ GL\_FALSE;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crean\ objetos\ para\ los\ shaders:}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ GLuint\ \ \ vertex\_shader\_id\ =\ glCreateShader(GL\_VERTEX\_SHADER);}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ GLuint\ fragment\_shader\_id\ =\ glCreateShader(GL\_FRAGMENT\_SHADER);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ vertex\_shaders\_code[]\ =\ \{\ source.vertex\_code.c\_str()\ \};}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fragment\_shaders\_code[]\ =\ \{\ source.fragment\_code.c\_str()\ \};}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ GLint\ \ \ \ vertex\_shaders\_size[]\ =\ \{\ (GLint)source.vertex\_code.size()\ \};}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ GLint\ \ fragment\_shaders\_size[]\ =\ \{\ (GLint)source.fragment\_code.size()\ \};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ glShaderSource(vertex\_shader\_id,\ 1,\ vertex\_shaders\_code,\ vertex\_shaders\_size);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ glShaderSource(fragment\_shader\_id,\ 1,\ fragment\_shaders\_code,\ fragment\_shaders\_size);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ compilan\ los\ shaders:}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ glCompileShader(vertex\_shader\_id);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ glCompileShader(fragment\_shader\_id);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ comprueba\ que\ si\ la\ compilación ha\ tenido\ éxito:}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ glGetShaderiv(vertex\_shader\_id,\ GL\_COMPILE\_STATUS,\ \&succeeded);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!succeeded)\ debugger.\mbox{\hyperlink{classexample_1_1_helper_aca850c4d5241e57ea75a62e319e9e67e}{show\_compilation\_error}}(vertex\_shader\_id);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ glGetShaderiv(fragment\_shader\_id,\ GL\_COMPILE\_STATUS,\ \&succeeded);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!succeeded)\ debugger.\mbox{\hyperlink{classexample_1_1_helper_aca850c4d5241e57ea75a62e319e9e67e}{show\_compilation\_error}}(fragment\_shader\_id);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ crea\ un\ objeto\ para\ un\ programa:}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ GLuint\ program\_id\ =\ glCreateProgram();}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ cargan\ los\ shaders\ compilados\ en\ el\ programa:}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ glAttachShader(program\_id,\ vertex\_shader\_id);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ glAttachShader(program\_id,\ fragment\_shader\_id);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ linkan\ los\ shaders:}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ glLinkProgram(program\_id);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ comprueba\ si\ el\ linkage\ ha\ tenido\ éxito:}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ glGetProgramiv(program\_id,\ GL\_LINK\_STATUS,\ \&succeeded);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!succeeded)\ debugger.\mbox{\hyperlink{classexample_1_1_helper_a259afea540336cee9e9d6342e6ba0315}{show\_linkage\_error}}(program\_id);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Se\ liberan\ los\ shaders\ compilados\ una\ vez\ se\ han\ linkado:}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ glDeleteShader(vertex\_shader\_id);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ glDeleteShader(fragment\_shader\_id);}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ current\_program\_id\ =\ program\_id;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (program\_id);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ GLuint\ \mbox{\hyperlink{classexample_1_1_shaderer_ae2f6c815dcccfdf85b2398f57a1f962b}{GetUniformLocation}}(\textcolor{keyword}{const}\ std::string\&\ name)}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ GLuint\ location\ =\ glGetUniformLocation(current\_program\_id,\ name.c\_str());}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (location\ ==\ -\/1)\ std::cout\ <<\ \textcolor{stringliteral}{"{}Warning:\ uniform\ '"{}}\ <<\ name\ <<\ \textcolor{stringliteral}{"{}'\ doesnt\ exist!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ location;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \};}
+\DoxyCodeLine{00187\ \}}
+
+\end{DoxyCode}

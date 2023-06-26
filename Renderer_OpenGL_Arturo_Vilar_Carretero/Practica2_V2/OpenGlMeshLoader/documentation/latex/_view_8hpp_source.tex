@@ -1,0 +1,79 @@
+\doxysection{View.\+hpp}
+\hypertarget{_view_8hpp_source}{}\label{_view_8hpp_source}\index{C:/Users/Xohat/Desktop/Corerecion\_Angel\_Practica\_openGl/OpenGL/Practica2\_V2/OpenGlMeshLoader/code/View.hpp@{C:/Users/Xohat/Desktop/Corerecion\_Angel\_Practica\_openGl/OpenGL/Practica2\_V2/OpenGlMeshLoader/code/View.hpp}}
+\mbox{\hyperlink{_view_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Copyright\ (c)\ 2023\ Arturo\ /\ Xohat}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ arturovilarc@gmail.com\ /\ xohatlatte@gmail.com}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ 2023.05\ -\/\ 2023.06}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ VIEW\_HEADER}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ VIEW\_HEADER}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#include\ <glad/glad.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \#include\ <string>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{_shaderer_8h}{Shaderer.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{_helper_8h}{Helper.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{_model_8h}{Model.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}Camera.h"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \ \ \#include\ "{}\mbox{\hyperlink{_texture_8h}{Texture.h}}"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \ \ \#include\ <map>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{namespace\ }example}
+\DoxyCodeLine{00028\ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }glm::vec3;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classexample_1_1_view}{View}}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_shaderer}{Shaderer}}\ shader;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_helper}{Helper}}\ helper;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_camera}{Camera}}\ camera;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_texture}{Texture}}\ test\_tex;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_texture}{Texture}}\ test\_tex\_2;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_texture}{Texture}}\ test\_displace\_tex;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_model}{Model}}\ test\_model;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_model}{Model}}\ test\_model\_2;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ GLint\ \ \ model\_view\_matrix\_id;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ GLint\ \ \ projection\_matrix\_id;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ angle;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ map<\ string,\ Model*>\ models;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_displacement;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_view}{View}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_view}{\string~View}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \mbox{\hyperlink{classexample_1_1_view_a5d7943a77bb6ce297fccd2bbfbda3701}{update}}\ ();}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \mbox{\hyperlink{classexample_1_1_view_a10ea89fc705a2ba2252f673499524bf2}{render}}\ ();}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \mbox{\hyperlink{classexample_1_1_view_a2396337a1db393acefb174e386cde7d1}{resize}}\ (\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classexample_1_1_camera}{Camera}}*\ \mbox{\hyperlink{classexample_1_1_view_aeca4de6e05dcb74162e60cbf89298b9e}{get\_camera}}()\ \ \ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&camera;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classexample_1_1_view_ab106a0a519972120fa86e833f2742cd2}{add\_model}}(\textcolor{keywordtype}{string}\ model\_name,\ \mbox{\hyperlink{classexample_1_1_model}{Model}}*\ model\_to\_add)}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ models.insert(std::make\_pair(model\_name,\ model\_to\_add));}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ map<\ string,\ Model*>\ \mbox{\hyperlink{classexample_1_1_view_a2e9dd1ff83ec829cba7feecb115ece25}{get\_models}}()\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ models;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
